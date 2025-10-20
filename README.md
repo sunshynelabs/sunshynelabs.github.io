@@ -1,2 +1,2 @@
 # sunshynelabs.github.io
-Helping create the tools for tomorrow. For businesses. For the better.  Sunshyne Labs. Made with AI. Built for humans.
+Building better tools for tomorrow. Sunshyne Labs. Made with AI. Built for humans.
