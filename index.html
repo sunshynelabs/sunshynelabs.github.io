@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sunshyne Labs | Experimental Systems for Serious People</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Sunshyne Labs designs AI-driven systems like JACK, GABRIEL, and MADISON to make complex work feel simple."
+    />
+    <style>
+      :root {
+        --bg: #020617;
+        --accent: #facc15;
+        --accent-glow: rgba(250, 204, 21, 0.4);
+        --text-main: #f8fafc;
+        --text-muted: #94a3b8;
+        --card-bg: rgba(15, 23, 42, 0.65);
+        --card-border: rgba(148, 163, 184, 0.1);
+        --card-border-hover: rgba(250, 204, 21, 0.3);
+        
+        /* Spacing & Radius */
+        --radius-lg: 16px;
+        --radius-xl: 24px;
+        --max-width: 1000px;
+        
+        /* Font Stacks */
+        --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", "Courier New", monospace;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: var(--font-sans);
+        background-color: var(--bg);
+        /* Tech Grid Background Pattern */
+        background-image: 
+          linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        background-size: 40px 40px;
+        background-position: center top;
+        color: var(--text-main);
+        min-height: 100vh;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* Glow effect at top of page */
+      body::before {
+        content: '';
+        position: absolute;
+        top: -100px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        height: 400px;
+        background: radial-gradient(circle, rgba(250, 204, 21, 0.08) 0%, rgba(2, 6, 23, 0) 70%);
+        z-index: -1;
+        pointer-events: none;
+      }
+
+      .page {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 40px 24px 60px;
+      }
+
+      /* --- HEADER --- */
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        margin-bottom: 60px;
+        flex-wrap: wrap;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .brand-mark {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: radial-gradient(circle at 30% 30%, #fb923c, #facc15, #0f172a);
+        box-shadow: 0 0 20px var(--accent-glow), inset 0 0 0 1px rgba(255,255,255,0.1);
+        position: relative;
+      }
+      
+      .brand-mark::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        box-shadow: inset 0 2px 4px rgba(255,255,255,0.3);
+      }
+
+      .brand-text-main {
+        font-weight: 700;
+        font-size: 1.1rem;
+        letter-spacing: -0.01em;
+      }
+
+      .brand-text-sub {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        font-family: var(--font-mono);
+      }
+
+      .tag-pill {
+        padding: 6px 14px;
+        border-radius: 999px;
+        border: 1px solid var(--card-border);
+        font-size: 0.7rem;
+        font-family: var(--font-mono);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--text-muted);
+        background: rgba(2, 6, 23, 0.5);
+        backdrop-filter: blur(4px);
+      }
+
+      main {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      /* --- SHARED CARD STYLES --- */
+      .hero-left, .hero-right, .section {
+        background: var(--card-bg);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid var(--card-border);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      /* --- HERO --- */
+      .hero {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr;
+        gap: 24px;
+      }
+
+      @media (max-width: 850px) {
+        .hero { grid-template-columns: 1fr; }
+        header { flex-direction: column; align-items: flex-start; }
+      }
+
+      .hero-left {
+        padding: 32px;
+        border-radius: var(--radius-xl);
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* Subtle gradient overlay on hero card */
+      .hero-left::after {
+        content: "";
+        position: absolute;
+        top: 0; right: 0; width: 200px; height: 200px;
+        background: radial-gradient(circle at top right, rgba(250, 204, 21, 0.05), transparent 70%);
+        pointer-events: none;
+      }
+
+      .hero-kicker {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        color: var(--accent);
+        margin-bottom: 16px;
+        display: inline-block;
+        border-bottom: 1px solid rgba(250, 204, 21, 0.2);
+        padding-bottom: 2px;
+      }
+
+      .hero-title {
+        font-size: 2.5rem;
+        line-height: 1.1;
+        margin-bottom: 16px;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+
+      .hero-highlight {
+        color: var(--accent);
+        text-shadow: 0 0 30px rgba(250, 204, 21, 0.2);
+      }
+
+      .hero-subtitle {
+        font-size: 1rem;
+        color: var(--text-muted);
+        max-width: 36rem;
+        margin-bottom: 28px;
+        font-weight: 400;
+      }
+
+      .hero-subtitle strong {
+        color: #e2e8f0;
+        font-weight: 500;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 24px;
+      }
+
+      .btn {
+        border-radius: 8px;
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .btn-primary {
+        background: var(--accent);
+        color: #0f172a;
+        box-shadow: 0 0 15px var(--accent-glow);
+        border: 1px solid var(--accent);
+      }
+
+      .btn-primary:hover {
+        background: #fbbf24;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 20px var(--accent-glow);
+      }
+
+      .btn-ghost {
+        background: rgba(255,255,255,0.03);
+        border: 1px solid var(--card-border);
+        color: var(--text-muted);
+      }
+
+      .btn-ghost:hover {
+        background: rgba(255,255,255,0.08);
+        color: #fff;
+        border-color: rgba(255,255,255,0.2);
+      }
+
+      .hero-meta {
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        color: var(--text-muted);
+        display: flex;
+        gap: 16px;
+        opacity: 0.8;
+        border-top: 1px solid var(--card-border);
+        padding-top: 16px;
+      }
+
+      .dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #22c55e;
+        box-shadow: 0 0 8px rgba(34, 197, 94, 0.6);
+        display: inline-block;
+        margin-right: 6px;
+      }
+
+      .hero-right {
+        padding: 24px;
+        border-radius: var(--radius-xl);
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .card-label {
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        margin-bottom: 8px;
+        opacity: 0.7;
+      }
+
+      .card-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 8px;
+      }
+
+      .card-body {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        line-height: 1.5;
+      }
+
+      .pill-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 12px 0;
+      }
+
+      .pill {
+        font-size: 0.75rem;
+        font-family: var(--font-mono);
+        padding: 6px 10px;
+        border-radius: 4px;
+        background: rgba(0,0,0,0.2);
+        border: 1px solid var(--card-border);
+        color: var(--text-muted);
+        transition: border-color 0.2s;
+      }
+      
+      .pill:hover {
+        border-color: rgba(255,255,255,0.2);
+        color: #fff;
+      }
+
+      .pill-soft {
+        background: rgba(250, 204, 21, 0.05);
+        border-color: rgba(250, 204, 21, 0.3);
+        color: var(--accent);
+      }
+
+      /* --- SECTIONS --- */
+      .section {
+        padding: 32px;
+        border-radius: var(--radius-lg);
+      }
+
+      .section-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: #fff;
+      }
+
+      .section-subtitle {
+        font-size: 0.95rem;
+        color: var(--text-muted);
+        margin-bottom: 24px;
+        max-width: 600px;
+      }
+
+      .grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+
+      @media (max-width: 768px) {
+        .grid-2 { grid-template-columns: 1fr; gap: 20px; }
+        .hero-title { font-size: 2rem; }
+      }
+
+      .list {
+        list-style: none;
+        font-size: 0.9rem;
+        color: var(--text-muted);
+      }
+
+      .list li {
+        position: relative;
+        padding-left: 16px;
+        margin-bottom: 12px;
+      }
+      
+      .list li::before {
+        content: "›";
+        position: absolute;
+        left: 0;
+        color: var(--accent);
+        font-weight: bold;
+      }
+
+      .list strong {
+        color: #e2e8f0;
+        display: block;
+        margin-bottom: 2px;
+        font-weight: 600;
+      }
+
+      .label-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 4px 10px;
+        border-radius: 999px;
+        font-size: 0.7rem;
+        font-family: var(--font-mono);
+        background: rgba(255,255,255,0.03);
+        border: 1px solid var(--card-border);
+        color: var(--text-muted);
+        margin-bottom: 8px;
+      }
+
+      .label-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #f97316;
+        box-shadow: 0 0 6px rgba(249, 115, 22, 0.5);
+      }
+
+      /* --- CONTACT --- */
+      .contact-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .contact-item {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        font-size: 0.85rem;
+        color: var(--text-muted);
+      }
+
+      .contact-item span {
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        opacity: 0.6;
+        text-transform: uppercase;
+      }
+
+      .contact-item a {
+        color: #e5e7eb;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(250, 204, 21, 0.2);
+        padding-bottom: 2px;
+        transition: all 0.2s;
+      }
+
+      .contact-item a:hover {
+        color: var(--accent);
+        border-color: var(--accent);
+      }
+
+      footer {
+        margin-top: 40px;
+        padding-top: 20px;
+        border-top: 1px solid var(--card-border);
+        font-size: 0.75rem;
+        color: rgba(148, 163, 184, 0.5);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: space-between;
+        align-items: center;
+        font-family: var(--font-mono);
+      }
+
+      footer strong { color: rgba(148, 163, 184, 0.8); }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header>
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true"></div>
+          <div>
+            <div class="brand-text-main">Sunshyne Labs</div>
+            <div class="brand-text-sub">Experimental systems for serious people</div>
+          </div>
+        </div>
+        <div class="tag-pill">Home of JACK &amp; friends</div>
+      </header>
+
+      <main>
+        <section class="hero">
+          <div class="hero-left">
+            <span class="hero-kicker">Systems // Not Slogans</span>
+            <h1 class="hero-title">
+              AI-driven tools for <span class="hero-highlight">operators</span>,
+              not tourists.
+            </h1>
+            <p class="hero-subtitle">
+              Sunshyne Labs designs and prototypes
+              <strong>lean, battle-tested systems</strong> like JACK, GABRIEL, and
+              MADISON — built to reduce friction, protect humans in the loop, and
+              make complex work feel boringly predictable.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#jack" class="btn btn-primary">
+                Learn about JACK
+              </a>
+              <a href="#contact" class="btn btn-ghost">
+                Talk to Sunshyne Labs
+              </a>
+            </div>
+
+            <div class="hero-meta">
+              <span><span class="dot"></span> Quietly in production since 2024</span>
+              <span>// CX & Ops Trenches</span>
+            </div>
+          </div>
+
+          <aside class="hero-right">
+            <div>
+              <div class="card-label">System Status</div>
+              <div class="card-title">Flagship systems in the lab</div>
+              <p class="card-body">
+                Mix, match, or embed into existing workflows — no hype, just leverage.
+              </p>
+            </div>
+            <div class="pill-row">
+              <div class="pill pill-soft">JACK :: Decision Framework</div>
+              <div class="pill">GABRIEL :: CX Buffer</div>
+              <div class="pill">MADISON :: Workflow</div>
+              <div class="pill">ANGEL :: Auto-Entry</div>
+            </div>
+            <p class="card-body" style="font-size: 0.8rem; opacity: 0.7;">
+              > If you picked up a physical JACK card at an event, this is where it lives in the system.
+            </p>
+          </aside>
+        </section>
+
+        <section class="section" id="what-we-do">
+          <div class="section-title">What Sunshyne Labs builds</div>
+          <div class="section-subtitle">
+            Not generic “AI tools” — but focused systems that remove friction and
+            preserve human bandwidth.
+          </div>
+
+          <div class="grid-2">
+            <ul class="list">
+              <li>
+                <strong>JACK – Tactical decision framework.</strong>
+                A compact mental OS for operators who can’t afford analysis
+                paralysis. Built as prompts, cards, and workflows.
+              </li>
+              <li>
+                <strong>GABRIEL – CX emotional buffer.</strong>
+                A guardrail system that reduces second-hand trauma for agents by
+                structuring how they handle difficult interactions.
+              </li>
+              <li>
+                <strong>MADISON – Workflow engine.</strong>
+                A modular engine that turns messy, multi-step processes into
+                predictable flows that tools (and humans) can follow.
+              </li>
+            </ul>
+
+            <ul class="list">
+              <li>
+                <strong>ANGEL – Data entry &amp; grid automation.</strong>
+                Designed to kill repetitive, error-prone data work so people can
+                focus on judgment and communication.
+              </li>
+              <li>
+                <strong>Example Corp sandboxes.</strong>
+                Fictional but fully wired demo environments for major appliances
+                support — safe to show, realistic to operate.
+              </li>
+              <li>
+                <strong>Custom lab builds.</strong>
+                Systems built around real-world constraints: BPO, CX, ops, and AI
+                orchestration.
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="section" id="jack">
+          <div class="section-title">JACK: A card-sized decision system</div>
+          <div class="section-subtitle">
+            If you’re here from a JACK card, you’re in the right place.
+          </div>
+
+          <div class="grid-2">
+            <div>
+              <span class="label-pill">
+                <span class="label-dot"></span>
+                Target User: Operators
+              </span>
+              <p class="section-subtitle" style="margin-top: 4px;">
+                JACK is a compact decision framework for people who solve hard
+                problems under pressure — founders, operators, senior agents,
+                leaders.
+              </p>
+              <ul class="list">
+                <li>Helps you move from stuck to action without drama.</li>
+                <li>Built from real CX, operations, and mental-model work.</li>
+                <li>Exists as both physical cards and AI-native flows.</li>
+              </ul>
+            </div>
+            <div>
+              <span class="label-pill">
+                <span class="label-dot" style="background-color: #22c55e;"></span>
+                Integration
+              </span>
+              <p class="section-subtitle" style="margin-top: 4px;">
+                The JACK triptych you’re holding is one physical interface to the
+                system. Behind it are:
+              </p>
+              <ul class="list">
+                <li>A structured questioning path.</li>
+                <li>AI-ready prompts and workflows.</li>
+                <li>Hooks into tools like MADISON and GABRIEL.</li>
+              </ul>
+              <p class="section-subtitle" style="margin-top: 16px; font-size: 0.85rem;">
+                Reach out below to explore the digital adaptation.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="about">
+          <div class="section-title">Who’s behind Sunshyne Labs?</div>
+          <div class="section-subtitle">
+            Built by a systems-obsessed AI consultant from the BPO trenches.
+          </div>
+
+          <div class="grid-2">
+            <div>
+              <p class="section-subtitle">
+                Sunshyne Labs is run by an operator who’s spent years inside
+                contact centers and vendor-side operations, then started building
+                AI systems to make that work less punishing and more effective.
+              </p>
+              <ul class="list">
+                <li>Background in CX, BPO, and workflow design.</li>
+                <li>Focus on AI orchestration, not AI theater.</li>
+                <li>Preference for boringly reliable systems over shiny demos.</li>
+              </ul>
+            </div>
+            <div>
+              <p class="section-subtitle">
+                The lab’s work is intentionally modular: you can plug a single
+                tool (like JACK or GABRIEL) into your existing stack, or explore a
+                deeper systems build-out.
+              </p>
+              <p class="section-subtitle" style="margin-top: 6px;">
+                If you’re looking for help with AI in CX, automation in operations,
+                or just want to see how these tools work in practice, the next step
+                is simple: start a conversation.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="contact">
+          <div class="section-title">Contact &amp; next steps</div>
+          <div class="section-subtitle">
+            No funnels. No fluff. Just a direct line.
+          </div>
+
+          <div class="contact-row">
+            <div class="contact-item">
+              <span>Email</span>
+              <a href="mailto:jjfreelanceservices@gmail.com">
+                jjfreelanceservices@gmail.com
+              </a>
+            </div>
+            <div class="contact-item">
+              <span>LinkedIn</span>
+              <a href="https://www.linkedin.com/in/jeromejuliano" target="_blank" rel="noreferrer">
+                linkedin.com/in/jeromejuliano
+              </a>
+            </div>
+            <div class="contact-item">
+              <span>Portfolio / Case Work</span>
+              <a href="https://jjfreelanceservices.com" target="_blank" rel="noreferrer">
+                jjfreelanceservices.com
+              </a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <span>© <strong>Sunshyne Labs</strong> — experimental systems for serious people.</span>
+        <span>Built with AI copilots & carefully controlled chaos.</span>
+      </footer>
+    </div>
+  </body>
+</html>
