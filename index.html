@@ -86,22 +86,47 @@
         gap: 16px;
       }
 
+      /* UPDATED BRAND MARK CSS */
       .brand-mark {
         width: 40px;
         height: 40px;
         border-radius: 50%;
-        background: radial-gradient(circle at 30% 30%, #fb923c, #facc15, #0f172a);
-        box-shadow: 0 0 20px var(--accent-glow), inset 0 0 0 1px rgba(255,255,255,0.1);
+        background: #1a1d23;
         position: relative;
+        overflow: hidden;
+        /* Optional: Add a subtle border to make it pop against the dark background */
+        border: 1px solid rgba(255, 255, 255, 0.1);
       }
-      
+
+      .brand-mark::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 35%;
+        background: linear-gradient(180deg, #e8b574 0%, #e8a574 50%, #e89574 100%);
+        border-radius: 50% 50% 0 0;
+      }
+
       .brand-mark::after {
         content: "";
         position: absolute;
-        inset: 0;
-        border-radius: 50%;
-        box-shadow: inset 0 2px 4px rgba(255,255,255,0.3);
+        top: 35%;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background:
+          linear-gradient(180deg, transparent 0%, transparent 8%, #1a1d23 8%, #1a1d23 16%, transparent 16%),
+          linear-gradient(180deg, transparent 16%, transparent 24%, #e87474 24%, #e87474 32%, transparent 32%),
+          linear-gradient(180deg, transparent 32%, transparent 40%, #e86474 40%, #e86474 48%, transparent 48%),
+          linear-gradient(180deg, transparent 48%, transparent 56%, #c87494 56%, #c87494 64%, transparent 64%),
+          linear-gradient(180deg, transparent 64%, transparent 72%, #9888a4 72%, #9888a4 80%, transparent 80%),
+          linear-gradient(180deg, transparent 80%, transparent 88%, #7498a4 88%, #7498a4 96%, transparent 96%),
+          linear-gradient(180deg, transparent 96%, transparent 100%, #74a4a4 100%);
       }
+      /* END UPDATED BRAND MARK CSS */
+
 
       .brand-text-main {
         font-weight: 700;
@@ -364,4 +389,255 @@
       .list {
         list-style: none;
         font-size: 0.9rem;
-        color
+        color: var(--text-muted);
+      }
+
+      .list li {
+        position: relative;
+        padding-left: 16px;
+        margin-bottom: 12px;
+      }
+      
+      .list li::before {
+        content: "›";
+        position: absolute;
+        left: 0;
+        color: var(--accent);
+        font-weight: bold;
+      }
+
+      .list strong {
+        color: #e2e8f0;
+        display: inline-block;
+        margin-right: 4px;
+        font-weight: 600;
+      }
+
+      .label-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 4px 10px;
+        border-radius: 999px;
+        font-size: 0.7rem;
+        font-family: var(--font-mono);
+        background: rgba(255,255,255,0.03);
+        border: 1px solid var(--card-border);
+        color: var(--text-muted);
+        margin-bottom: 8px;
+      }
+
+      .label-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #f97316;
+        box-shadow: 0 0 6px rgba(249, 115, 22, 0.5);
+      }
+
+      /* --- CONTACT --- */
+      .contact-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .contact-item {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        font-size: 0.85rem;
+        color: var(--text-muted);
+      }
+
+      .contact-item span {
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        opacity: 0.6;
+        text-transform: uppercase;
+      }
+
+      .contact-item a {
+        color: #e5e7eb;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(250, 204, 21, 0.2);
+        padding-bottom: 2px;
+        transition: all 0.2s;
+      }
+
+      .contact-item a:hover {
+        color: var(--accent);
+        border-color: var(--accent);
+      }
+
+      footer {
+        margin-top: 40px;
+        padding-top: 20px;
+        border-top: 1px solid var(--card-border);
+        font-size: 0.75rem;
+        color: rgba(148, 163, 184, 0.5);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: space-between;
+        align-items: center;
+        font-family: var(--font-mono);
+      }
+
+      footer strong { color: rgba(148, 163, 184, 0.8); }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header>
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true"></div>
+          <div>
+            <div class="brand-text-main">Sunshyne Labs</div>
+            <div class="brand-text-sub">Building better tomorrows. With AI. For humans.</div>
+          </div>
+        </div>
+        <div class="tag-pill">🚧🚧🚧</div>
+      </header>
+
+      <main>
+        <section class="hero">
+          <div class="hero-left">
+            <h1 class="hero-title">
+              AI built for <span class="hero-highlight">humans</span>.
+            </h1>
+            <p class="hero-subtitle">
+              Sunshyne Labs designs and prototypes
+              <strong>lean, battle-tested systems</strong> built to simplify complex admin tasks in the real world.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#contact" class="btn btn-primary">
+                Contact
+              </a>
+            </div>
+
+            <div class="hero-meta">
+              <span><span class="dot"></span> 2025</span>
+            </div>
+          </div>
+
+          <aside class="hero-right">
+            <div>
+              <div class="card-label">Research</div>
+              <div class="card-title">System Architectures</div>
+              <p class="card-body">
+                Machine-assisted systems built to augment humans in the age of AI
+              </p>
+            </div>
+            <div class="pill-row">
+              <div class="pill pill-soft">JACK :: Decision Framework</div>
+              <div class="pill">GABRIEL :: Knowledge Base</div>
+              <div class="pill">MADISON :: Workflow</div>
+              <div class="pill">ANGEL :: Automation</div>
+            </div>
+          </aside>
+        </section>
+
+        <section class="section" id="what-we-do">
+          <div class="section-title">About</div>
+          <div class="section-subtitle">
+            Sunshyne Labs is an independent consultancy that builds systems to
+            reduce friction, preserve emotional bandwidth, and teach AI literacy in CX,
+            vendor operations, and human-intensive environments.
+          </div>
+
+          <div class="grid-2">
+            <ul class="list">
+              <li>
+                <strong>MARY – Machine-Assisted Retention Yielder</strong><br>
+                A retention and de-escalation system for contact centers, built to keep
+                customers, protect agents, and stabilize revenue without gimmicks.
+              </li>
+              <li>
+                <strong>GABRIEL∞ – CX emotional buffer</strong><br>
+                A guardrail framework that reduces second-hand trauma and cognitive load
+                for agents by structuring how difficult interactions are interpreted and answered.
+              </li>
+              <li>
+                <strong>MADISON – Workflow engine</strong><br>
+                A modular engine that turns messy, multi-step contact-center processes
+                into predictable flows that both AI and humans can follow.
+              </li>
+              <li>
+                <strong>SANDRA – Semi-automated data extraction</strong><br>
+                A data retrieval and structuring system designed to cut manual research
+                and cleanup work down to a fraction of the usual time.
+              </li>
+              <li>
+                <strong>ANGEL – Data entry &amp; grid automation</strong><br>
+                A macro + AI hybrid that replicates repetitive, error-prone data work
+                with speed and consistency across spreadsheets and forms.
+              </li>
+              <li>
+                <strong>OCTOPUS CORPUS – Multi-voice system architecture</strong><br>
+                A Tier-2 experimental framework for orchestrating multiple AI voices,
+                memory layers, and decision paths in complex CX workflows.
+              </li>
+              <li>
+                <strong>The Liberators – Productivity &amp; automation scripts</strong><br>
+                A collection of high-impact scripts derived from the philosophy of ANGEL &amp; SANDRA,
+                built for superhuman productivity in CX and operations environments.
+              </li>
+            </ul>
+
+            <ul class="list">
+              <li>
+                <strong>JACKΩ – Practical self-improvement</strong><br>
+                A “Prompt-In-A-Box™” decision framework that breaks analysis paralysis
+                and forces clear action for high-performing individuals.
+              </li>
+              <li>
+                <strong>Superproxy – Client voice simulation</strong><br>
+                A lightweight system that helps replicate a client’s tone using text
+                datasets and an LLM, killing blank-page friction without heavy tooling.
+              </li>
+              <li>
+                <strong>JOHN – Zero-shot proposal builder</strong><br>
+                A rapid-response assistant for diagnosing client problems, drafting
+                proposals, and applying just-in-time learning to real work.
+              </li>
+              <li>
+                <strong>JILLØ v1 – Cognitive skill accelerator</strong><br>
+                A pocket-sized learning framework that turns any LLM into a structured
+                tutor for fast, applied skill-building and problem-solving.
+              </li>
+              <li>
+                <strong>Example Corp sandboxes</strong><br>
+                Sanbox environment for CX support,
+                letting teams test AI workflows safely without touching real customer data.
+              </li>
+              <li>
+                <strong>Custom builds</strong><br>
+                Want one tuned for your environment? Contact
+                <strong>sunshynelabs@gmail.com</strong>.
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="section" id="contact">
+          <div class="section-title">Contact</div>
+          <div class="contact-row">
+            <div class="contact-item">
+              <span>Email</span>
+              <a href="mailto:sunshynelabs@gmail.com">
+                sunshynelabs@gmail.com
+              </a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <span>© <strong>Sunshyne Labs</strong></span>
+        <span>With AI. For Humans.</span>
+      </footer>
+    </div>
+  </body>
+</html>
