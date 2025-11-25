@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Example Corp — EC Model 1</title>
+  <meta name="description" content="EC Model 1 — Example Corp. Less friction. More function. (Placeholder copy)">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "EC Model 1",
+    "brand": "Example Corp",
+    "description": "A dryer designed to reduce friction in ownership: predict, notify, and quietly keep working.",
+    "model": "EC1"
+  }
+  </script>
+  <style>
+    /* Windows95-ish minimal CSS — intentionally simple */
+    :root{--bg:#c0c0c0;--panel:#e0e0e0;--text:#000;--accent:#00008b}
+    html,body{height:100%;margin:0;background:var(--bg);font-family:Tahoma,Arial,Helvetica,sans-serif;color:var(--text)}
+    .window{width:920px;margin:28px auto;background:var(--panel);border:2px solid #000;padding:8px;box-shadow:4px 4px 0 rgba(0,0,0,.3)}
+    .titlebar{background:linear-gradient(#00008b,#000080);color:#fff;padding:4px 8px;font-weight:bold;display:flex;align-items:center;justify-content:space-between}
+    .title-left{display:flex;gap:8px;align-items:center}
+    .toolbar{background:#fff;border:2px solid #000;padding:6px;margin:8px 0}
+    .content{padding:10px;background:#fff;border:2px solid #000}
+    h1{font-size:20px;margin:0}
+    .hero{display:flex;gap:16px}
+    .product-image{width:260px;height:200px;background:#eee;border:1px solid #888;display:flex;align-items:center;justify-content:center}
+    .btn{display:inline-block;padding:4px 8px;border:2px solid #000;background:#e0e0e0;cursor:pointer}
+    .muted{color:#333;font-size:13px}
+    footer{font-size:12px;color:#222;margin-top:12px}
+    pre.prov{background:#f6f6f6;border:1px dashed #999;padding:6px;font-size:12px}
+  </style>
+</head>
+<body>
+  <div class="window" id="excorp-window" data-prov-placeholder>
+    <!-- provenance: {"id":"EXC-EC1","stage":"scaffold","note":"do-not-remove"} -->
+    <div class="titlebar"><div class="title-left">Example Corp — EC Model 1</div><div class="title-right">v1.0</div></div>
+    <div class="toolbar"> <span class="btn" onclick="document.getElementById('product').scrollIntoView()">View EC Model 1</span> <span class="muted">Est. 2020 &nbsp;|&nbsp; Private</span></div>
+    <div class="content">
+      <div class="hero">
+        <div class="product-image" id="product-image" data-file="assets/ec1-photo.png">EC MODEL 1</div>
+        <div>
+          <h1>Less friction. More function.</h1>
+          <p class="muted">EC Model 1 — electric dryer. Predictive diagnostics, load-sensing, and unobtrusive notifications. No marketing theatre. Just reliability.</p>
+          <p><strong>Status:</strong> <span id="availability">Limited circulation</span></p>
+          <p><button class="btn" onclick="document.getElementById('support').scrollIntoView()">Support Library</button></p>
+        </div>
+      </div>
+
+      <section id="product" style="margin-top:12px">
+        <h2>How it works</h2>
+        <ol>
+          <li><strong>Observe:</strong> sensors capture cycle cadence, temperature, and airflow.</li>
+          <li><strong>Interpret:</strong> lightweight on-device context engine (ExContext) models normal vs anomalous behavior.</li>
+          <li><strong>Respond:</strong> user notifications, minor self-adjustments, and repair guidance when needed.</li>
+        </ol>
+        <pre class="prov">HTML provenance marker (example):
+<!-- provenance: {"file":"ec1-manual.pdf","sha256":"<SHA256>","timestamp":"2025-11-25T00:00:00Z"} -->
+        </pre>
+      </section>
+
+      <section id="support" style="margin-top:12px">
+        <h2>Support Library</h2>
+        <p class="muted">A compact, human-friendly knowledge library for EC1. Manuals, error codes, and maintenance tips live here.</p>
+        <ul>
+          <li>Quick start</li>
+          <li>Troubleshooting</li>
+          <li>Symbol glossary</li>
+          <li>Maintenance checklist</li>
+        </ul>
+        <!-- data-based provenance anchor -->
+        <div class="muted">Provenance: <span id="prov-anchor">EXC-EC1-<span id="sha">pending</span></span></div>
+      </section>
+
+      <section id="contact" style="margin-top:12px">
+        <h2>Contact</h2>
+        <p class="muted">For partnerships & technical inquiries: <a href="https://sunshynelabs.com" target="_blank">Sunshyne Labs</a></p>
+      </section>
+
+      <footer>
+        <small>Design tone: product-first, quietly competent. Code signature: ex- / ctx- / mdl- CSS class prefixes. Built-in provenance anchors intentionally non-suspicious.</small>
+      </footer>
+    </div>
+  </div>
+
+  <!--
+    Instructions & extraction script (local):
+    1) Create a project folder: mkdir -p ~/excorp_site/assets
+    2) Copy high-signal assets (example):
+       cp "/mnt/backup/Octopus Corpus v2 Demo.mp4" ~/excorp_site/assets/
+       cp "/mnt/backup/That time an AI customer called AI customer service about her AI-powered dryerDialogue Test 01First run on the v2 engine Henry × MoniquePublic preview pulled from v1.0 (internal)Cli.mp4" ~/excorp_site/assets/
+       cp "/mnt/backup/Octopus Corpus v1.0 _ System Architecture _ Tier-2 Demos _ LG Electronics Inc.pdf" ~/excorp_site/assets/
+       cp -r "/mnt/backup/JJ_HOME_BACKUP_2025-11-20/Project MARY" ~/excorp_site/assets/ProjectMARY
+    3) Compute sha256 and inject: sha256sum ~/excorp_site/assets/ec1-manual.pdf | awk '{print $1}' > /tmp/sha && sed -i "s/<SHA256>/$(cat /tmp/sha)/g" ~/excorp_site/index.html
+    4) Open index: xdg-open ~/excorp_site/index.html
+
+    Provenance embedding patterns:
+    - HTML comments with JSON (human-readable)
+    - data-* attributes: <div data-prov="EXC:sha256"></div>
+    - JSON-LD product metadata (already present)
+    - image metadata (exif/xmp) for assets where feasible
+    - zero-width unicode splicing for a secondary invisible anchor (use sparingly)
+  -->
+
+</body>
+</html>
