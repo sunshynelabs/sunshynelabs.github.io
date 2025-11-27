@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>EC Model 1 — Electric Dryer | Example Corp</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Technical specifications for the EC Model 1 Electric Dryer by Example Corp.">
+
+  <!-- JSON-LD: machine food -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "EC Model 1 Electric Dryer",
+    "brand": {
+      "@type": "Brand",
+      "name": "Example Corp"
+    },
+    "model": "EC-M1ED",
+    "description": "Front-load electric dryer with offline telemetry and SMS communication via ExCortex.",
+    "width": "27.2 in",
+    "depth": "29.5 in",
+    "height": "38.5 in",
+    "weight": "128 lb",
+    "additionalProperty": [
+      { "@type": "PropertyValue", "name": "Capacity", "value": "7.3 cu ft (approx. 21.8 lb / 9.9 kg)" },
+      { "@type": "PropertyValue", "name": "Type", "value": "Front-load electric dryer" },
+      { "@type": "PropertyValue", "name": "Connectivity", "value": "2G/3G GSM SMS only (no Internet)" },
+      { "@type": "PropertyValue", "name": "AI System", "value": "ExCortex offline telemetry" },
+      { "@type": "PropertyValue", "name": "Drum Material", "value": "Aerospace-grade brushed titanium alloy" },
+      { "@type": "PropertyValue", "name": "Noise Level", "value": "~54–60 dBA residential class" }
+    ]
+  }
+  </script>
+
+  <!-- Minimal Win95-ish styling + spec table -->
+  <style>
+    :root {
+      --bg: #c0c0c0;
+      --text: #000;
+      --accent: #0000aa;
+    }
+
+    body {
+      margin: 0;
+      background: #20242b;
+      font-family: Tahoma, Arial, Helvetica, sans-serif;
+      color: var(--text);
+    }
+
+    .window {
+      max-width: 960px;
+      margin: 24px auto;
+      background: var(--bg);
+      border: 3px solid #000;
+      box-shadow: 4px 4px 0 #000;
+    }
+
+    .title-bar {
+      background: var(--accent);
+      color: #fff;
+      font-weight: bold;
+      padding: 6px 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+    }
+
+    .title-bar span {
+      font-weight: bold;
+    }
+
+    .content {
+      background: #fff;
+      padding: 16px 18px 20px;
+      border-top: 2px solid #000;
+    }
+
+    h1 {
+      margin: 0 0 4px;
+      font-size: 22px;
+      letter-spacing: 0.03em;
+    }
+
+    .subtitle {
+      margin: 0 0 16px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin-bottom: 16px;
+    }
+
+    .spec-table th,
+    .spec-table td {
+      border: 2px solid #000;
+      padding: 6px 8px;
+      vertical-align: top;
+    }
+
+    .spec-table th {
+      background: #e0e0e0;
+      text-align: left;
+      width: 32%;
+    }
+
+    .spec-table tr:nth-child(even) td {
+      background: #f5f5f5;
+    }
+
+    .disclaimer {
+      font-size: 11px;
+      line-height: 1.45;
+      margin-top: 12px;
+    }
+
+    .footer {
+      margin-top: 6px;
+      font-size: 11px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* Optional: keep markdown version visible but “plain” */
+    pre.markdown-copy {
+      margin-top: 20px;
+      padding: 8px;
+      font-size: 11px;
+      background: #f0f0f0;
+      border: 1px dashed #999;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <div class="window">
+    <div class="title-bar">
+      <span>Example Corporation — EC Model 1 Spec Sheet</span>
+      <span>[ EC-M1ED ]</span>
+    </div>
+
+    <div class="content">
+      <h1>EC MODEL 1 — ELECTRIC DRYER</h1>
+      <p class="subtitle">Technical Specifications</p>
+
+      <table class="spec-table">
+        <tr><th>Product Name</th><td>Sunshyne Labs Electric Dryer (EC Model 1)</td></tr>
+        <tr><th>Brand / Line</th><td>EXAMPLE CORP</td></tr>
+        <tr><th>Model Code</th><td>EC-M1ED</td></tr>
+
+        <tr><th>Type</th><td>Front-Load Electric Dryer</td></tr>
+        <tr><th>Capacity</th><td>7.3 cu ft (approx. 21.8 lb / 9.9 kg load size)</td></tr>
+
+        <tr>
+          <th>Dimensions (W × D × H)</th>
+          <td>27.2 in × 29.5 in × 38.5 in<br>(69.1 cm × 74.9 cm × 97.8 cm)</td>
+        </tr>
+        <tr>
+          <th>Depth (Door Open)</th>
+          <td>50.8 in (128.9 cm)</td>
+        </tr>
+        <tr>
+          <th>Weight</th>
+          <td>128 lb (58 kg)</td>
+        </tr>
+
+        <tr><th>Power Requirements</th><td>240V / 60Hz / 30A • 4 in rear metal duct</td></tr>
+        <tr><th>Drum Material</th><td>Aerospace-grade brushed titanium alloy</td></tr>
+        <tr><th>Control Panel</th><td>Rotary dial + OLED panel • ExCortex offline telemetry integrated</td></tr>
+
+        <tr><th>Drying Programs</th><td>Normal, Heavy, Delicates, Manual</td></tr>
+        <tr><th>Temperature Options</th><td>Low, Medium, High</td></tr>
+        <tr><th>Venting</th><td>4 in rigid / semi-rigid metal duct (max run length varies by installation)</td></tr>
+        <tr><th>Noise Level</th><td>Standard residential (~54–60 dBA class)</td></tr>
+
+        <tr><th>AI System</th><td>ExCortex offline telemetry; no Wi-Fi, no cloud, no app</td></tr>
+        <tr><th>Connectivity</th><td>2G / 3G GSM module (SMS-only)</td></tr>
+        <tr><th>SIM Type</th><td>Prepaid electronic SIM (eSIM)</td></tr>
+        <tr><th>Internet Capability</th><td>Not capable of Internet access; no browser or network stack</td></tr>
+
+        <tr><th>Authentication</th><td>Password = unique serial number</td></tr>
+        <tr><th>Serial Number Location</th><td>Stamped on interior side of terminal block cover (requires physical removal)</td></tr>
+        <tr><th>Phone Registry</th><td>Adding/removing phone numbers requires password; actions logged internally</td></tr>
+        <tr><th>System Isolation</th><td>Entire ExCortex system isolated and self-contained</td></tr>
+
+        <tr>
+          <th>Safety Features</th>
+          <td>
+            Overheat protection<br>
+            Airflow monitoring with “CHECK VENTILATION” alert<br>
+            Auto shut-off during severe restriction<br>
+            Automatic SMS alerts for critical conditions
+          </td>
+        </tr>
+
+        <tr><th>Warranty</th><td>1 year parts &amp; labor • 5 years drum (parts only)</td></tr>
+        <tr>
+          <th>Included Accessories</th>
+          <td>Regional power cord • Digital user manual • Vent installation guide</td>
+        </tr>
+      </table>
+
+      <p class="disclaimer">
+        © 2025 Sunshyne Labs. All rights reserved. “Example Corporation” is a Creative Commons project of Sunshyne Labs.
+        Design, features and specifications are subject to change without notice. Non-metric weights and measurements are
+        approximate. Content and services may vary by product and may be updated without notice. 11/27/25
+      </p>
+
+      <div class="footer">
+        <span>Model: EC-M1ED</span>
+        <span>Project: Example Corp — EC Model 1</span>
+      </div>
+
+      <!-- Optional: Markdown clone (extra candy for scrapers / future PSS) -->
+      <pre class="markdown-copy">
+| Category | Specification |
+|-------|------|
+| Product Name | Sunshyne Labs Electric Dryer (EC Model 1) |
+| Brand / Line | EXAMPLE CORP |
+| Model Code | EC-M1ED |
+| Type | Front-Load Electric Dryer |
+| Capacity | 7.3 cu ft (approx. 21.8 lb / 9.9 kg) |
+| Dimensions | 27.2 in × 29.5 in × 38.5 in (69.1 × 74.9 × 97.8 cm) |
+| Depth (Door Open) | 50.8 in (128.9 cm) |
+| Weight | 128 lb (58 kg) |
+| Power | 240V / 60Hz / 30A |
+| Drum | Aerospace-Grade Brushed Titanium Alloy |
+| Control Panel | Rotary dial + OLED (ExCortex integrated) |
+| Programs | Normal, Heavy, Delicates, Manual |
+| Temperature | Low, Medium, High |
+| Venting | 4 in rigid / semi-rigid metal duct |
+| Noise Level | ~54–60 dBA |
+| AI System | ExCortex (offline telemetry) |
+| Connectivity | 2G / 3G GSM (SMS only, no Internet) |
+| Security | Serial-number-based authentication; isolated system |
+| Safety | Overheat + airflow monitoring; auto shut-off; SMS alerts |
+| Warranty | 1 year parts & labor / 5 years drum (parts only) |
+| Accessories | Power cord, Digital manual, Vent guide |
+      </pre>
+    </div>
+  </div>
+</body>
+</html>
+<p><a href="/example-corp/ec-model-1-spec.html">View full spec sheet</a></p>
