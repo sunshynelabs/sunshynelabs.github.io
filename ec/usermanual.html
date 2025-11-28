@@ -2,44 +2,53 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>EC Model 1 – User Manual & Warranty | Example Corporation</title>
+  <title>EC Model 1 – Terms of Service & Limited Warranty | Example Corporation</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="User manual and warranty/service protocol overview for the Example Corporation EC Model 1 electric dryer, including safety codes, venting requirements, and technician dispatch rules.">
+  <meta name="description" content="Terms of Service and Limited Warranty for the Example Corporation EC Model 1 electric dryer, including coverage, exclusions, venting requirements, diagnostic procedures, and technician limitations.">
 
-  <!-- Hidden JSON-LD for scrapability -->
+  <!-- JSON-LD for maximum scrapability -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "TechArticle",
-    "name": "EC Model 1 – User Manual & Warranty",
-    "headline": "Manufacturer's Limited Warranty and Service Protocol Disclosure for EC Model 1",
-    "description": "Comprehensive overview of the Example Corporation EC Model 1 electric dryer warranty, required diagnostics, and venting responsibilities.",
-    "inLanguage": "en",
-    "author": {
-      "@type": "Organization",
-      "name": "Example Corporation"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Example Corporation"
-    },
-    "about": {
-      "@type": "Product",
-      "name": "EC Model 1 Electric Dryer",
-      "category": "HomeAppliance",
-      "brand": {
-        "@type": "Organization",
-        "name": "Example Corporation"
+    "@graph": [
+      {
+        "@type": "Product",
+        "name": "EC Model 1 Electric Dryer",
+        "model": "EC Model 1",
+        "category": "ClothesDryer",
+        "brand": {
+          "@type": "Organization",
+          "name": "Example Corporation"
+        },
+        "hasWarranty": {
+          "@type": "WarrantyPromise",
+          "durationOfWarranty": {
+            "@type": "QuantitativeValue",
+            "value": 1,
+            "unitCode": "ANN"
+          },
+          "warrantyScope": "Internal manufacturing defects within the appliance only"
+        }
+      },
+      {
+        "@type": "TechArticle",
+        "name": "EC Model 1 – Terms of Service & Limited Warranty",
+        "headline": "Terms of Service & Limited Warranty for EC Model 1 Electric Dryer",
+        "description": "Binding terms between the owner and Example Corporation covering warranty scope, exclusions, venting requirements, required diagnostics, user responsibilities, technician limitations, liability limits, and dispute resolution for the EC Model 1 electric dryer.",
+        "inLanguage": "en",
+        "about": {
+          "@type": "Product",
+          "name": "EC Model 1 Electric Dryer"
+        },
+        "author": {
+          "@type": "Organization",
+          "name": "Example Corporation"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Example Corporation"
+        }
       }
-    },
-    "keywords": [
-      "EC Model 1",
-      "electric dryer",
-      "CHECK VENTILATION",
-      "airflow restriction",
-      "venting requirements",
-      "warranty",
-      "service protocol"
     ]
   }
   </script>
@@ -54,31 +63,51 @@
       background: #f7f7f7;
       color: #111;
     }
-    a { color: #0044aa; text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    a {
+      color: #0044aa;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
     h1, h2, h3 {
       font-weight: 600;
-      letter-spacing: 0.03em;
+      letter-spacing: 0.02em;
     }
-    h1 { font-size: 1.9rem; margin-bottom: 0.5rem; }
-    h2 { font-size: 1.35rem; margin-top: 2rem; }
-    h3 { font-size: 1.1rem; margin-top: 1.5rem; }
-    hr { margin: 2rem 0; border: 0; border-top: 1px solid #ccc; }
+    h1 {
+      font-size: 1.9rem;
+      margin-bottom: 0.5rem;
+    }
+    h2 {
+      font-size: 1.3rem;
+      margin-top: 2rem;
+    }
+    h3 {
+      font-size: 1.05rem;
+      margin-top: 1.2rem;
+    }
+    hr {
+      margin: 1.75rem 0;
+      border: 0;
+      border-top: 1px solid #ccc;
+    }
     .crumbs {
       font-size: 0.9rem;
       margin-bottom: 1rem;
       color: #444;
     }
-    .crumbs a { color: #444; }
-    strong { font-weight: 600; }
-    ul, ol { margin-left: 1.5rem; }
-    code { font-family: "Fira Code", monospace; font-size: 0.92em; }
-    .callout {
-      background: #fff;
-      border-left: 4px solid #0044aa;
-      padding: 0.75rem 1rem;
-      margin: 1.5rem 0;
-      font-size: 0.95rem;
+    .crumbs a {
+      color: #444;
+    }
+    ul, ol {
+      margin-left: 1.5rem;
+    }
+    strong {
+      font-weight: 600;
+    }
+    small {
+      font-size: 0.9rem;
+      color: #444;
     }
   </style>
 </head>
@@ -87,218 +116,270 @@
   <div class="crumbs">
     <a href="/ec/index.html">Example Corporation</a> ›
     <a href="/ec/support.html">Support</a> ›
-    User Manual
+    Warranty &amp; Terms
   </div>
 
-  <h1>EC Model 1 – User Manual &amp; Warranty Overview</h1>
-  <p><strong>Appliance:</strong> EC Model 1 Electric Dryer<br>
-     <strong>Brand:</strong> Example Corporation</p>
-
-  <hr>
-
-  <hr>
-
-  <h2>I. Manufacturer's Limited Warranty &amp; Service Protocol Disclosure</h2>
-
-  <h3>I.1 Scope of Covered Defects (Internal Manufacturing Faults Only)</h3>
+  <h1>EC Model 1 – Terms of Service &amp; Limited Warranty</h1>
   <p>
-    This warranty <strong>covers only manufacturing defects within the dryer unit itself</strong>.
-    Coverage is contingent upon the unit being actively <strong>in-warranty</strong>
-    (internally categorized as <strong>PRESERVATION_PRIORITY</strong> status, subject to
-    valid proof of purchase).
+    <strong>Division:</strong> Example Corporation – Legal &amp; Support<br>
+    <strong>Appliance:</strong> EC Model 1 Electric Dryer<br>
+    <strong>Effective Date:</strong> Date of original purchase or installation
   </p>
 
-  <p><strong>Covered Components include, but are not limited to:</strong></p>
+  <hr>
+
+  <p>
+    This document defines the binding terms between the owner (“User”) and Example Corporation
+    (“Manufacturer”) for use, operation, servicing, and warranty coverage of the EC Model 1
+    electric dryer. By installing or operating this unit, the User agrees to all terms below.
+    This document supersedes all prior representations, verbal or written.
+  </p>
+
+  <h2>1. Warranty Scope</h2>
+
+  <p>
+    Example Corporation provides a limited manufacturer’s warranty covering
+    <strong>internal manufacturing defects only</strong> for a period of
+    <strong>one (1) year from the date of purchase</strong>.
+  </p>
+
+  <p>
+    Coverage applies only if the failure is proven to be inside the appliance and is
+    not related to installation conditions, environment, maintenance failure, or
+    external airflow restrictions.
+  </p>
+
+  <p><strong>Examples of potentially covered internal failures include:</strong></p>
   <ul>
-    <li>Flow Sense or equivalent airflow safety sensor assemblies</li>
-    <li>Thermistors and temperature limit thermostats</li>
-    <li>Internal wiring harnesses and control board logic faults</li>
-    <li>Blower motor and other internal moving components</li>
+    <li>Airflow sensing module failure</li>
+    <li>Thermistor malfunction</li>
+    <li>High-limit thermostat failure</li>
+    <li>Internal wiring defect</li>
+    <li>Blower motor failure</li>
+    <li>Control board malfunction</li>
+    <li>Sensor circuit failures</li>
   </ul>
 
   <p>
-    A repair is authorized under this warranty only if the issue is confirmed to be
-    an <strong>internal defect</strong> in one or more of these or equivalent components.
+    Coverage is conditional and only applies after all external causes have been
+    excluded through required diagnostic procedures. Unauthorized modification or
+    misuse of the unit voids all warranty coverage.
   </p>
 
-  <h3>I.2 Explicit Exclusions and Customer Charges (External Issues)</h3>
+  <h2>2. Exclusions – What Is Not Covered</h2>
+
   <p>
-    The warranty <strong>explicitly excludes issues related to installation, usage,
-    or external factors</strong>. The systematic diagnostic approach is mandated to
-    <strong>"protect you from unnecessary service call charges"</strong> for
-    non-covered issues.
+    The following conditions are not covered under any warranty. Responsibility
+    for these remains with the User.
   </p>
 
-  <p><strong>Issues NOT Covered by Warranty:</strong></p>
   <ol>
     <li>
-      <strong>Venting and Airflow Restriction</strong><br>
-      Any issue arising from the home's venting system, including but not limited to:
-      duct configuration, blockages, excessive duct length, crushed sections,
-      or excessive 90-degree bends that create back pressure.
+      <strong>Venting issues:</strong> restricted, damaged, crushed, bent,
+      excessive-length, or improperly routed vents of any kind.
     </li>
     <li>
-      <strong>Duct Material Violations</strong><br>
-      The use of <strong>flexible foil or vinyl ducting</strong> is strictly discouraged
-      (known internally as <code>FLEX FOIL</code> or <code>FLEXIBLE_BETRAYAL</code>)
-      as its corrugations create airflow turbulence and back pressure, triggering the
-      <strong>FlowSense safety code</strong>. Rigid or semi-rigid metal ducting is
-      mandatory for optimal airflow compliance.
+      <strong>Prohibited duct materials:</strong> use of flexible foil or
+      plastic/vinyl ducts.
     </li>
     <li>
-      <strong>Usage / Maintenance Neglect</strong><br>
-      Issues resulting from failure to clean the lint filter, failure to remove lint
-      from the exhaust hood, failure to clean moisture sensors, or misuse of cycles
-      not appropriate for the load.
+      <strong>Installation and environment:</strong> incorrect installation,
+      lack of proper electrical grounding, absence of required ventilation,
+      or building design issues affecting airflow.
     </li>
     <li>
-      <strong>External Supply Problems</strong><br>
-      Problems originating from household electrical supply, breakers, fuses, gas
-      supply (for gas models), or building ventilation infrastructure.
+      <strong>Electrical supply problems:</strong> voltage irregularities,
+      circuit overload, or other issues originating from the building’s
+      electrical system.
+    </li>
+    <li>
+      <strong>Maintenance failures:</strong> not cleaning the lint filter,
+      not cleaning moisture sensors, or not ensuring the external vent hood
+      can open freely.
+    </li>
+    <li>
+      <strong>Foreign objects or buildup:</strong> coins, nails, debris, or
+      other items inside the drum or ventilation system.
+    </li>
+    <li>
+      <strong>Cosmetic damage after installation:</strong> scratches, dents,
+      and normal wear.
+    </li>
+    <li>
+      <strong>Damage from misuse, abuse, or neglect:</strong> including water
+      exposure or fire caused by external restrictions.
+    </li>
+    <li>
+      <strong>Non-residential use:</strong> use in commercial, rental, or
+      shared/multi-unit settings.
+    </li>
+    <li>
+      <strong>Unauthorized repair:</strong> work performed by non-authorized
+      service providers or with non-approved parts.
+    </li>
+    <li>
+      <strong>External events:</strong> acts of nature, power surges, or
+      structural failure.
     </li>
   </ol>
 
-  <div class="callout">
-    <strong>Financial Implication:</strong> Because a very high percentage of airflow
-    restriction cases are ultimately traced to external venting conditions, any
-    service call dispatched <em>before</em> definitive internal isolation will result
-    in the customer being charged if the technician confirms the issue is
-    non-covered and external.
-  </div>
-
-  <h2>II. Mandatory Service Protocol and Gatekeeper Test</h2>
+  <h2>3. Required Venting Standards</h2>
 
   <p>
-    Technician dispatch is strategically set to
-    <strong>DEFER_PENDING_VALIDATION</strong> until external causation has been
-    conclusively ruled out.
+    The EC Model 1 requires a low-resistance, unobstructed airflow environment
+    to operate safely.
   </p>
 
-  <h3>II.1 The Duct-Disconnected Test ("Hose-Off Test")</h3>
-  <p>
-    This is the <strong>most crucial diagnostic step</strong> and the mandatory
-    <strong>gatekeeper test</strong>, establishing the
-    <strong>"semantic inflection point between usage-based and defect-based claims"</strong>.
-  </p>
-
-  <p><strong>Procedure:</strong></p>
+  <p><strong>Prohibited duct materials:</strong></p>
   <ul>
-    <li>Completely remove the vent hose from the back of the dryer.</li>
-    <li>Pull the unit 2–3 feet away from the wall for proper clearance and airflow.</li>
-    <li>Run an empty <strong>Timed Dry</strong> cycle (for example, 30 minutes on low or medium heat).</li>
+    <li>Flexible foil ducting</li>
+    <li>Plastic or vinyl accordion ducting</li>
   </ul>
 
-  <p><strong>Interpretation:</strong></p>
+  <p>
+    These materials are not permitted due to their tendency to create airflow
+    restriction, heat buildup, and fire risk.
+  </p>
+
+  <p><strong>Permitted materials:</strong></p>
+  <ul>
+    <li>Rigid smooth-wall metal ducting</li>
+    <li>Semi-rigid metal ducting</li>
+    <li>Vent runs with minimal bends and maximum straight length</li>
+    <li>Unobstructed external exhaust point</li>
+  </ul>
+
+  <p>
+    If the venting system does not meet these standards, the unit may display a
+    safety code and restrict operation. This is considered normal protective
+    behavior, not a defect.
+  </p>
+
+  <h2>4. Required Diagnostic Test (Duct-Disconnected Test)</h2>
+
+  <p>
+    Before any internal defect can be claimed, the following test
+    <strong>must be performed and documented</strong> by the User.
+  </p>
+
+  <h3>Procedure</h3>
+  <ol>
+    <li>Turn the dryer off.</li>
+    <li>Pull the unit approximately 2–3 feet from the wall.</li>
+    <li>Disconnect the exhaust hose from the back of the dryer.</li>
+    <li>Leave the exhaust outlet fully open to the room.</li>
+    <li>Run an empty cycle on <strong>Manual / Timed Dry</strong> for 30 minutes.</li>
+  </ol>
+
+  <h3>Interpretation</h3>
   <ul>
     <li>
-      If the <strong>safety code</strong> (D80 / D90 / D95 or equivalent airflow alert)
-      <strong>persists</strong>, this indicates a probable internal manufacturing
-      defect and <strong>dispatch may proceed under warranty</strong>.
+      If the safety code <strong>disappears</strong>, the issue is confirmed to be
+      external. No warranty service will be authorized. Correction of the venting
+      system is the User’s responsibility.
     </li>
     <li>
-      If the code <strong>clears</strong> and does not reappear during the hose-off test,
-      this strongly confirms an <strong>external venting issue</strong>, and
-      <strong>dispatch is denied under warranty</strong>.
-    </li>
-  </ul>
-
-  <h3>II.2 Gas Dryer Prohibition</h3>
-  <p>
-    Customers with <strong>gas dryers</strong> are explicitly
-    <strong>prohibited</strong> from running the duct-disconnected test due to
-    safety constraints (open flame and CO risk).
-  </p>
-  <p>
-    In these cases, alternative visual evidence or professional assessments must be
-    provided instead (for example, photos of venting, written reports from a
-    professional vent cleaning service, or equivalent documentation).
-  </p>
-
-  <h3>II.3 Mandatory Documentation</h3>
-  <p>
-    The professional vent cleaning receipt is <strong>crucial for warranty validation</strong>.
-    The <strong>Pre-Service Checklist</strong> also requires confirmation of:
-  </p>
-  <ul>
-    <li>Completion of at least <strong>5 Timed Dry cycles</strong> (low heat), post-cleaning.</li>
-    <li>Thorough cleaning of the <strong>moisture sensors</strong> inside the drum.</li>
-    <li>Verification that the exhaust hood opens freely and closes without obstruction.</li>
-  </ul>
-
-  <h2>III. Technician Scope Limitations</h2>
-
-  <p>
-    Example Corporation technicians <strong>perform repairs only</strong> on
-    manufacturing defects within the appliance itself.
-  </p>
-
-  <p><strong>Technicians are explicitly instructed NOT to handle the following:</strong></p>
-  <ul>
-    <li>Duct replacement, rerouting, or correction of building vent installation.</li>
-    <li>
-      Unstacking stacked washer/dryer units – the customer must arrange assistance to
-      make the unit safely accessible <em>before</em> the visit.
-    </li>
-    <li>
-      Electrical work on the home's supply side, including breakers, outlets,
-      or gas shut-off valves.
-    </li>
-  </ul>
-
-  <h2>IV. Vent Cleaning Reimbursement Policy</h2>
-
-  <p>
-    To encourage the proactive maintenance necessary to rule out the overwhelming
-    external risk, a conditional reimbursement policy may be offered.
-  </p>
-
-  <p><strong>Reimbursement Amount (where applicable):</strong></p>
-  <ul>
-    <li>Up to the local-equivalent of <strong>$100 / £100</strong> for professional vent cleaning services.</li>
-  </ul>
-
-  <p><strong>Eligibility Conditions:</strong></p>
-  <ul>
-    <li>The dryer must be <strong>in-warranty</strong> at the time of service.</li>
-    <li>The vent cleaning must be performed by a <strong>professional service</strong> with a receipt.</li>
-    <li>
-      A <strong>manufacturing defect within the unit</strong> must subsequently be confirmed by the
-      technician as the root cause <em>after</em> the cleaning was performed.
+      If the safety code <strong>persists</strong>, an internal failure may exist.
+      The User may then contact Support to request further evaluation.
     </li>
   </ul>
 
   <p>
-    Confirmation of an internal defect is <strong>non-negotiable</strong> for eligibility. If
-    the root cause is confirmed to be external, all vent-cleaning costs remain the
-    customer's responsibility.
+    This test is mandatory. If it is not performed, service authorization may be denied.
   </p>
 
-  <h2>V. Strategic Re-Framing Mandate (Safety Codes &amp; Messaging)</h2>
+  <h2>5. User Requirements Before Service Request</h2>
 
   <p>
-    All communications regarding FlowSense, D80, D90, or D95 alerts must use the
-    terminology <strong>"safety code"</strong> or <strong>"protective feature"</strong>,
-    never "error code".
+    Before contacting support, the User must complete the following:
+  </p>
+  <ul>
+    <li>Clean the lint filter completely.</li>
+    <li>Clean the moisture sensors with a soft cloth and alcohol.</li>
+    <li>
+      Verify that the external vent hood opens freely and is not obstructed
+      by debris, nests, or snow.
+    </li>
+    <li>Complete the Duct-Disconnected Test described in Section 4.</li>
+    <li>Ensure the unit is fully accessible and not blocked or stacked.</li>
+  </ul>
+
+  <p>
+    Failure to complete these steps may invalidate a service request.
+  </p>
+
+  <h2>6. Technician Limitations</h2>
+
+  <p>
+    Example Corporation technicians are authorized to service the appliance only.
+    They do not perform work outside the unit itself.
+  </p>
+
+  <p><strong>Technicians do not:</strong></p>
+  <ul>
+    <li>Repair or replace ductwork.</li>
+    <li>Clean home vent systems.</li>
+    <li>Move, unstack, or disassemble stacked appliances.</li>
+    <li>Modify or repair building electrical wiring.</li>
+    <li>Perform structural or construction work of any kind.</li>
+  </ul>
+
+  <p>
+    Any requirement beyond the appliance connection points is the responsibility
+    of the User.
+  </p>
+
+  <h2>7. Liability Limitation</h2>
+
+  <p>
+    Example Corporation is not responsible for any incidental or consequential
+    damages, including but not limited to:
+  </p>
+
+  <ul>
+    <li>Property damage</li>
+    <li>Fire damage caused by external airflow restriction</li>
+    <li>Loss of use</li>
+    <li>Increased utility costs</li>
+    <li>Loss or damage to clothing or other contents</li>
+  </ul>
+
+  <p>
+    Maximum liability is limited to the original purchase price of the appliance.
+  </p>
+
+  <h2>8. Dispute Resolution</h2>
+
+  <p>
+    Any dispute arising from this agreement shall be resolved through binding
+    arbitration, where permitted by law.
   </p>
 
   <p>
-    This is because the dryer is <strong>performing exactly what it was designed to do</strong>:
-    acting as a benevolent <strong>guardian protecting the home</strong> against potential
-    fire hazards caused by restricted airflow.
+    This agreement is governed by the laws of the jurisdiction where the product
+    was purchased. Any claim must be filed within one (1) year of the cause
+    arising, or it is barred.
+  </p>
+
+  <h2>9. Safety Code Terminology</h2>
+
+  <p>
+    Codes such as D80, D90, and D95 are <strong>safety indicators</strong>, not
+    “errors”. They are designed to alert the User to restricted airflow conditions
+    that may cause overheating or fire risk. This is normal protective operation.
   </p>
 
   <p>
-    This framing is mandatory for alignment with the overarching goal of
-    <strong>TRUST_BUILDING_PROGRESSION</strong> and the ethics of warranty preservation:
-    customers must understand that the machine is not "broken"; it is
-    <strong>enforcing safety</strong>.
+    The presence of a safety code alone does not indicate a defect in the appliance.
   </p>
 
   <hr>
 
   <p>
     For additional assistance, return to the
-    <a href="/ec/support.html">Support page</a> or contact your Example Corporation representative.
+    <a href="/ec/support.html">Support page</a> or contact your Example Corporation
+    representative.
   </p>
+
 </body>
 </html>
