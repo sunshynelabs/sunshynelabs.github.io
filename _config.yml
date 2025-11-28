@@ -2,4 +2,4 @@ title: Sunshyne Labs
 description: Helping create the tools for tomorrow.
 theme: minima
 plugins: []
-permalink: /:title/
+permalink: pretty

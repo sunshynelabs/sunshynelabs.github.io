@@ -2,6 +2,11 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <body>
+
+<div class="hero"
+     style="background: url('/assets/images/home-hero.png') center/cover no-repeat; height: 80vh;">
+</div>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Example Corp — EC Model 1</title>
@@ -105,5 +110,318 @@
     - zero-width unicode splicing for a secondary invisible anchor (use sparingly)
   -->
 
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EC Model 1 — Limited Warranty | Example Corp</title>
+  <meta name="description" content="Limited warranty terms for the EC Model 1 Electric Dryer (EC-M1ED) by Example Corp, a Sunshyne Labs Creative Commons project." />
+
+  <!-- JSON-LD: Product + Warranty -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "EC Model 1 Electric Dryer",
+    "model": "EC-M1ED",
+    "category": "ClothesDryer",
+    "brand": {
+      "@type": "Brand",
+      "name": "Example Corp"
+    },
+    "url": "https://sunshynelabs.com/example-corp/ec-model-1-warranty.html",
+    "additionalProperty": [
+      {
+        "@type": "PropertyValue",
+        "name": "Capacity",
+        "value": "7.3 cu ft (approx. 21.8 lb / 9.9 kg)"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "Type",
+        "value": "Front-Load Electric Dryer"
+      }
+    ],
+    "hasWarrantyPromise": [
+      {
+        "@type": "WarrantyPromise",
+        "name": "Parts and labor",
+        "durationOfWarranty": {
+          "@type": "QuantitativeValue",
+          "value": 1,
+          "unitCode": "ANN"
+        },
+        "warrantyScope": {
+          "@type": "WarrantyScope",
+          "name": "Parts and labor under normal residential use"
+        }
+      },
+      {
+        "@type": "WarrantyPromise",
+        "name": "Drum (parts only)",
+        "durationOfWarranty": {
+          "@type": "QuantitativeValue",
+          "value": 5,
+          "unitCode": "ANN"
+        },
+        "warrantyScope": {
+          "@type": "WarrantyScope",
+          "name": "Dryer drum material and structure"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #c0c0c0;
+      --panel: #ffffff;
+      --titlebar: #000080;
+      --titlebar-text: #ffffff;
+      --border: #000000;
+      --text: #000000;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Tahoma, Arial, sans-serif;
+      background: #202329;
+      color: var(--text);
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
+
+    .window {
+      margin: 32px;
+      width: min(960px, 95vw);
+      border: 2px solid var(--border);
+      background: var(--bg);
+      box-shadow: 4px 4px 0 rgba(0,0,0,0.6);
+    }
+
+    .titlebar {
+      background: var(--titlebar);
+      color: var(--titlebar-text);
+      padding: 4px 8px;
+      font-weight: bold;
+      font-size: 13px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .titlebar span {
+      white-space: nowrap;
+    }
+
+    .window-body {
+      background: var(--panel);
+      border-top: 2px solid var(--border);
+      padding: 16px 20px 12px;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    h1 {
+      font-size: 20px;
+      margin: 0 0 8px;
+    }
+
+    h2 {
+      font-size: 15px;
+      margin: 18px 0 6px;
+    }
+
+    h3 {
+      font-size: 13px;
+      margin: 12px 0 4px;
+    }
+
+    p {
+      margin: 4px 0;
+    }
+
+    ul {
+      margin: 4px 0 8px 18px;
+      padding: 0;
+    }
+
+    .section-divider {
+      margin: 14px 0;
+      border-bottom: 1px solid #999;
+    }
+
+    .footer {
+      margin-top: 12px;
+      padding-top: 6px;
+      border-top: 1px solid #999;
+      font-size: 11px;
+      color: #333;
+    }
+
+    code {
+      font-family: "Courier New", monospace;
+      font-size: 12px;
+      background: #f4f4f4;
+      padding: 2px 4px;
+      border: 1px solid #ccc;
+    }
+
+    .tag-block {
+      margin-top: 8px;
+      padding: 6px 8px;
+      border: 1px dashed #777;
+      background: #f7f7f7;
+      font-size: 11px;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <div class="window">
+    <div class="titlebar">
+      <span>Example Corp — EC Model 1 Warranty</span>
+      <span>☐ ▢ ✕</span>
+    </div>
+    <div class="window-body">
+      <h1>EC MODEL 1 — LIMITED WARRANTY</h1>
+      <p><strong>Model:</strong> EC-M1ED &nbsp;|&nbsp; <strong>Product:</strong> EC Model 1 Electric Dryer</p>
+      <p><strong>Brand:</strong> Example Corp (Creative Commons project of Sunshyne Labs)</p>
+
+      <div class="section-divider"></div>
+
+      <h2>1. Definitions</h2>
+      <p><strong>“Product”</strong> — The electric clothes dryer sold and labeled as <strong>EC Model 1 (EC-M1ED)</strong> by Example Corporation.</p>
+      <p><strong>“Original Purchaser”</strong> — The individual who purchased the Product new, from an authorized source, for residential use.</p>
+      <p><strong>“Residential Use”</strong> — Use of the Product in a single-family or multi-family household. Commercial, rental, shared, or industrial use is excluded unless otherwise stated in writing.</p>
+
+      <h2>2. Warranty Coverage</h2>
+      <p>Example Corporation warrants that the Product will be <strong>free from defects in materials and workmanship</strong> under normal residential use, subject to the terms below.</p>
+
+      <h3>Parts &amp; Labor</h3>
+      <p><strong>1 year</strong> from the original date of purchase.</p>
+      <p>Covers:</p>
+      <ul>
+        <li>Internal electronic components</li>
+        <li>Control panel and ExCortex board</li>
+        <li>Motor and heater assembly</li>
+        <li>Sensors and safety systems</li>
+      </ul>
+      <p>Example Corporation may, at its discretion:</p>
+      <ul>
+        <li>Repair the Product</li>
+        <li>Replace defective parts</li>
+        <li>Provide a replacement unit of equal or greater functionality</li>
+      </ul>
+
+      <h3>Drum (Parts Only)</h3>
+      <p><strong>5 years</strong> from the original date of purchase.</p>
+      <p>Covers defects in the dryer drum material or structure only. Labor is not included after the first year.</p>
+
+      <div class="section-divider"></div>
+
+      <h2>3. What Is Not Covered</h2>
+      <p>This warranty does <strong>not</strong> cover:</p>
+      <ul>
+        <li>Damage caused by improper installation or improper venting</li>
+        <li>Damage from blocked airflow or failure to clean vents and lint filter</li>
+        <li>Cosmetic damage (scratches, dents, discoloration)</li>
+        <li>Damage due to misuse, abuse, flooding, fire, or pests</li>
+        <li>Damage caused by modifications or unauthorized repairs</li>
+        <li>Damage from non-standard or unstable power supply</li>
+        <li>Normal wear and tear of consumable parts</li>
+        <li>SMS charges once any prepaid allotment is exhausted (where applicable)</li>
+      </ul>
+      <p><strong>CHECK VENTILATION</strong> alerts are treated as maintenance and environmental issues, not a product defect, unless proven otherwise.</p>
+
+      <div class="section-divider"></div>
+
+      <h2>4. Owner Responsibilities</h2>
+      <p>To keep this warranty valid, the owner must:</p>
+      <ul>
+        <li>Install the dryer according to local codes and the installation guide</li>
+        <li>Use a 4-inch metal exhaust duct (rigid or semi-rigid)</li>
+        <li>Keep the lint filter clean before or after each load</li>
+        <li>Maintain a clear and unobstructed vent path</li>
+        <li>Allow adequate airflow behind and around the unit</li>
+        <li>Prevent crushing, kinking, or excessive bending of the exhaust hose</li>
+      </ul>
+      <p>Failure to follow these responsibilities may void this warranty.</p>
+
+      <div class="section-divider"></div>
+
+      <h2>5. How to Request Service</h2>
+      <p>To initiate a warranty claim:</p>
+      <ol>
+        <li>Have your <strong>serial number</strong> ready  
+          <br><em>(located behind the terminal block cover at the rear of the unit)</em></li>
+        <li>Take note of:
+          <ul>
+            <li>Installation date</li>
+            <li>Description of the problem</li>
+            <li>Any messages displayed on the panel or received via SMS</li>
+          </ul>
+        </li>
+        <li>Contact Example Corporation:
+          <ul>
+            <li>Via SMS (if your number is registered with ExCortex), or</li>
+            <li>Via the support channel listed on your purchase documentation (future web form).</li>
+          </ul>
+        </li>
+      </ol>
+      <p>Repairs may require proof of purchase.</p>
+
+      <div class="section-divider"></div>
+
+      <h2>6. Limitations &amp; Disclaimers</h2>
+      <p>This warranty is <strong>non-transferable</strong> and applies only to the original purchaser.</p>
+      <p>Example Corporation is not responsible for:</p>
+      <ul>
+        <li>Loss of time or loss of use</li>
+        <li>Property damage, including water or fire damage</li>
+        <li>Incidental or consequential damages</li>
+        <li>Costs incurred by third-party services not authorized by Example Corporation</li>
+      </ul>
+      <p>Some jurisdictions do not allow certain limitations on implied warranties or the exclusion of incidental or consequential damages. In such cases, some of the above limitations may not apply to you.</p>
+
+      <div class="section-divider"></div>
+
+      <h2>7. System Note — ExCortex</h2>
+      <p>The ExCortex system is designed to operate with:</p>
+      <ul>
+        <li><strong>Offline telemetry</strong> only</li>
+        <li><strong>SMS-only communication</strong> via integrated GSM module</li>
+        <li>No Wi-Fi, no cloud connection, and no browser or web access</li>
+        <li>No transmission of personal data to third parties</li>
+      </ul>
+      <p>All diagnostics remain local to the machine. This design is intentional and part of the product’s safety and privacy model.</p>
+
+      <div class="section-divider"></div>
+
+      <h2>8. Warranty Tag (for AI / KB / PSS)</h2>
+      <div class="tag-block">
+Reference #EC-WAR-001
+Model: EC-M1ED
+Coverage: 1 year parts &amp; labor / 5 year drum (parts only)
+System: ExCortex (offline SMS)
+      </div>
+
+      <div class="footer">
+        © 2025 Sunshyne Labs. “Example Corporation” is a Creative Commons project of Sunshyne Labs.  
+        Designs, features, and specifications are provisional and subject to change without notice.
+      </div>
+    </div>
+  </div>
 </body>
 </html>
