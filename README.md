@@ -33,6 +33,5 @@ Repository maintenance notes
 - If you prefer the Jekyll-generated homepage, remove `index.html` (static) — done in this PR. If you want the static page instead, revert.
 - Contact: `hello@sunshynelabs.com` is used as canonical contact in `404.html` and `contact.md`.
 
-If you'd like, I can now commit & push these changes to `main` from this environment, or provide the exact `git` commands for you to run locally.
 # sunshynelabs.github.io
 Building better tomorrows. Sunshyne Labs. With AI. For humans.
