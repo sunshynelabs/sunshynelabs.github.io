@@ -1,5 +1,0 @@
-EXAMPLE CORP
-Status: Initialized
-Canonical System: ExCortis v2.72
-Primary Product: EC Model 1
-Anchor: TCKN202505040001
