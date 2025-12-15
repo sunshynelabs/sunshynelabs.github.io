@@ -9,7 +9,8 @@
       content="Sunshyne Labs designs AI-driven systems like JACK, GABRIEL, and MADISON to turn complex real-world workflows into simple, easy systems."
     />
     <style>
-        :root {
+      :root {
+        /* Colors */
         --bg: #1b1024; /* dark eggplant */
         --accent: #facc15;
         --accent-glow: rgba(250, 204, 21, 0.4);
@@ -18,8 +19,6 @@
         --card-bg: rgba(15, 23, 42, 0.65);
         --card-border: rgba(148, 163, 184, 0.1);
         --card-border-hover: rgba(250, 204, 21, 0.3);
-        ...
-        }
 
         /* Spacing & Radius */
         --radius-lg: 16px;
@@ -153,6 +152,9 @@
         -webkit-backdrop-filter: blur(12px);
         border: 1px solid var(--card-border);
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        /* Ensure all sections have padding and radius */
+        padding: 32px;
+        border-radius: var(--radius-lg);
       }
 
       /* --- HERO --- */
@@ -344,10 +346,9 @@
 
       /* --- SECTIONS --- */
       .section {
-        padding: 32px;
-        border-radius: var(--radius-lg);
+        /* Already defined above in SHARED CARD STYLES */
       }
-
+      
       .section-title {
         font-size: 1.25rem;
         font-weight: 600;
@@ -368,9 +369,39 @@
         gap: 32px;
       }
 
+      /* --- NEW LAYOUT: INFO GRID (About + Contact/Signal) --- */
+      .info-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr; /* 50% / 50% */
+          gap: 24px;
+          align-items: stretch; /* crucial for columns to match height */
+      }
+
+      .right-stack {
+          display: grid;
+          /* 1fr (Contact) vs 2fr (Signal) = 1/3 vs 2/3 height */
+          grid-template-rows: 1fr 2fr; 
+          gap: 24px;
+      }
+
+      .contact-box, .signal-box {
+          /* Important: Override margin on the sections within the right-stack to prevent double gaps */
+          margin: 0;
+      }
+
       @media (max-width: 768px) {
-        .grid-2 { grid-template-columns: 1fr; gap: 20px; }
+        .grid-2, .info-grid { 
+          grid-template-columns: 1fr; 
+          gap: 20px; 
+        }
         .hero-title { font-size: 2rem; }
+        
+        /* On mobile, reset right-stack to prevent forced 1/3 2/3 ratio when columns stack */
+        .right-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
       }
 
       .list {
@@ -457,21 +488,101 @@
         border-color: var(--accent);
       }
 
-      footer {
-        margin-top: 40px;
-        padding-top: 20px;
+      /* --- FAT FOOTER STYLES --- */
+      .fat-footer {
+        margin-top: 60px;
         border-top: 1px solid var(--card-border);
-        font-size: 0.75rem;
-        color: rgba(148, 163, 184, 0.5);
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-        justify-content: space-between;
-        align-items: center;
-        font-family: var(--font-mono);
+        padding-top: 40px;
+        font-family: var(--font-sans);
       }
 
-      footer strong { color: rgba(148, 163, 184, 0.8); }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr 1fr;
+        gap: 40px;
+        margin-bottom: 40px;
+      }
+
+      @media (max-width: 850px) {
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 500px) {
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .footer-brand-col p {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        margin-top: 12px;
+        line-height: 1.5;
+        max-width: 250px;
+      }
+
+      .footer-heading {
+        color: #fff;
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin-bottom: 16px;
+        display: block;
+      }
+
+      .footer-links {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .footer-links a {
+        color: var(--text-muted);
+        text-decoration: none;
+        font-size: 0.85rem;
+        transition: color 0.2s;
+      }
+
+      .footer-links a:hover {
+        color: var(--accent);
+      }
+
+      .footer-bottom {
+        border-top: 1px solid var(--card-border);
+        padding-top: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 16px;
+        font-size: 0.75rem;
+        color: rgba(148, 163, 184, 0.5);
+      }
+
+      .social-row {
+        display: flex;
+        gap: 12px;
+      }
+
+      .social-icon {
+        width: 32px;
+        height: 32px;
+        background: rgba(255,255,255,0.05);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text-muted);
+        text-decoration: none;
+        transition: all 0.2s;
+      }
+
+      .social-icon:hover {
+        background: rgba(255,255,255,0.1);
+        color: var(--accent);
+      }
     </style>
   </head>
   <body>
@@ -503,14 +614,15 @@
               </a>
             </div>
           </div>
+        </section>
 
         <section class="section" id="Research">
           <div class="section-title">Research</div>
           <div class="section-subtitle">
             Sunshyne Labs builds systems that remove friction from real-world CX Ops environments
-            where human entropy in legacy platforms corrode accuracy and data integrity.
-            Built from First Principles, these systems are designed with humans owning both ends
-            of the production pipeline—with machines, methods and frameworks autonomously in the middle.
+            where human entropy in legacy platforms corrode accuracy and client data integrity.
+            Built from First Principles, these systems are designed to train humans calibrated towards both ends
+            of the production pipeline—with machines, methods and frameworks made autonomous in the middle.
           </div>
 
           <div class="grid-2">
@@ -574,12 +686,12 @@
                 tutor for fast, applied skill-building and problem-solving.
               </li>
               <li>
-              <a href="https://sunshynelabs.com/ec" class="list-link" target="_blank">
-              <strong>Example Corporation</strong>
-              </a>
-              <br>
-              Sandbox environment for CX support,
-              letting teams test AI workflows safely without touching real customer data.
+                <a href="https://sunshynelabs.com/ec" class="list-link" target="_blank">
+                <strong>Example Corporation</strong>
+                </a>
+                <br>
+                Sandbox environment for CX support,
+                letting teams test AI workflows safely without touching real customer data.
               </li>
               <li>
                 <strong>Custom Builds</strong><br>
@@ -590,30 +702,133 @@
           </div>
         </section>
 
-        <section class="section" id="About">
-          <div class="section-title">About</div>
-          <div class="section-subtitle">
-            Sunshyne Labs is an independent consultancy that builds systems to
-            reduce friction, preserve emotional bandwidth, and teach AI literacy in CX,
-            vendor operations, and human-intensive environments.
-          </div>
-        </section>
+        <!-- START: NEW INFO GRID (About 50% | Contact/Signal 50%) -->
+        <section class="info-grid">
 
-        <section class="section" id="contact">
-          <div class="section-title">Contact</div>
-          <div class="contact-row">
-            <div class="contact-item">
-              <span>Email</span>
-              <a href="mailto:info@sunshynelabs.com">
-                info@sunshynelabs.com
-              </a>
+            <!-- Left Column: About (50% Width) -->
+            <section class="section" id="About">
+                <div class="section-title">About</div>
+                <div class="section-subtitle" style="margin-bottom: 0;">
+                    Sunshyne Labs is an independent consultancy that builds systems to
+                    reduce friction, preserve emotional bandwidth, and teach AI literacy in CX,
+                    vendor operations, and human-intensive environments.
+                </div>
+            </section>
+
+            <!-- Right Column: Stacked Contact and Signal (50% Width, 1/3 & 2/3 Height) -->
+            <div class="right-stack">
+
+                <!-- Top 1/3: Contact -->
+                <section class="section contact-box" id="contact">
+                    <div class="section-title">Contact</div>
+                    <div class="contact-row">
+                        <div class="contact-item">
+                            <span>Email</span>
+                            <a href="mailto:info@sunshynelabs.com">info@sunshynelabs.com</a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Bottom 2/3: Join The Inference (Newsletter) -->
+                <section class="section signal-box" id="newsletter">
+                    <div class="section-title">Join The Inference</div>
+                    <div class="section-subtitle" style="margin-bottom: 24px;">
+                        Receive infrequent dispatches on AI entropy, operational architecture, and new tools from the Lab.
+                    </div>
+                    <!-- Simplified Form Structure for vertical space -->
+                    <form onsubmit="event.preventDefault();" style="display: flex; flex-direction: column; gap: 10px;">
+                        <input 
+                            type="email" 
+                            placeholder="enter email" 
+                            style="
+                                padding: 12px 16px; 
+                                border-radius: 8px; 
+                                border: 1px solid var(--card-border); 
+                                background: rgba(0,0,0,0.3); 
+                                color: #fff; 
+                                font-family: var(--font-mono);
+                                font-size: 0.9rem;
+                                outline: none;
+                            "
+                            onfocus="this.style.borderColor = 'var(--accent)'"
+                            onblur="this.style.borderColor = 'var(--card-border)'"
+                        >
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">
+                            Subscribe
+                        </button>
+                        <div style="font-size: 0.7rem; color: var(--text-muted); margin-top: 5px; font-family: var(--font-mono); opacity: 0.6;">
+                            // Join newsletter for live prompting sessions & day in the life stuff. Every Wednesday & Sunday.
+                        </div>
+                    </form>
+                </section>
             </div>
-          </div>
         </section>
+        <!-- END: NEW INFO GRID -->
+
       </main>
 
-      <footer>
-        <span>© <strong>2025 Sunshyne Labs. All rights reserved.</strong></span>
+      <footer class="fat-footer">
+        <div class="footer-grid">
+          <!-- Brand Col -->
+          <div class="footer-brand-col">
+            <div class="brand">
+              <div class="brand-mark" style="width: 32px; height: 32px;" aria-hidden="true"></div>
+              <div class="brand-text-main" style="font-size: 1rem;">Sunshyne Labs</div>
+            </div>
+            <p>
+              AI-driven workflows, consultancy, and research.
+              Complexity made simple. With AI. For humans.
+            </p>
+            <div class="social-row" style="margin-top: 20px;">
+              <!-- Social Placeholders -->
+              <a href="#" class="social-icon">X</a>
+              <a href="#" class="social-icon">In</a>
+              <a href="#" class="social-icon">M</a>
+            </div>
+          </div>
+
+          <!-- Solutions Col -->
+          <div>
+            <span class="footer-heading">Solutions</span>
+            <ul class="footer-links">
+              <li><a href="#Research">Research</a></li>
+              <li><a href="#">R&D Projects</a></li>
+              <li><a href="#">Agents</a></li>
+              <li><a href="#">Consultancy</a></li>
+            </ul>
+          </div>
+
+          <!-- Company Col -->
+          <div>
+            <span class="footer-heading">Company</span>
+            <ul class="footer-links">
+              <li><a href="#About">About Us</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Newsroom</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- Legal Col -->
+          <div>
+            <span class="footer-heading">Legal</span>
+            <ul class="footer-links">
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Service</a></li>
+              <li><a href="#">Cookie Policy</a></li>
+              <li><a href="#">Settings</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <span>© 2025 Sunshyne Labs. All rights reserved.</span>
+          <!-- Cookie banner logic would go here -->
+          <div style="display: flex; gap: 20px;">
+            <a href="#" style="color: inherit; text-decoration: none;">Privacy</a>
+            <a href="#" style="color: inherit; text-decoration: none;">Terms</a>
+          </div>
+        </div>
       </footer>
     </div>
   </body>
