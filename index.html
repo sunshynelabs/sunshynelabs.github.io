@@ -73,7 +73,48 @@
         align-items: center;
         gap: 16px;
       }
+.sunshyne-logo {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #0b0b0b;
+  overflow: hidden;
+}
 
+/* Sun cap */
+.sunshyne-logo .sun {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 120%;
+  height: 50%;
+  transform: translateX(-50%);
+  border-radius: 0 0 100% 100%;
+  background: linear-gradient(
+    to bottom,
+    #f2c97d,
+    #e59a5c
+  );
+}
+
+/* Shared band styles */
+.sunshyne-logo .band {
+  position: absolute;
+  left: 10%;
+  width: 80%;
+  height: 6px;
+  border-radius: 4px;
+}
+
+/* Individual bands */
+.b1 { top: 34%; background: #e45b5b; }
+.b2 { top: 42%; background: #e33f7a; }
+.b3 { top: 50%; background: #b45c86; }
+.b4 { top: 58%; background: #7f7fa1; }
+.b5 { top: 66%; background: #5aa0a0; }
+.b6 { top: 74%; background: #7fb1b1; }
+      
       .brand-text-sub {
         font-size: 0.8rem;
         color: var(--text-muted);
