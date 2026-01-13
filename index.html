@@ -86,14 +86,14 @@
         gap: 16px;
       }
 
-      /* ---------- LOGO ---------- */
+      /* ---------- LOGO (CLEANED) ---------- */
       .sunshyne-logo {
         width: 56px;
         height: 56px;
         border-radius: 50%;
-        object-fit: cover;
+        object-fit: cover; /* Ensures image fills circle without distortion */
         flex-shrink: 0;
-        box-shadow: 0 0 20px rgba(250, 204, 21, 0.1);
+        /* No background, no box-shadow, no pseudo-elements */
       }
 
       .brand-text-main {
@@ -487,10 +487,6 @@
               </a>
             </div>
           </div>
-          
-          <!-- Hero Right could be an image or abstract pattern, hidden in provided code but keeping layout structure -->
-          <!-- If you had a hero-right section, it would go here. Currently the grid handles the hero-left to span if needed, but we kept grid structure. -->
-          <!-- For this layout, the hero occupies the left primarily, but to make it span full width on mobile we used the media query. -->
         </section>
 
         <!-- RESEARCH -->
