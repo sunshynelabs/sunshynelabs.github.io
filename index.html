@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <meta charset="UTF-8" />
     <title>Sunshyne Labs | Building Better Tomorrows</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -71,53 +72,6 @@
         display: flex;
         align-items: center;
         gap: 16px;
-      }
-
-      /* UPDATED BRAND MARK CSS */
-      .brand-mark {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        background: #1a1d23;
-        position: relative;
-        overflow: hidden;
-        /* Optional: Add a subtle border to make it pop against the dark background */
-        border: 1px solid rgba(255, 255, 255, 0.1);
-      }
-
-      .brand-mark::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 35%;
-        background: linear-gradient(180deg, #e8b574 0%, #e8a574 50%, #e89574 100%);
-        border-radius: 50% 50% 0 0;
-      }
-
-      .brand-mark::after {
-        content: "";
-        position: absolute;
-        top: 35%;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background:
-          linear-gradient(180deg, transparent 0%, transparent 8%, #1a1d23 8%, #1a1d23 16%, transparent 16%),
-          linear-gradient(180deg, transparent 16%, transparent 24%, #e87474 24%, #e87474 32%, transparent 32%),
-          linear-gradient(180deg, transparent 32%, transparent 40%, #e86474 40%, #e86474 48%, transparent 48%),
-          linear-gradient(180deg, transparent 48%, transparent 56%, #c87494 56%, #c87494 64%, transparent 64%),
-          linear-gradient(180deg, transparent 64%, transparent 72%, #9888a4 72%, #9888a4 80%, transparent 80%),
-          linear-gradient(180deg, transparent 80%, transparent 88%, #7498a4 88%, #7498a4 96%, transparent 96%),
-          linear-gradient(180deg, transparent 96%, transparent 100%, #74a4a4 100%);
-      }
-      /* END UPDATED BRAND MARK CSS */
-
-      .brand-text-main {
-        font-weight: 700;
-        font-size: 1.1rem;
-        letter-spacing: -0.01em;
       }
 
       .brand-text-sub {
@@ -589,7 +543,6 @@
     <div class="page">
       <header>
         <div class="brand">
-          <div class="brand-mark" aria-hidden="true"></div>
           <div>
             <div class="brand-text-main">Sunshyne Labs</div>
             <div class="brand-text-sub">Building Better Tomorrows</div>
