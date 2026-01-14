@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sunshyne Labs</title>
+    <title>Sunshyne Labs | Building Better Tomorrows</title>
     <meta
       name="description"
       content="Sunshyne Labs designs AI-driven systems like JACK, GABRIEL, and MADISON to turn complex real-world workflows into simple, easy systems."
@@ -86,14 +86,12 @@
         gap: 16px;
       }
 
-      /* ---------- LOGO (CLEANED) ---------- */
       .sunshyne-logo {
         width: 56px;
         height: 56px;
         border-radius: 50%;
-        object-fit: cover; /* Ensures image fills circle without distortion */
+        object-fit: cover;
         flex-shrink: 0;
-        /* No background, no box-shadow, no pseudo-elements */
       }
 
       .brand-text-main {
@@ -115,7 +113,7 @@
       }
 
       /* --- SHARED CARD STYLES --- */
-      .hero-left, .hero-right, .section, .contact-box, .signal-box {
+      .hero-left, .section, .contact-box, .signal-box {
         background: var(--card-bg);
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
@@ -127,12 +125,12 @@
 
       /* --- HERO --- */
       .hero {
-        display: grid;
-        grid-template-columns: 1.4fr 1fr;
+        display: flex;
         gap: 24px;
       }
 
       .hero-left {
+        width: 100%;
         border-radius: var(--radius-xl);
         position: relative;
         overflow: hidden;
@@ -141,7 +139,6 @@
         justify-content: center;
       }
 
-      /* Subtle gradient overlay on hero card */
       .hero-left::after {
         content: "";
         position: absolute;
@@ -226,25 +223,12 @@
         max-width: 600px;
       }
 
-      .grid-2 {
+      /* --- SPLIT LAYOUT (Research + About) --- */
+      .main-split {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 32px;
-      }
-
-      /* --- NEW LAYOUT: INFO GRID (About + Contact/Signal) --- */
-      .info-grid {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 24px;
-          align-items: stretch;
-      }
-
-      .right-stack {
-          display: grid;
-          /* 1fr (Contact) vs 2fr (Signal) */
-          grid-template-rows: auto 1fr; 
-          gap: 24px;
+        grid-template-columns: 2fr 1fr;
+        gap: 24px;
+        align-items: start;
       }
 
       .list {
@@ -287,7 +271,13 @@
         border-color: var(--accent);
       }
 
-      /* --- CONTACT --- */
+      /* --- CONTACT & NEWSLETTER STACK --- */
+      .bottom-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+      }
+
       .contact-row {
         display: flex;
         flex-wrap: wrap;
@@ -322,7 +312,6 @@
         border-color: var(--accent);
       }
 
-      /* --- INPUTS --- */
       .input-field {
         padding: 12px 16px; 
         border-radius: 8px; 
@@ -340,7 +329,7 @@
         border-color: var(--accent);
       }
 
-      /* --- FAT FOOTER STYLES --- */
+      /* --- FOOTER --- */
       .fat-footer {
         margin-top: 60px;
         border-top: 1px solid var(--card-border);
@@ -430,25 +419,14 @@
       }
 
       /* --- MEDIA QUERIES --- */
-      @media (max-width: 850px) {
-        .hero { grid-template-columns: 1fr; }
-        header { flex-direction: column; align-items: flex-start; }
+      @media (max-width: 900px) {
+        .main-split { grid-template-columns: 1fr; }
         .footer-grid { grid-template-columns: 1fr 1fr; }
       }
 
       @media (max-width: 768px) {
-        .grid-2, .info-grid { 
-          grid-template-columns: 1fr; 
-          gap: 20px; 
-        }
         .hero-title { font-size: 2rem; }
-        
-        /* On mobile, reset right-stack */
-        .right-stack {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
+        .bottom-grid { grid-template-columns: 1fr; }
       }
 
       @media (max-width: 500px) {
@@ -461,7 +439,6 @@
       <header>
         <div class="brand">
          <img src="Sunshyne Labs Logo.png" alt="Sunshyne Labs Logo" class="sunshyne-logo">
-          
           <div>
             <div class="brand-text-main">Sunshyne Labs</div>
             <div class="brand-text-sub">Building Better Tomorrows</div>
@@ -477,227 +454,116 @@
               With AI.<span class="hero-highlight"> For humans</span>.
             </h1>
             <p class="hero-subtitle">
-              Sunshyne Labs builds
-              <strong>Systems</strong> designed to simplify complex admin tasks in the real world.
+              Sunshyne Labs builds systems
+              designed to simplify complex admin tasks
+              in the real world.
             </p>
-
             <div class="hero-actions">
-              <a href="#contact" class="btn btn-primary">
-                Contact Us
-              </a>
+              <a href="#contact" class="btn btn-primary">Contact Us</a>
             </div>
           </div>
         </section>
 
-        <!-- RESEARCH -->
-        <section class="section" id="Research">
-          <div class="section-title">Research</div>
-          <div class="section-subtitle">
-            Sunshyne Labs builds systems that remove friction from real-world CX Ops environments
-            where human entropy in legacy platforms corrode accuracy and client data integrity.
-            Built from First Principles, these systems are designed to train humans calibrated towards both ends
-            of the production pipeline—with machines, methods and frameworks made autonomous in the middle.
-          </div>
-
-          <div class="grid-2">
-            <ul class="list">
-              <li>
-                <strong>MARY – Compliance Matrix & Retention Engine</strong><br>
-                A retention and de-escalation system for contact centers, built to keep
-                customers, boost AI-native CX Vendor Ops & help mitigate client expenditure.
-              </li>
-              <li>
-                <strong>GABRIEL∞ – Autopoietic Knowledge Base</strong><br>
-                A guardrail framework that reduces second-hand trauma and cognitive load
-                for agents by structuring how difficult interactions are interpreted and answered.
-              </li>
-              <li>
-                <strong>MADISON – Brand Enhancement Engine</strong><br>
-                A modular engine that turns messy, multi-step contact-center processes
-                into predictable flows designed to positively influence client brand perception.
-              </li>
-              <li>
-                <strong>SANDRA – Data Entry Accelerator</strong><br>
-                A data retrieval and structuring system designed to cut manual research
-                and cleanup work down to a fraction of the usual time.
-              </li>
-              <li>
-                <strong>ANGEL – Data Entry Automaton</strong><br>
-                A macro + AI hybrid framework that mimics repetitive, error-prone manual data work
-                with uniform speed and consistency across spreadsheets and forms.
-              </li>
-              <li>
-                <strong>Octopus Corpus – AI Voice Architecture</strong><br>
-                A conversational AI framework capable of orchestrating complex
-                voice interaction analogues for CXOps call workflows.
-              </li>
-              <li>
-                <strong>The Liberators – Productivity & Automation Scripts</strong><br>
-                A collection of high-impact scripts derived from the philosophy of ANGEL & SANDRA,
-                built for superhuman productivity in CX and operations environments.
-              </li>
-            </ul>
-
-            <ul class="list">
-              <li>
-                <strong>JACKΩ – Personal Self-Improvement Tool</strong><br>
-                A “Prompt-In-A-Box™” decision framework that breaks analysis paralysis
-                and forces clear action for high-performing individuals.
-              </li>
-              <li>
-                <strong>Superproxy – Client Voice Simulation Framework</strong><br>
-                A lightweight system that helps replicate a client’s tone using text
-                datasets and an LLM, killing blank-page friction without heavy tooling.
-              </li>
-              <li>
-                <strong>JOHN – Zero-shot Proposal Builder</strong><br>
-                A rapid-response assistant for diagnosing client problems, drafting
-                proposals, and applying just-in-time learning to real work.
-              </li>
-              <li>
-                <strong>JILLØ v1 – Cognitive Skill Accelerator</strong><br>
-                A pocket-sized learning framework that turns any LLM into a structured
-                tutor for fast, applied skill-building and problem-solving.
-              </li>
-              <li>
-                <a href="https://sunshynelabs.com/ec" class="list-link" target="_blank">
-                <strong>Example Corporation</strong>
-                </a>
-                <br>
-                Sandbox environment for CX support,
-                letting teams test AI workflows safely without touching real customer data.
-              </li>
-              <li>
-                <strong>Custom Builds</strong><br>
-                Want one tuned for your workflow? Contact:
-                <strong>info@sunshynelabs.com</strong>
-              </li>
-            </ul>
-          </div>
-        </section>
-
-        <!-- START: NEW INFO GRID (About 50% | Contact/Signal 50%) -->
-        <section class="info-grid">
-
-            <!-- Left Column: About (50% Width) -->
-            <section class="section" id="About">
-                <div class="section-title">About</div>
-                <div class="section-subtitle" style="margin-bottom: 0;">
-                    Sunshyne Labs is an independent consultancy that builds systems to
-                    reduce friction, preserve emotional bandwidth, and teach AI literacy in CX,
-                    vendor operations, and human-intensive environments.
-                </div>
-            </section>
-
-            <!-- Right Column: Stacked Contact and Signal -->
-            <div class="right-stack">
-
-                <!-- Top: Contact -->
-                <section class="contact-box" id="contact">
-                    <div class="section-title">Contact</div>
-                    <div class="contact-row">
-                        <div class="contact-item">
-                            <span>Email</span>
-                            <a href="mailto:info@sunshynelabs.com">info@sunshynelabs.com</a>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Bottom: Join The Inference (Newsletter) -->
-                <section class="signal-box" id="newsletter">
-                    <div class="section-title">Join The Inference</div>
-
-                    <form onsubmit="event.preventDefault();" style="display: flex; flex-direction: column; gap: 10px;">
-                        <input 
-                            type="email" 
-                            class="input-field"
-                            placeholder="enter email" 
-                        >
-                        <button type="submit" class="btn btn-primary" style="width: 100%; border: none;">
-                            Subscribe
-                        </button>
-                        <div style="font-size: 0.7rem; color: var(--text-muted); margin-top: 5px; font-family: var(--font-mono); opacity: 0.6;">
-                            // Join newsletter for prompting & day in the life stuff. Every Wednesday & Sunday.
-                        </div>
-                    </form>
-                </section>
+        <!-- SPLIT: RESEARCH & ABOUT -->
+        <div class="main-split">
+          <!-- RESEARCH -->
+          <section class="section" id="Research">
+            <div class="section-title">Research</div>
+            <div class="section-subtitle">
+              Remove friction from real-world CX Ops and production environments with processes designed to mitigate cost, and reduce human friction.
             </div>
-        </section>
-        <!-- END: NEW INFO GRID -->
+            <ul class="list">
+              <li>
+                <a href="https://sunshynelabs.com/mary" class="list-link" target="_blank"><strong>MARY</strong></a> Compliance Matrix & Retention Engine
+              </li>
+              <li><strong>GABRIEL∞</strong> Autopoietic Knowledge Base</li>
+              <li><strong>MADISON</strong> Brand Enhancement Engine</li>
+              <li><strong>SANDRA</strong> Data Entry Accelerator</li>
+              <li><strong>ANGEL</strong> Data Entry Automaton</li>
+              <li><strong>Octopus Corpus</strong> AI Voice Architecture</li>
+              <li>
+                <a href="https://sunshynelabs.com/jack" class="list-link" target="_blank"><strong>JACKΩ</strong></a> Decision Framework
+              </li>
+              <li><strong>JILLØ</strong> Cognitive Skill Accelerator</li>
+              <li>
+                <a href="https://sunshynelabs.com/ec" class="list-link" target="_blank"><strong>Example Corporation</strong></a> Sandbox
+              </li>
+            </ul>
+          </section>
 
+          <!-- ABOUT -->
+          <section class="section" id="About">
+            <div class="section-title">About</div>
+            <p class="section-subtitle" style="margin-bottom: 0;">
+              Independent consultancy building systems to reduce friction, preserve emotional bandwidth, and teach AI literacy in human-intensive environments.
+            </p>
+          </section>
+        </div>
+
+        <!-- CONTACT & NEWSLETTER -->
+        <div class="bottom-grid">
+          <section class="contact-box" id="contact">
+            <div class="section-title">Contact</div>
+            <div class="contact-row">
+              <div class="contact-item">
+                <span>Email</span>
+                <a href="mailto:info@sunshynelabs.com">info@sunshynelabs.com</a>
+              </div>
+            </div>
+          </section>
+
+          <section class="signal-box" id="newsletter">
+            <div class="section-title">Join The Inference</div>
+            <form onsubmit="event.preventDefault();" style="display: flex; flex-direction: column; gap: 10px;">
+              <input type="email" class="input-field" placeholder="enter email">
+              <button type="submit" class="btn btn-primary" style="width: 100%; border: none;">Subscribe</button>
+            </form>
+          </section>
+        </div>
       </main>
 
       <footer class="fat-footer">
         <div class="footer-grid">
-          <!-- Brand Col -->
           <div class="footer-brand-col">
             <div class="brand">
               <img src="Sunshyne Labs Logo.png" alt="Sunshyne Labs Logo" class="sunshyne-logo" style="width: 32px; height: 32px;">
               <div class="brand-text-main" style="font-size: 1rem;">Sunshyne Labs</div>
             </div>
-            <p>
-              Building Better Tomorrows. With AI. For humans.
-            </p>
+            <p>Complexity made simple. With AI. For humans.</p>
             <div class="social-row" style="margin-top: 20px;">
-              <a href="#" class="social-icon" aria-label="Twitter">
-                <i data-lucide="twitter"></i>
-              </a>
-              <a href="#" class="social-icon" aria-label="LinkedIn">
-                <i data-lucide="linkedin"></i>
-              </a>
-              <a href="#" class="social-icon" aria-label="Medium">
-                <i data-lucide="file-text"></i>
-              </a>
+              <a href="#" class="social-icon"><i data-lucide="twitter"></i></a>
+              <a href="#" class="social-icon"><i data-lucide="linkedin"></i></a>
+              <a href="#" class="social-icon"><i data-lucide="file-text"></i></a>
             </div>
           </div>
-
-          <!-- Solutions Col -->
           <div>
             <span class="footer-heading">Solutions</span>
             <ul class="footer-links">
               <li><a href="#Research">Research</a></li>
               <li><a href="#">R&D Projects</a></li>
-              <li><a href="#">Agents</a></li>
               <li><a href="#">Consultancy</a></li>
             </ul>
           </div>
-
-          <!-- Company Col -->
           <div>
             <span class="footer-heading">Company</span>
             <ul class="footer-links">
               <li><a href="#About">About Us</a></li>
-              <li><a href="#">Careers</a></li>
-              <li><a href="#">Newsroom</a></li>
               <li><a href="#contact">Contact</a></li>
             </ul>
           </div>
-
-          <!-- Legal Col -->
           <div>
             <span class="footer-heading">Legal</span>
             <ul class="footer-links">
-              <li><a href="#">Privacy Policy</a></li>
-              <li><a href="#">Terms of Service</a></li>
-              <li><a href="#">Cookie Policy</a></li>
-              <li><a href="#">Settings</a></li>
+              <li><a href="#">Privacy</a></li>
+              <li><a href="#">Terms</a></li>
             </ul>
           </div>
         </div>
-
         <div class="footer-bottom">
           <span>© 2025-2026 Sunshyne Labs. All rights reserved.</span>
-          <div style="display: flex; gap: 20px;">
-            <a href="#" style="color: inherit; text-decoration: none;">Privacy</a>
-            <a href="#" style="color: inherit; text-decoration: none;">Terms</a>
-          </div>
         </div>
       </footer>
     </div>
-
-    <!-- Initialize Lucide Icons -->
-    <script>
-      lucide.createIcons();
-    </script>
+    <script>lucide.createIcons();</script>
   </body>
 </html>
