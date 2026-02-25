@@ -113,7 +113,7 @@
       }
 
       /* --- SHARED CARD STYLES --- */
-      .hero-left, .section, .contact-box, .signal-box {
+      .hero-left, .section, .contact-box {
         background: var(--card-bg);
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
@@ -271,10 +271,10 @@
         border-color: var(--accent);
       }
 
-      /* --- CONTACT & NEWSLETTER STACK --- */
-      .bottom-grid {
+      /* --- CONTACT SECTION --- */
+      .contact-section {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
         gap: 24px;
       }
 
@@ -309,23 +309,6 @@
 
       .contact-item a:hover {
         color: var(--accent);
-        border-color: var(--accent);
-      }
-
-      .input-field {
-        padding: 12px 16px; 
-        border-radius: 8px; 
-        border: 1px solid var(--card-border); 
-        background: rgba(0,0,0,0.3); 
-        color: #fff; 
-        font-family: var(--font-mono);
-        font-size: 0.9rem;
-        outline: none;
-        transition: border-color 0.2s;
-        width: 100%;
-      }
-
-      .input-field:focus {
         border-color: var(--accent);
       }
 
@@ -389,35 +372,6 @@
         color: rgba(148, 163, 184, 0.5);
       }
 
-      .social-row {
-        display: flex;
-        gap: 12px;
-      }
-
-      .social-icon {
-        width: 32px;
-        height: 32px;
-        background: rgba(255,255,255,0.05);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--text-muted);
-        text-decoration: none;
-        transition: all 0.2s;
-      }
-
-      .social-icon:hover {
-        background: rgba(255,255,255,0.1);
-        color: var(--accent);
-        transform: translateY(-2px);
-      }
-
-      .social-icon svg {
-        width: 16px;
-        height: 16px;
-      }
-
       /* --- MEDIA QUERIES --- */
       @media (max-width: 900px) {
         .main-split { grid-template-columns: 1fr; }
@@ -426,7 +380,7 @@
 
       @media (max-width: 768px) {
         .hero-title { font-size: 2rem; }
-        .bottom-grid { grid-template-columns: 1fr; }
+        .contact-section { grid-template-columns: 1fr; }
       }
 
       @media (max-width: 500px) {
@@ -500,8 +454,8 @@
           </section>
         </div>
 
-        <!-- CONTACT & NEWSLETTER -->
-        <div class="bottom-grid">
+        <!-- CONTACT -->
+        <div class="contact-section">
           <section class="contact-box" id="contact">
             <div class="section-title">Contact</div>
             <div class="contact-row">
@@ -510,14 +464,6 @@
                 <a href="mailto:info@sunshynelabs.com">info@sunshynelabs.com</a>
               </div>
             </div>
-          </section>
-
-          <section class="signal-box" id="newsletter">
-            <div class="section-title">Join The Inference</div>
-            <form onsubmit="event.preventDefault();" style="display: flex; flex-direction: column; gap: 10px;">
-              <input type="email" class="input-field" placeholder="enter email">
-              <button type="submit" class="btn btn-primary" style="width: 100%; border: none;">Subscribe</button>
-            </form>
           </section>
         </div>
       </main>
@@ -533,18 +479,11 @@
               Building Better Tomorrows.
               With AI. For Humans.
             </p>
-            <div class="social-row" style="margin-top: 20px;">
-              <a href="#" class="social-icon"><i data-lucide="twitter"></i></a>
-              <a href="#" class="social-icon"><i data-lucide="linkedin"></i></a>
-              <a href="#" class="social-icon"><i data-lucide="file-text"></i></a>
-            </div>
           </div>
           <div>
             <span class="footer-heading">Solutions</span>
             <ul class="footer-links">
               <li><a href="#Research">Research</a></li>
-              <li><a href="#">R&D Projects</a></li>
-              <li><a href="#">Consultancy</a></li>
             </ul>
           </div>
           <div>
@@ -552,13 +491,6 @@
             <ul class="footer-links">
               <li><a href="#About">About Us</a></li>
               <li><a href="#contact">Contact</a></li>
-            </ul>
-          </div>
-          <div>
-            <span class="footer-heading">Legal</span>
-            <ul class="footer-links">
-              <li><a href="#">Privacy</a></li>
-              <li><a href="#">Terms</a></li>
             </ul>
           </div>
         </div>
