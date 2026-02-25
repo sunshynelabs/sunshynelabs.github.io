@@ -1,0 +1,1953 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ExCortext UPI v3.0 | Unit Processing Interface</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #c0c0c0;
+      color: #000;
+      margin: 0;
+      padding: 10px;
+      font-size: 14px;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+    h1 {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #000;
+      text-align: center;
+    }
+    .section {
+      border-style: solid;
+      border-width: 2px;
+      border-top-color: #fff;
+      border-left-color: #fff;
+      border-bottom-color: #808080;
+      border-right-color: #808080;
+      background-color: #c0c0c0;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+    .section .header {
+      color: #fff;
+      background-color: #000080;
+      font-weight: bold;
+      padding: 2px 5px;
+      display: block;
+      margin-bottom: 8px;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 15px;
+    }
+    input[type="text"], input[type="email"], input[type="tel"], input[type="date"], select {
+      background-color: #fff;
+      color: #000;
+      border-style: solid;
+      border-width: 1px;
+      border-top-color: #808080;
+      border-left-color: #808080;
+      border-bottom-color: #dfdfdf;
+      border-right-color: #dfdfdf;
+      padding: 4px;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      box-sizing: border-box;
+    }
+    textarea {
+      background-color: #fff;
+      color: #000;
+      border-style: solid;
+      border-width: 1px;
+      border-top-color: #808080;
+      border-left-color: #808080;
+      border-bottom-color: #dfdfdf;
+      border-right-color: #dfdfdf;
+      padding: 4px;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      box-sizing: border-box;
+      resize: vertical;
+    }
+    .field-value {
+      background-color: #fff;
+      color: #000;
+      border-style: solid;
+      border-width: 1px;
+      border-top-color: #808080;
+      border-left-color: #808080;
+      border-bottom-color: #dfdfdf;
+      border-right-color: #dfdfdf;
+      padding: 4px;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      box-sizing: border-box;
+      min-height: 26px;
+      display: flex;
+      align-items: center;
+    }
+    .copyable-text {
+      -webkit-user-select: text !important;
+      -moz-user-select: text !important;
+      -ms-user-select: text !important;
+      user-select: text !important;
+    }
+    button {
+      background-color: #c0c0c0;
+      color: #000;
+      border: 1px solid;
+      border-top-color: #fff;
+      border-left-color: #fff;
+      border-bottom-color: #808080;
+      border-right-color: #808080;
+      padding: 3px 12px;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      box-shadow: 1px 1px 0px #808080;
+      margin: 3px 0;
+      cursor: pointer;
+    }
+    button:active {
+      border-top-color: #808080;
+      border-left-color: #808080;
+      border-bottom-color: #fff;
+      border-right-color: #fff;
+      box-shadow: none;
+      background-color: #bbb;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid #808080;
+      background-color: #fff;
+    }
+    th, td {
+      border: 1px solid #808080;
+      padding: 3px 5px;
+      text-align: left;
+      color: #000;
+      font-size: 13px;
+    }
+    th {
+      background-color: #c0c0c0;
+      font-weight: normal;
+    }
+    .field-row {
+      display: flex;
+      margin-bottom: 6px;
+      align-items: center;
+    }
+    .field-label {
+      width: 140px;
+      min-width: 140px;
+      text-align: right;
+      padding-right: 8px;
+      color: #000;
+      font-size: 13px;
+    }
+    .field-input {
+      flex: 1;
+    }
+    .field-input input, .field-input select, .field-input textarea {
+      width: 100%;
+    }
+    #searchMessage {
+      margin-top: 5px;
+      font-size: 14px;
+      min-height: 1em;
+    }
+    .no-data {
+      color: #505050;
+      font-style: italic;
+    }
+
+    /* ── GABRIEL PIPELINE TERMINAL (RE-theme) ── */
+    .gabriel-terminal {
+      background-color: #000 !important;
+      border: 1px solid #0f0 !important;
+      padding: 10px !important;
+      color: #0f0 !important;
+    }
+    .gabriel-terminal .header {
+      color: #0f0 !important;
+      text-transform: uppercase !important;
+      font-weight: bold !important;
+      background-color: #000 !important;
+      padding: 0 !important;
+      margin-bottom: 8px !important;
+      font-family: 'Courier New', monospace !important;
+      letter-spacing: 1px;
+    }
+    .gabriel-terminal .field-label {
+      color: #0f0 !important;
+      font-family: 'Courier New', monospace !important;
+    }
+    .gabriel-terminal .field-value {
+      border: 1px solid #0f0 !important;
+      color: #0f0 !important;
+      background-color: #000 !important;
+      font-family: 'Courier New', monospace !important;
+      font-size: 12px !important;
+    }
+    .pipeline-bar {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-bottom: 10px;
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+    }
+    .pipe-step {
+      padding: 2px 8px;
+      border: 1px solid #0f0;
+      color: #0f0;
+      background: #000;
+    }
+    .pipe-step.active {
+      background: #002200;
+      color: #0f0;
+      animation: blink 0.6s step-end infinite;
+    }
+    .pipe-step.done {
+      background: #003300;
+      color: #0f0;
+    }
+    .pipe-arrow { color: #0f0; font-family: 'Courier New', monospace; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+    .confidence-bar-wrap {
+      width: 100%;
+      background: #300;
+      border: 1px solid #0f0;
+      height: 16px;
+      margin: 6px 0;
+      position: relative;
+    }
+    .confidence-bar-fill {
+      height: 100%;
+      position: absolute;
+      top: 0; left: 0;
+      transition: width 0.8s ease, background-color 0.8s ease;
+    }
+    .confidence-bar-label {
+      position: absolute;
+      right: 4px;
+      top: 0;
+      font-family: 'Courier New', monospace;
+      font-size: 11px;
+      color: #fff;
+      line-height: 16px;
+    }
+
+    #gabrielStatusText {
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+    .fine    { color: #0f0 !important; }
+    .caution { color: yellow !important; }
+    .danger  { color: orange !important; }
+    .critical{ color: red !important; }
+
+    .wave-container {
+      width: 100%;
+      height: 80px;
+      border: 1px solid #0f0;
+      margin: 8px 0;
+      position: relative;
+      overflow: hidden;
+      background-color: #000;
+      display: none;
+    }
+
+    .gabriel-metrics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px;
+      margin-top: 6px;
+    }
+    .gabriel-metric {
+      border: 1px solid #0f0;
+      padding: 3px 5px;
+      background: #000;
+      font-family: 'Courier New', monospace;
+      font-size: 11px;
+      color: #0f0;
+    }
+    .gabriel-metric .met-label { color: #0f0; font-size: 10px; opacity: 0.7; }
+    .gabriel-metric .met-value { font-weight: bold; }
+
+    /* ── GABRIEL OUTPUT CONSOLE (enhanced with new classes) ── */
+    #gabrielOutputConsole {
+      background: #000;
+      border: 1px solid #0f0;
+      padding: 8px;
+      margin-top: 8px;
+      font-family: 'Courier New', monospace;
+      font-size: 11px;
+      color: #0f0;
+      min-height: 80px;
+      max-height: 200px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .c-idle     { color: #0a4a0a; }
+    .c-stage    { color: #00cc00; font-weight: bold; }
+    .c-key      { color: #33ff33; }
+    .c-dispatch { color: #aaffaa; }
+    .c-decree   { color: #ffffff; font-style: italic; }
+    .console-cursor {
+      display: inline-block;
+      width: 8px;
+      height: 13px;
+      background: #0f0;
+      vertical-align: middle;
+      animation: cur-blink 1s step-end infinite;
+    }
+    @keyframes cur-blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+    /* ── CHAT ── */
+    #chatLog {
+      height: 150px; /* Slightly taller to accommodate more messages */
+      overflow-y: auto;
+      background-color: #fff;
+      border-style: solid;
+      border-width: 1px;
+      border-top-color: #808080;
+      border-left-color: #808080;
+      border-bottom-color: #dfdfdf;
+      border-right-color: #dfdfdf;
+      padding: 4px;
+      font-size: 12px;
+      margin-bottom: 4px;
+    }
+    .msg-agent    { color: #000080; }
+    .msg-customer { color: #000; }
+    .msg-simulated { color: #888; font-style: italic; border-left: 2px solid #aaa; padding-left: 4px; margin: 2px 0; } /* For simulated messages */
+    #chatInput {
+      width: calc(100% - 70px);
+    }
+
+    .footer {
+      text-align: center;
+      padding: 8px;
+      font-size: 12px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+<h1>ExCorText UPI v3.0 | Unit Processing Interface</h1>
+
+<!-- TCKN FIELD -->
+<div class="section">
+  <span class="header">TCKN FIELD</span>
+  <input type="text" id="caseIdInput" placeholder="Enter Registry TCKN" style="width:300px;">
+  <button onclick="searchCase()">Search</button>
+  <button onclick="resetAll()" style="margin-left:4px;">Reset</button>
+  <div id="searchMessage">Please enter a registry index to initiate processing.</div>
+</div>
+
+<div class="container">
+
+  <!-- ═══════════════ LEFT COLUMN ═══════════════ -->
+  <div>
+
+    <!-- CUSTOMER INFORMATION -->
+    <div class="section">
+      <span class="header">Customer Information</span>
+      <div class="field-row">
+        <div class="field-label">Customer Name:</div>
+        <div class="field-value copyable-text" id="customerName"></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">Primary Phone:</div>
+        <div class="field-value copyable-text" id="primaryPhone"></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">Alternate Phone:</div>
+        <div class="field-value copyable-text" id="alternatePhone"></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">Registry Cipher:</div>
+        <div class="field-value copyable-text" id="contactId"></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">Corporal Address:</div>
+        <div class="field-value copyable-text" id="address"></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">Digital Address:</div>
+        <div class="field-value copyable-text" id="email"></div>
+      </div>
+    </div>
+
+    <!-- OPERATIVE INFORMATION -->
+    <div class="section">
+      <span class="header">Operative Information</span>
+      <div class="field-row">
+        <div class="field-label">Sector Code:</div>
+        <div class="field-value copyable-text" id="deptCode"></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">Designation:</div>
+        <div class="field-value copyable-text" id="deptName"></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">Registry Triage:</div>
+        <div class="field-value copyable-text" id="techCode"></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">Designated Title:</div>
+        <div class="field-value copyable-text" id="techName"></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">Primary Contact Node:</div>
+        <div class="field-value copyable-text" id="centerPhone"></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">Alternate Contact Node:</div>
+        <div class="field-value copyable-text" id="fax"></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">Designation Address:</div>
+        <div class="field-value copyable-text" id="centerAddress"></div>
+      </div>
+    </div>
+
+    <!-- REPAIR INFORMATION (now with separate Issue Details and Observation Log) -->
+    <div class="section">
+      <span class="header">Repair Information</span>
+      <div class="field-row">
+        <div class="field-label">Phase:</div>
+        <div class="field-value copyable-text" id="phase"></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">Request Date:</div>
+        <div class="field-value copyable-text" id="requestDate"></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">Resolution Mandate:</div>
+        <div class="field-value copyable-text" id="dueDate"></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">Reported Malfunction:</div>
+        <div class="field-value copyable-text" id="reportedIssue"></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">Status Indicator:</div>
+        <div class="field-value copyable-text" id="statusIndicator"></div>
+      </div>
+      <!-- Changed label from "Observation" to "Issue Details" -->
+      <div class="field-row">
+        <div class="field-label">Issue Details:</div>
+        <div class="field-value copyable-text" id="issueDetails"></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">Instructions:</div>
+        <div class="field-value copyable-text" id="instructions"></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">Notes:</div>
+        <div class="field-value copyable-text" id="notes"></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">Recurrence Flag:</div>
+        <div class="field-value copyable-text" id="repeatRepair"></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">Verification Timestamp:</div>
+        <div class="field-value copyable-text" id="verifiedDate"></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">Temporal Interval:</div>
+        <div class="field-value copyable-text" id="verifiedTime"></div>
+      </div>
+    </div>
+
+    <!-- OBSERVATION LOG (renamed from FIELD LOG) -->
+    <div class="section">
+      <span class="header">Observation Log</span>
+      <div style="padding: 2px 0;">
+        <textarea id="agentNote" rows="3" style="width:100%;" placeholder="Enter your observations here..."></textarea>
+      </div>
+      <button onclick="saveNote()">Commit To Record</button>
+      <span id="noteSaveMsg" style="font-size:12px; color:green; margin-left:8px;"></span>
+    </div>
+
+  </div><!-- end left column -->
+
+  <!-- ═══════════════ RIGHT COLUMN ═══════════════ -->
+  <div>
+
+    <!-- GABRIEL PIPELINE TERMINAL (unchanged) -->
+    <div class="section gabriel-terminal">
+      <div class="header">▓ SEMANTIC INFERENCE PROGRESSION ▓</div>
+
+      <div class="pipeline-bar">
+        <span class="pipe-step" id="pSandra">SANDRA</span>
+        <span class="pipe-arrow">→</span>
+        <span class="pipe-step" id="pUriel">URIEL/PHOEBUS</span>
+        <span class="pipe-arrow">→</span>
+        <span class="pipe-step" id="pGabriel">GABRIEL</span>
+        <span class="pipe-arrow">→</span>
+        <span class="pipe-step" id="pMary">MARY</span>
+      </div>
+
+      <div class="confidence-bar-wrap">
+        <div class="confidence-bar-fill" id="confBar" style="width:0%; background:#300;"></div>
+        <span class="confidence-bar-label" id="confLabel">---</span>
+      </div>
+
+      <div id="gabrielStatusText" class="fine">---</div>
+
+      <div class="field-row">
+        <div class="field-label" style="color:#0f0; font-family:'Courier New',monospace; font-size:12px;">STATUS:</div>
+        <div class="field-value" id="gPipelineStatus" style="border:1px solid #0f0; background:#000; color:#0f0; font-family:'Courier New',monospace; font-size:12px;">IDLE</div>
+      </div>
+      <div class="field-row">
+        <div class="field-label" style="color:#0f0; font-family:'Courier New',monospace; font-size:12px;">CONFIDENCE:</div>
+        <div class="field-value" id="gConfidence" style="border:1px solid #0f0; background:#000; color:#0f0; font-family:'Courier New',monospace; font-size:12px;">---</div>
+      </div>
+      <div class="field-row">
+        <div class="field-label" style="color:#0f0; font-family:'Courier New',monospace; font-size:12px;">OVERRIDE THRESHOLD:</div>
+        <div class="field-value" id="gHitl" style="border:1px solid #0f0; background:#000; color:#0f0; font-family:'Courier New',monospace; font-size:12px;">---</div>
+      </div>
+      <div class="field-row">
+        <div class="field-label" style="color:#0f0; font-family:'Courier New',monospace; font-size:12px;">PURCHASE DECREE:</div>
+        <div class="field-value" id="gWarranty" style="border:1px solid #0f0; background:#000; color:#0f0; font-family:'Courier New',monospace; font-size:12px;">---</div>
+      </div>
+
+      <div class="wave-container" id="waveWrap">
+        <canvas id="waveCanvas" width="500" height="80"></canvas>
+      </div>
+
+      <div class="gabriel-metrics">
+        <div class="gabriel-metric"><div class="met-label">TOKENS PROCESSED</div><div class="met-value" id="gTokens">---</div></div>
+        <div class="gabriel-metric"><div class="met-label">SCHEMA VERSION</div><div class="met-value" id="gSchema">---</div></div>
+        <div class="gabriel-metric"><div class="met-label">STAGE LATENCY</div><div class="met-value" id="gLatency">---</div></div>
+        <div class="gabriel-metric"><div class="met-label">CORPUS SOURCES</div><div class="met-value" id="gSources">---</div></div>
+      </div>
+
+      <div id="gabrielOutputConsole">[ AWAITING INFERENCE... ]<span class="console-cursor"></span></div>
+
+      <div style="margin-top:6px; display:flex; gap:6px; align-items:center;">
+        <button onclick="copyGabriel()">Extract Response</button>
+        <button onclick="runGabriel()" style="border-top-color:#0f0; border-left-color:#0f0; color:#000080; font-weight:bold;">⟳ Recycle Instance</button>
+        <span id="copyConfirm" style="font-family:'Courier New',monospace; font-size:11px; color:#0f0; display:none;">// COPIED TO CLIPBOARD</span>
+      </div>
+    </div>
+
+    <!-- COMMUNICATION CHANNEL (with new Simulate button) -->
+    <div class="section">
+      <span class="header">Communication Channel</span>
+      <div id="chatLog">
+        <div class="msg-customer"><strong>System:</strong> Registry index missing. Input registry index to begin.</div>
+      </div>
+      <input type="text" id="chatInput" placeholder="Type a message..." style="width:calc(100% - 150px);" onkeypress="if(event.key==='Enter')sendChat()">
+      <button onclick="sendChat()" style="margin-left:4px;">Submit</button>
+      <button onclick="simulateConversation()" style="margin-left:4px;">Simulate Conversation</button>
+    </div>
+
+    <!-- PRODUCT INFORMATION (unchanged) -->
+    <div class="section">
+      <span class="header">Product Information</span>
+      <div class="field-row">
+        <div class="field-label">Product:</div>
+        <div class="field-value copyable-text" id="product"></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">Manufacturer:</div>
+        <div class="field-value copyable-text" id="manufacturer"></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">Model:</div>
+        <div class="field-value copyable-text" id="model"></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">Serial No:</div>
+        <div class="field-value copyable-text" id="serialNo"></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">Purchase Date:</div>
+        <div class="field-value copyable-text" id="purchaseDate"></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">Warranty Status:</div>
+        <div class="field-value copyable-text" id="warrantyStatus"></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">Vendor:</div>
+        <div class="field-value copyable-text" id="vendor"></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">Asset ID:</div>
+        <div class="field-value copyable-text" id="assetId"></div>
+      </div>
+    </div>
+
+    <!-- PROCESSING TIMELINE INFORMATION (unchanged) -->
+    <div class="section">
+      <span class="header">Processing Timeline Information</span>
+      <table>
+        <thead>
+          <tr><th>Status</th><th>Basis</th><th>Notation</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td id="status" class="copyable-text"></td>
+            <td id="reason" class="copyable-text"></td>
+            <td id="comments" class="copyable-text"></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="field-row" style="margin-top:8px;">
+        <div class="field-label">Suspension Basis:</div>
+        <div class="field-value copyable-text" id="pendingReason"></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">Procurement Record:</div>
+        <div class="field-value copyable-text" id="orderInfo"></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">Liability Class:</div>
+        <div class="field-value copyable-text" id="chargeStatus"></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">Operational Requirement:</div>
+        <div class="field-value copyable-text" id="serviceType"></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">Initiation Timestamp:</div>
+        <div class="field-value copyable-text" id="startDate"></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">Resolution Timestamp:</div>
+        <div class="field-value copyable-text" id="completionDate"></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">Return Timestamp:</div>
+        <div class="field-value copyable-text" id="deliveryDate"></div>
+      </div>
+    </div>
+
+  </div><!-- end right column -->
+</div><!-- end container -->
+
+<!-- DISCLAIMER (unchanged) -->
+<div class="section">
+  <span class="header">Disclaimer</span>
+  <p style="color:#000; font-size:13px; margin: 4px 0; padding-left:4px;">
+    This repair ticket management simulator is for demonstration and illustrative purposes only. All data are fictional and do not correspond to real individuals or businesses. Any resemblance to actual persons, living or deceased, or real-life occurrences is purely coincidental. This simulator is not intended for decision-making in authentic repair scenarios. Sunshyne Labs disclaims all warranties regarding the accuracy of simulated data. Users bear sole responsibility for compliance with applicable regulations in context, including data privacy laws and standards.
+  </p>
+</div>
+
+<div class="footer">
+  &copy; 2026 Sunshyne Labs. All rights reserved.
+</div>
+
+<script>
+// ══════════════════════════════════════════════════
+//  DATA (full original array)
+// ══════════════════════════════════════════════════
+const customerData = [
+  {
+    "caseId":"TCKN199605040001",
+    "customerName":"John Smith",
+    "primaryPhone":"555-212-0001","alternatePhone":"555-212-0101",
+    "address":"1924 Elm St, Madison, NY",
+    "contactId":"CUST001","contactPhone":"555-212-0201",
+    "deptCode":"SVC001","deptName":"West Service",
+    "techCode":"TECH001","techName":"Crisóstomo Ibarra",
+    "centerPhone":"555-212-0701","fax":"555-212-0801",
+    "centerAddress":"9035 Service Ave, Riverside, NC",
+    "email":"simoun@example.com",
+    "phase":"Follow-up","requestDate":"1996-05-02","dueDate":"1996-05-07",
+    "reportedIssue":"Check Ventilation | Warning",
+    "statusIndicator":"Heat Dissipation",
+    "issueDetails":"Unit runs but clothes remain damp. Cycle duration extended significantly. Heat cuts out before cycle completion.",
+    "instructions":"Clear external exhaust duct from interior termination to exterior cap. Inspect full venting path for kinks, crush points, or accumulated lint. Test airflow post-clearing. 90% blockage threshold — hard safety cutoff engaged.",
+    "notes":"Call before arrival",
+    "repeatRepair":"No","verifiedDate":"1996-05-02 10:00","verifiedTime":"10:00",
+    "product":"EC-1 Electric Dryer","manufacturer":"Example Corporation",
+    "model":"model1","serialNo":"SN85329037","purchaseDate":"1994-12-21",
+    "warrantyStatus":"Out of Warranty","vendor":"Example Appliances","assetId":"ASSET001",
+    "status":"Completed","reason":"Airflow obstruction confirmed",
+    "comments":"Duct cleared. Airflow restored. Heat Dissipation cycle completed post-service — unit entered cooldown normally. Code cleared.",
+    "pendingReason":null,"orderInfo":"ORD10851","chargeStatus":"Paid",
+    "serviceType":"Repair","startDate":"1996-05-02 09:00","completionDate":"1996-05-02 15:00","deliveryDate":"1996-05-02 17:00"
+  },
+  {
+    "caseId":"TCKN199605040002",
+    "customerName":"Jane Doe",
+    "primaryPhone":"555-212-0002","alternatePhone":"555-212-0102",
+    "address":"7024 Birch St, Madison, TX",
+    "contactId":"CUST002","contactPhone":"555-212-0202",
+    "deptCode":"SVC002","deptName":"East Service",
+    "techCode":"TECH002","techName":"Crisóstomo Ibarra",
+    "centerPhone":"555-212-0701","fax":"555-212-0801",
+    "centerAddress":"1684 Service Ave, Georgetown, PA",
+    "email":"simoun@example.com",
+    "phase":"Final","requestDate":"1996-05-03","dueDate":"1996-05-07",
+    "reportedIssue":"Thermistor Cessation",
+    "statusIndicator":"Diagnostic Commencement",
+    "issueDetails":"Unit heats inconsistently. Temperature fluctuates without pattern. Display showing fault code. Clothes sometimes scorched, sometimes cold. Diagnostic Commencement sequence initiated prior to call — confirmed unit entered self-test mode before fault was isolated.",
+    "instructions":"Run full diagnostic sequence. Identify which thermistor module is reporting logical fallacies in thermal readings. Replace NTC thermistor node. Verify thermal regulation post-replacement with Auto Dry cycle.",
+    "notes":"No pets",
+    "repeatRepair":"No","verifiedDate":"1996-05-03 10:00","verifiedTime":"10:00",
+    "product":"EC-1 Electric Dryer","manufacturer":"Example Corporation",
+    "model":"model1","serialNo":"SN84093639","purchaseDate":"1995-11-20",
+    "warrantyStatus":"In Warranty","vendor":"Example Appliances","assetId":"ASSET002",
+    "status":"In Progress","reason":"Thermistor module defect confirmed","comments":"Replacement part ordered.",
+    "pendingReason":"Part on order","orderInfo":"ORD16006","chargeStatus":"No Charge",
+    "serviceType":"Repair","startDate":"1996-05-03 09:00","completionDate":"","deliveryDate":""
+  },
+  {
+    "caseId":"TCKN199605040003",
+    "customerName":"Robert Johnson",
+    "primaryPhone":"555-212-0003","alternatePhone":"555-212-0103",
+    "address":"3833 Cedar St, Riverside, NY",
+    "contactId":"CUST003","contactPhone":"555-212-0203",
+    "deptCode":"SVC003","deptName":"West Service",
+    "techCode":"TECH003","techName":"Maria Clara",
+    "centerPhone":"555-212-0702","fax":"555-212-0802",
+    "centerAddress":"6077 Service Ave, Greenville, PA",
+    "email":"maria@example.com",
+    "phase":"Follow-up","requestDate":"1996-05-04","dueDate":"1996-05-10",
+    "reportedIssue":"Mechanical Apraxia",
+    "statusIndicator":"Diagnostic Commencement",
+    "issueDetails":"Drum does not rotate. Motor sounds like it is attempting to start, then stops. Error code displayed. Unit was loaded normally.",
+    "instructions":"Run Diagnostic Commencement sequence first to confirm active fault code before disassembly. Check spinal harness between drum motor and main control board. Inspect motor control board for fault codes. Replace drum motor assembly or main PCB callosum as diagnostic indicates.",
+    "notes":"Prefer mornings",
+    "repeatRepair":"No","verifiedDate":"1996-05-04 10:00","verifiedTime":"10:00",
+    "product":"EC-1 Electric Dryer","manufacturer":"Example Corporation",
+    "model":"model2","serialNo":"SN81691040","purchaseDate":"1994-03-15",
+    "warrantyStatus":"Out of Warranty","vendor":"Example Appliances","assetId":"ASSET003",
+    "status":"Scheduled","reason":"Technician assigned","comments":"Motor control board diagnostics pending.",
+    "pendingReason":null,"orderInfo":"ORD99733","chargeStatus":"No Charge",
+    "serviceType":"Repair","startDate":"1996-05-04 09:00","completionDate":"","deliveryDate":""
+  },
+  {
+    "caseId":"TCKN199605040004",
+    "customerName":"Emily Davis",
+    "primaryPhone":"555-212-0004","alternatePhone":"555-212-0104",
+    "address":"1016 Pine St, Springfield, PA",
+    "contactId":"CUST004","contactPhone":"555-212-0204",
+    "deptCode":"SVC004","deptName":"West Service",
+    "techCode":"TECH004","techName":"Padre Florentino",
+    "centerPhone":"555-212-0703","fax":"555-212-0803",
+    "centerAddress":"5255 Service Ave, Fairview, MI",
+    "email":"florentino@example.com",
+    "phase":"Follow-up","requestDate":"1996-05-03","dueDate":"1996-05-07",
+    "reportedIssue":"Port Containment Failure",
+    "statusIndicator":"Filter Missing",
+    "issueDetails":"Unit will not begin a cycle. Port/dryer door appears closed but machine does not register it. Pressing start does nothing. No error display — just silence. Technician also noted Filter Missing indicator active on arrival — filter had been removed for cleaning and not reseated. Secondary finding, not primary cause.",
+    "instructions":"Inspect port latch assembly for physical deformation. Test port ligament continuity with multimeter. Replace latch cartilage and/or port switch nerves as indicated.",
+    "notes":"Call before arrival",
+    "repeatRepair":"No","verifiedDate":"1996-05-03 10:00","verifiedTime":"10:00",
+    "product":"EC-1 Electric Dryer","manufacturer":"Example Corporation",
+    "model":"model3","serialNo":"SN88461803","purchaseDate":"1995-10-13",
+    "warrantyStatus":"In Warranty","vendor":"Example Appliances","assetId":"ASSET004",
+    "status":"In Progress","reason":"Awaiting parts","comments":"Port latch assembly ordered.",
+    "pendingReason":"Backorder","orderInfo":"ORD21915","chargeStatus":"No Charge",
+    "serviceType":"Repair","startDate":"1996-05-03 09:00","completionDate":"","deliveryDate":""
+  },
+  {
+    "caseId":"TCKN199605040005",
+    "customerName":"Michael Brown",
+    "primaryPhone":"555-212-0005","alternatePhone":"555-212-0105",
+    "address":"1896 Oak St, Greenville, OH",
+    "contactId":"CUST005","contactPhone":"555-212-0205",
+    "deptCode":"SVC005","deptName":"West Service",
+    "techCode":"TECH005","techName":"Placido Penitente",
+    "centerPhone":"555-212-0704","fax":"555-212-0804",
+    "centerAddress":"7768 Service Ave, Bristol, FL",
+    "email":"placido@example.com",
+    "phase":"Final","requestDate":"1996-05-01","dueDate":"1996-05-05",
+    "reportedIssue":"Check Ventilation | CRITICAL",
+    "statusIndicator":"The Four Horsemen",
+    "issueDetails":"Unit shuts off within minutes of starting. Burning smell reported. Exterior exhaust vent cap was found crushed behind unit. Customer reports this has been ongoing for months. The Four Horsemen absent during customer observation — unit shut down before entering Heat Dissipation or cooldown phase. Thermal cutoff confirmed premature.",
+    "instructions":"URGENT — do not operate. Full duct replacement required. External venting path must be completely liberated before any test cycle. Inspect heating element for heat damage. Document pre-service condition.",
+    "notes":"Prefer mornings. Unit not to be used until cleared.",
+    "repeatRepair":"Yes","verifiedDate":"1996-05-01 10:00","verifiedTime":"10:00",
+    "product":"EC-1 Electric Dryer","manufacturer":"Example Corporation",
+    "model":"model3","serialNo":"SN24972279","purchaseDate":"1995-07-06",
+    "warrantyStatus":"In Warranty","vendor":"Example Appliances","assetId":"ASSET005",
+    "status":"Scheduled","reason":"Critical airflow failure — terminal state","comments":"Full duct replacement required. Parts sourced not covered by warranty.",
+    "pendingReason":"Parts incoming","orderInfo":"ORD75612","chargeStatus":"Paid",
+    "serviceType":"Repair","startDate":"1996-05-05 09:00","completionDate":"","deliveryDate":""
+  },
+  {
+    "caseId":"TCKN199605040006",
+    "customerName":"Linda Wilson",
+    "primaryPhone":"555-212-0006","alternatePhone":"555-212-0106",
+    "address":"8417 Maple St, Madison, GA",
+    "contactId":"CUST006","contactPhone":"555-212-0206",
+    "deptCode":"SVC006","deptName":"Central Service",
+    "techCode":"TECH006","techName":"Placido Penitente",
+    "centerPhone":"555-212-0704","fax":"555-212-0804",
+    "centerAddress":"8937 Service Ave, Bristol, IL",
+    "email":"placido@example.com",
+    "phase":"Final","requestDate":"1996-05-02","dueDate":"1996-05-09",
+    "reportedIssue":"Anhedonic Trauma",
+    "statusIndicator":"Cycle Complete",
+    "issueDetails":"Auto Dry cycles end too early. Clothes remain damp. Timed cycles work fine. Problem started after a fabric softener sheet blocked the sensor area. Cycle Complete indicator triggering prematurely — unit declaring end-of-cycle while clothes remain damp. Confirms Auto Dry logic is receiving false-dry signals from contaminated nerve endings.",
+    "instructions":"Locate and clean both moisture nerve endings inside drum with fine steel wool — remove all residue and softener film. Run Auto Dry diagnostic cycle. Replace sensor module if fault code persists after cleaning.",
+    "notes":"Elderly customer. Allow extra time.",
+    "repeatRepair":"No","verifiedDate":"1996-05-02 10:00","verifiedTime":"10:00",
+    "product":"EC-1 Electric Dryer","manufacturer":"Example Corporation",
+    "model":"model1","serialNo":"SN55091234","purchaseDate":"1993-08-10",
+    "warrantyStatus":"Out of Warranty","vendor":"Example Appliances","assetId":"ASSET006",
+    "status":"Completed","reason":"Sensor contamination confirmed","comments":"nerve endings cleaned. Auto Dry cycle verified. No replacement required.",
+    "pendingReason":null,"orderInfo":"ORD55601","chargeStatus":"Paid",
+    "serviceType":"Repair","startDate":"1996-05-02 09:00","completionDate":"1996-05-02 13:00","deliveryDate":"1996-05-02 15:00"
+  },
+  {
+    "caseId":"TCKN199605040007",
+    "customerName":"James Moore",
+    "primaryPhone":"555-212-0007","alternatePhone":"555-212-0107",
+    "address":"2201 Walnut St, Georgetown, TX",
+    "contactId":"CUST007","contactPhone":"555-212-0207",
+    "deptCode":"SVC007","deptName":"East Service",
+    "techCode":"TECH007","techName":"Kapitán Tiago",
+    "centerPhone":"555-212-0705","fax":"555-212-0805",
+    "centerAddress":"8935 Service Ave, Fairview, FL",
+    "email":"donsanti@example.com",
+    "phase":"Initial","requestDate":"1996-05-03","dueDate":"1996-05-08",
+    "reportedIssue":"Parasitic Dissipation",
+    "statusIndicator":"The Four Horsemen",
+    "issueDetails":"Unit tumbles but produces no heat. All settings appear correct. A second dryer on the same circuit works normally. Issue began after recent electrical work in the home. Customer confirms Fire light never activates during cycle — drum tumbles, Ice light present, Fire light absent. Consistent with heating suspension due to missing voltage leg.",
+    "instructions":"Test for 240V at terminal block — verify both legs of the supply are present and stable. Inspect neutral wire integrity. If voltage leg is absent or unstable, refer to licensed electrician before further service.",
+    "notes":"Recent home electrical work. Coordinate with customer re: electrician.",
+    "repeatRepair":"No","verifiedDate":"1996-05-03 10:00","verifiedTime":"10:00",
+    "product":"EC-1 Electric Dryer","manufacturer":"Example Corporation",
+    "model":"model1","serialNo":"SN77301827","purchaseDate":"1995-01-05",
+    "warrantyStatus":"In Warranty","vendor":"Example Appliances","assetId":"ASSET007",
+    "status":"Scheduled","reason":"Infrastructure fault — electrician referral pending","comments":"Customer arranging electrician visit first.",
+    "pendingReason":"Awaiting electrician","orderInfo":"ORD41007","chargeStatus":"Warranty",
+    "serviceType":"Inspection","startDate":"1996-05-06 09:00","completionDate":"","deliveryDate":""
+  },
+  {
+    "caseId":"TCKN199605040008",
+    "customerName":"Patricia Taylor",
+    "primaryPhone":"555-212-0008","alternatePhone":"555-212-0108",
+    "address":"9944 Oak St, Salem, GA",
+    "contactId":"CUST008","contactPhone":"555-212-0208",
+    "deptCode":"SVC008","deptName":"Central Service",
+    "techCode":"TECH008","techName":"Maria Clara",
+    "centerPhone":"555-212-0702","fax":"555-212-0802",
+    "centerAddress":"2141 Service Ave, Georgetown, OH",
+    "email":"maria@example.com",
+    "phase":"Follow-up","requestDate":"1996-05-01","dueDate":"1996-05-09",
+    "reportedIssue":"Drive Train Amputation",
+    "statusIndicator":"Infantile Barrier",
+    "issueDetails":"Loud humming noise but drum does not turn. Motor sounds active. Unit heavily used and overloaded on a regular basis. Clothes remain stationary in drum.",
+    "instructions":"Inspect spinal harness for disconnection. Check for drum obstruction or overload damage. If harness intact, test motor windings for continuity. Replace drive motor assembly if defect confirmed.",
+    "notes":"Call before arrival. Customer has large household — frequent heavy loads. Customer activated Infantile Barrier attempting to stop the unit during malfunction — panel lock must be dissected before diagnostic access. Advise operative.",
+    "repeatRepair":"Yes","verifiedDate":"1996-05-01 10:00","verifiedTime":"10:00",
+    "product":"EC-1 Electric Dryer","manufacturer":"Example Corporation",
+    "model":"model4","serialNo":"SN90012765","purchaseDate":"1994-06-20",
+    "warrantyStatus":"Out of Warranty","vendor":"Example Appliances","assetId":"ASSET008",
+    "status":"In Progress","reason":"Motor harness failure confirmed","comments":"Motor assembly replacement in progress.",
+    "pendingReason":"Part on order","orderInfo":"ORD88008","chargeStatus":"Paid",
+    "serviceType":"Repair","startDate":"1996-05-01 09:00","completionDate":"","deliveryDate":""
+  },
+  {
+    "caseId":"TCKN199605040009",
+    "customerName":"George Jackson",
+    "primaryPhone":"555-212-0009","alternatePhone":"555-212-0109",
+    "address":"5533 Pine St, Bristol, CA",
+    "contactId":"CUST009","contactPhone":"555-212-0209",
+    "deptCode":"SVC009","deptName":"West Service",
+    "techCode":"TECH009","techName":"Padre Florentino",
+    "centerPhone":"555-212-0703","fax":"555-212-0803",
+    "centerAddress":"6612 Service Ave, Clinton, TX",
+    "email":"florentino@example.com",
+    "phase":"Initial","requestDate":"1996-05-05","dueDate":"1996-05-12",
+    "reportedIssue":"Check Ventilation | Caution",
+    "statusIndicator":"Mechanical Edema",
+    "issueDetails":"Drying taking noticeably longer than before. Unit still completes cycles but customer notices clothes are warm-damp rather than dry. No error display. Vent last cleaned 18 months ago. Customer has been regularly using Decontaminate setting for large loads — steam cycling into restricted duct may have accelerated lint accumulation at mid-run junction.",
+    "instructions":"Inspect and clear lint trap housing, transition duct, mid-run obstruction, inlet hose. Check duct material — foil accordion ducts must be replaced with rigid or semi-rigid. Test airflow with anemometer if available. Code indicates 85% restriction.",
+    "notes":"Prefer afternoons",
+    "repeatRepair":"No","verifiedDate":"1996-05-05 10:00","verifiedTime":"10:00",
+    "product":"EC-1 Electric Dryer","manufacturer":"Example Corporation",
+    "model":"model2","serialNo":"SN11223344","purchaseDate":"1995-02-14",
+    "warrantyStatus":"In Warranty","vendor":"Example Appliances","assetId":"ASSET009",
+    "status":"Scheduled","reason":"Progressive airflow restriction","comments":"Technician visit booked. Duct inspection required.",
+    "pendingReason":null,"orderInfo":"ORD77009","chargeStatus":"Warranty",
+    "serviceType":"Maintenance","startDate":"1996-05-06 14:00","completionDate":"","deliveryDate":""
+  },
+  {
+    "caseId":"TCKN199605040010",
+    "customerName":"Susan Anderson",
+    "primaryPhone":"555-212-0010","alternatePhone":"555-212-0110",
+    "address":"1122 Elm St, Fairview, MI",
+    "contactId":"CUST010","contactPhone":"555-212-0210",
+    "deptCode":"SVC010","deptName":"East Service",
+    "techCode":"TECH010","techName":"Placido Penitente",
+    "centerPhone":"555-212-0704","fax":"555-212-0804",
+    "centerAddress":"4490 Service Ave, Salem, GA",
+    "email":"placido@example.com",
+    "phase":"Final","requestDate":"1996-05-04","dueDate":"1996-05-11",
+    "reportedIssue":"Galvanic Mismatch",
+    "statusIndicator":"Diagnostic Commencement",
+    "issueDetails":"Unit installed in newly renovated laundry room. Does not heat. Installer confirmed power connection but customer reports outlet was recently upgraded and may have been wired incorrectly.",
+    "instructions":"Do not proceed past Diagnostic Commencement sequence until voltage supply is confirmed correct. Initiation protocol will surface fault code — unit will not advance past self-test on mismatched supply. Verify outlet voltage rating matches EC-1 specification (240V/30A). Inspect terminal block wiring configuration. Coordinate with installer or electrician to confirm correct supply before re-testing.",
+    "notes":"New installation — coordinate with contractor if voltage mismatch confirmed.",
+    "repeatRepair":"No","verifiedDate":"1996-05-04 10:00","verifiedTime":"10:00",
+    "product":"EC-1 Electric Dryer","manufacturer":"Example Corporation",
+    "model":"model1","serialNo":"SN17672593","purchaseDate":"1996-01-10",
+    "warrantyStatus":"In Warranty","vendor":"Example Appliances","assetId":"ASSET010",
+    "status":"Scheduled","reason":"Voltage supply mismatch — infrastructure issue","comments":"Electrician verification required before service.",
+    "pendingReason":"Awaiting electrician clearance","orderInfo":"ORD34356","chargeStatus":"Warranty",
+    "serviceType":"Inspection","startDate":"1996-05-07 10:00","completionDate":"","deliveryDate":""
+  },
+  {
+    "caseId":"TCKN199605040011",
+    "customerName":"Christopher Lee",
+    "primaryPhone":"555-212-0011","alternatePhone":"555-212-0111",
+    "address":"9849 Maple St, Fairview, OH",
+    "contactId":"CUST011","contactPhone":"555-212-0211",
+    "deptCode":"SVC011","deptName":"West Service",
+    "techCode":"TECH011","techName":"Maria Clara",
+    "centerPhone":"555-212-0702","fax":"555-212-0802",
+    "centerAddress":"751 Service Ave, Clinton, CA",
+    "email":"maria@example.com",
+    "phase":"Follow-up","requestDate":"1996-05-05","dueDate":"1996-05-09",
+    "reportedIssue":"Flux Resolution Failure",
+    "statusIndicator":"Cycle Complete",
+    "issueDetails":"Unit stops mid-cycle without completing. Display resets. Cycle must be restarted manually. Has happened three times in the past two weeks, always during the heat phase. Customer is on an older circuit. Cycle Complete indicator has not triggered on any of the three interrupted cycles — display resets to standby rather than completing. Distinguishes power interruption from normal end-of-cycle behavior.",
+    "instructions":"Perform system reanimation via circuit breaker reset, not less than 5 minutes to induce oneiric surge until termination. Inspect supply line for voltage instability during cycle. Monitor for outages. If fault recurs consistently, refer infrastructure review to electrician.",
+    "notes":"Prefer mornings",
+    "repeatRepair":"Yes","verifiedDate":"1996-05-05 10:00","verifiedTime":"10:00",
+    "product":"EC-1 Electric Dryer","manufacturer":"Example Corporation",
+    "model":"model2","serialNo":"SN63121477","purchaseDate":"1994-11-21",
+    "warrantyStatus":"Out of Warranty","vendor":"Example Appliances","assetId":"ASSET011",
+    "status":"Completed","reason":"Power interruption — infrastructure root cause","comments":"Hard reset performed. Customer advised re: circuit stability. No internal defect found.",
+    "pendingReason":null,"orderInfo":"ORD11220","chargeStatus":"No Charge",
+    "serviceType":"Repair","startDate":"1996-05-05 09:00","completionDate":"1996-05-05 12:00","deliveryDate":"1996-05-05 14:00"
+  },
+  {
+    "caseId":"TCKN199605040012",
+    "customerName":"Karen Harris",
+    "primaryPhone":"555-212-0012","alternatePhone":"555-212-0112",
+    "address":"9324 Maple St, Riverside, GA",
+    "contactId":"CUST012","contactPhone":"555-212-0212",
+    "deptCode":"SVC012","deptName":"East Service",
+    "techCode":"TECH012","techName":"Crisóstomo Ibarra",
+    "centerPhone":"555-212-0701","fax":"555-212-0801",
+    "centerAddress":"1227 Service Ave, Fairview, PA",
+    "email":"simoun@example.com",
+    "phase":"Follow-up","requestDate":"1996-05-05","dueDate":"1996-05-10",
+    "reportedIssue":"Check Ventilation | Indication",
+    "statusIndicator":"Filter Missing",
+    "issueDetails":"Unit completing cycles but code appeared on display this morning. No obvious symptom yet — clothes drying normally. Customer proactive about reporting. Vent last serviced unknown. Filter Missing indicator also present on initial display review — customer had removed filter for cleaning the previous day and not reseated it. Compounding factor on airflow restriction reading.",
+    "instructions":"Inspect lint trap and accessible duct sections. Clear any partial obstruction. Code indicates approximately 80% restriction — unit still operating but system awareness engaged. Preventive cleaning sufficient if no further obstruction found.",
+    "notes":"Prefer mornings",
+    "repeatRepair":"No","verifiedDate":"1996-05-05 10:00","verifiedTime":"10:00",
+    "product":"EC-1 Electric Dryer","manufacturer":"Example Corporation",
+    "model":"model1","serialNo":"SN99639081","purchaseDate":"1995-11-04",
+    "warrantyStatus":"In Warranty","vendor":"Example Appliances","assetId":"ASSET012",
+    "status":"In Progress","reason":"Preventive airflow service","comments":"Lint trap and accessible duct inspected. Full duct cleaning scheduled.",
+    "pendingReason":null,"orderInfo":"ORD82512","chargeStatus":"Warranty",
+    "serviceType":"Maintenance","startDate":"1996-05-05 09:00","completionDate":"","deliveryDate":""
+  },
+{
+  "caseId": "TCKN199605060001",
+  "customerName": "Dorothy Reyes",
+  "primaryPhone": "555-212-0013",
+  "alternatePhone": "555-212-0113",
+  "address": "4412 Birch St, Clinton, OH",
+  "contactId": "CUST013",
+  "contactPhone": "555-212-0213",
+  "deptCode": "SVC001",
+  "deptName": "West Service",
+  "techCode": "TECH001",
+  "techName": "Cris\u00f3stomo Ibarra",
+  "centerPhone": "555-212-0701",
+  "fax": "555-212-0801",
+  "centerAddress": "9035 Service Ave, Riverside, NC",
+  "email": "simoun@example.com",
+  "phase": "Final",
+  "requestDate": "1996-05-06",
+  "dueDate": "1996-05-10",
+  "reportedIssue": "Divine Comedy Indicator \u2014 Customer Alarmed",
+  "statusIndicator": "Divine Comedy Indicator",
+  "issueDetails": "Customer reports dryer 'acting strange' \u2014 display showing unfamiliar status during a comforter cycle. No error code present. Unit completing cycles normally. Customer had selected Decontaminate + Heavy cycle for a king-sized comforter. DCI status activated as expected per machine behavior. Customer was not informed of this indicator at purchase and interpreted it as a malfunction.",
+  "instructions": "Education case only. Confirm DCI is a status indicator, not an error. Explain that Decontaminate + oversized load triggers Divine Comedy Indicator to signal adjusted steam pressure for large items. No service action required. Document for agent training \u2014 DCI explanation should be included in post-purchase onboarding materials.",
+  "notes": "First-time caller. Patient explanation required.",
+  "repeatRepair": "No",
+  "verifiedDate": "1996-05-06 09:30",
+  "verifiedTime": "09:30",
+  "product": "EC-1 Electric Dryer",
+  "manufacturer": "Example Corporation",
+  "model": "model1",
+  "serialNo": "SN30128843",
+  "purchaseDate": "1996-02-14",
+  "warrantyStatus": "In Warranty",
+  "vendor": "Example Appliances",
+  "assetId": "ASSET013",
+  "status": "Completed",
+  "reason": "Customer education \u2014 DCI is expected behavior",
+  "comments": "Customer reassured. DCI behavior documented in case notes. No dispatch required.",
+  "pendingReason": null,
+  "orderInfo": "ORD13001",
+  "chargeStatus": "No Charge",
+  "serviceType": "Consultation",
+  "startDate": "1996-05-06 09:00",
+  "completionDate": "1996-05-06 09:45",
+  "deliveryDate": "1996-05-06 10:00"
+},
+  {
+  "caseId": "TCKN199605060002",
+  "customerName": "Harold Fontaine",
+  "primaryPhone": "555-212-0014",
+  "alternatePhone": "555-212-0114",
+  "address": "7721 Oak St, Salem, MI",
+  "contactId": "CUST014",
+  "contactPhone": "555-212-0214",
+  "deptCode": "SVC002",
+  "deptName": "East Service",
+  "techCode": "TECH002",
+  "techName": "Maria Clara",
+  "centerPhone": "555-212-0702",
+  "fax": "555-212-0802",
+  "centerAddress": "1684 Service Ave, Georgetown, PA",
+  "email": "maria@example.com",
+  "phase": "Final",
+  "requestDate": "1996-05-06",
+  "dueDate": "1996-05-09",
+  "reportedIssue": "Refractory Period \u2014 Misidentified as Cycle Failure",
+  "statusIndicator": "Refractory Period",
+  "issueDetails": "Customer opened dryer door during final 120 seconds of cycle. Display showed RP status. Customer believed cycle had frozen or failed and powered unit off at the wall. Restarted unit \u2014 clothes warm but slightly damp from interrupted cooldown. Customer interpreted residual heat as malfunction. No fault code ever generated. Unit entered Refractory Period normally post-heat phase.",
+  "instructions": "Education case. Explain Refractory Period is the machine's internal cooldown cycle \u2014 heating element off, drum still tumbling to prevent wrinkle-set and thermal stress on drum components. Advise customer not to interrupt during RP phase. Run one full Normal cycle to confirm unit completes Refractory Period and exits to Cycle Complete status without issue.",
+  "notes": "No pets. Customer tech-averse \u2014 use plain language.",
+  "repeatRepair": "No",
+  "verifiedDate": "1996-05-06 10:00",
+  "verifiedTime": "10:00",
+  "product": "EC-1 Electric Dryer",
+  "manufacturer": "Example Corporation",
+  "model": "model1",
+  "serialNo": "SN44029913",
+  "purchaseDate": "1995-06-30",
+  "warrantyStatus": "In Warranty",
+  "vendor": "Example Appliances",
+  "assetId": "ASSET014",
+  "status": "Completed",
+  "reason": "Customer education \u2014 RP behavior is normal end-of-cycle cooldown",
+  "comments": "Full cycle run during call. RP entered and exited normally. Cycle Complete confirmed. Customer satisfied.",
+  "pendingReason": null,
+  "orderInfo": "ORD14002",
+  "chargeStatus": "No Charge",
+  "serviceType": "Consultation",
+  "startDate": "1996-05-06 10:00",
+  "completionDate": "1996-05-06 10:50",
+  "deliveryDate": "1996-05-06 11:00"
+},
+  {
+  "caseId": "TCKN199605060003",
+  "customerName": "Angela Voss",
+  "primaryPhone": "555-212-0015",
+  "alternatePhone": "555-212-0115",
+  "address": "3305 Cedar St, Greenville, FL",
+  "contactId": "CUST015",
+  "contactPhone": "555-212-0215",
+  "deptCode": "SVC003",
+  "deptName": "West Service",
+  "techCode": "TECH003",
+  "techName": "Padre Florentino",
+  "centerPhone": "555-212-0703",
+  "fax": "555-212-0803",
+  "centerAddress": "6612 Service Ave, Clinton, TX",
+  "email": "florentino@example.com",
+  "phase": "Final",
+  "requestDate": "1996-05-06",
+  "dueDate": "1996-05-09",
+  "reportedIssue": "Temporal Plasticity Indicators \u2014 Timer Erratic",
+  "statusIndicator": "Temporal Plasticity Indicators",
+  "issueDetails": "Customer reports cycle timer jumping \u2014 started at 45 minutes, extended to 62, then dropped to 28 before completing. Customer believes unit is malfunctioning. Unit is on Auto Dry cycle. Customer had previously run multiple Custom cycles \u2014 machine has built conversational history and is actively adapting drying time based on ambient temperature, load composition, and session context. TPI self-adjustment is functioning exactly as designed.",
+  "instructions": "Education case. Explain TPI is not a countdown timer \u2014 it is a dynamic estimate that self-adjusts in real-time based on ambient temperature, moisture sensor data, and the unit's historical context with the user. Advise customer that Manual Dry cycle will override TPI and provide fixed-time operation if predictability is preferred. Document which cycle was running and confirm no fault code was generated at any point.",
+  "notes": "Prefer afternoons.",
+  "repeatRepair": "No",
+  "verifiedDate": "1996-05-06 14:00",
+  "verifiedTime": "14:00",
+  "product": "EC-1 Electric Dryer",
+  "manufacturer": "Example Corporation",
+  "model": "model1",
+  "serialNo": "SN57834011",
+  "purchaseDate": "1996-01-22",
+  "warrantyStatus": "In Warranty",
+  "vendor": "Example Appliances",
+  "assetId": "ASSET015",
+  "status": "Completed",
+  "reason": "Customer education \u2014 TPI adaptive behavior confirmed normal",
+  "comments": "No fault code generated at any point. TPI functioning as designed. Customer opted to switch to Manual Dry for predictability. Documented.",
+  "pendingReason": null,
+  "orderInfo": "ORD15003",
+  "chargeStatus": "No Charge",
+  "serviceType": "Consultation",
+  "startDate": "1996-05-06 14:00",
+  "completionDate": "1996-05-06 14:40",
+  "deliveryDate": "1996-05-06 15:00"
+},
+  {
+  "caseId": "TCKN199605060004",
+  "customerName": "Bernard Okafor",
+  "primaryPhone": "555-212-0016",
+  "alternatePhone": "555-212-0116",
+  "address": "8813 Walnut St, Bristol, CA",
+  "contactId": "CUST016",
+  "contactPhone": "555-212-0216",
+  "deptCode": "SVC004",
+  "deptName": "Central Service",
+  "techCode": "TECH004",
+  "techName": "Kapit\u00e1n Tiago",
+  "centerPhone": "555-212-0705",
+  "fax": "555-212-0805",
+  "centerAddress": "8935 Service Ave, Fairview, FL",
+  "email": "donsanti@example.com",
+  "phase": "Follow-up",
+  "requestDate": "1996-05-06",
+  "dueDate": "1996-05-12",
+  "reportedIssue": "Ouroboric Kernel Mode \u2014 Autonomous Self-Trigger",
+  "statusIndicator": "Ouroboric Kernel Mode",
+  "issueDetails": "Unit entered OK Mode mid-cycle without customer input. Display reverted to primitive state \u2014 no custom cycle memory, no adaptive history, no TPI. Customer alarmed. Unit had been running an Adaptive Cycle when moisture readings fluctuated beyond acceptable variance. System autonomously triggered OK Mode as a protective regression to default state. Unit is attempting internal fault isolation \u2014 treating itself as an abstract logic gate to identify the anomaly.",
+  "instructions": "Do not power cycle immediately. Allow OK Mode to complete its self-diagnostic pass. Note any fault codes that surface during OK Mode active state. Once OK Mode exits, run Manual Dry cycle for 20 minutes to establish baseline. If Adaptive Cycle symptoms return on second attempt, escalate to TH-X diagnostic pathway \u2014 potential thermocouple variance causing erratic moisture data that triggers self-protective OK Mode loop.",
+  "notes": "Customer prefers morning appointments.",
+  "repeatRepair": "No",
+  "verifiedDate": "1996-05-06 11:00",
+  "verifiedTime": "11:00",
+  "product": "EC-1 Electric Dryer",
+  "manufacturer": "Example Corporation",
+  "model": "model2",
+  "serialNo": "SN62047733",
+  "purchaseDate": "1995-04-17",
+  "warrantyStatus": "In Warranty",
+  "vendor": "Example Appliances",
+  "assetId": "ASSET016",
+  "status": "In Progress",
+  "reason": "OK Mode self-triggered \u2014 diagnostic pass pending completion",
+  "comments": "OK Mode still active at close of call. Follow-up scheduled to confirm exit and assess if TH-X pathway required.",
+  "pendingReason": "OK Mode diagnostic in progress",
+  "orderInfo": "ORD16004",
+  "chargeStatus": "Warranty",
+  "serviceType": "Inspection",
+  "startDate": "1996-05-06 11:00",
+  "completionDate": "",
+  "deliveryDate": ""
+},
+  {
+  "caseId": "TCKN199605060005",
+  "customerName": "Teresa Nakamura",
+  "primaryPhone": "555-212-0017",
+  "alternatePhone": "555-212-0117",
+  "address": "2290 Pine St, Fairview, TX",
+  "contactId": "CUST017",
+  "contactPhone": "555-212-0217",
+  "deptCode": "SVC005",
+  "deptName": "East Service",
+  "techCode": "TECH005",
+  "techName": "Placido Penitente",
+  "centerPhone": "555-212-0704",
+  "fax": "555-212-0804",
+  "centerAddress": "7768 Service Ave, Bristol, FL",
+  "email": "placido@example.com",
+  "phase": "Final",
+  "requestDate": "1996-05-06",
+  "dueDate": "1996-05-09",
+  "reportedIssue": "Marcus Mode \u2014 Panel Unresponsive",
+  "statusIndicator": "Marcus Mode",
+  "issueDetails": "Customer reports dryer completely unresponsive. All buttons non-functional. Display active, drum not turning, no cycle initiating. Unit was loaded by a child who pressed multiple panel buttons in sequence. Marcus Mode engaged \u2014 panel lock active. Customer had no knowledge of this feature. Unit is in perfect operational condition.",
+  "instructions": "Identify Marcus Mode indicator on display panel. Guide customer through deactivation sequence per EC-1 manual: press and hold the designated option button for 3 seconds until Marcus Mode indicator clears. Confirm all buttons respond post-deactivation. Run short Manual Dry cycle to confirm normal operation. Document for agent training \u2014 Marcus Mode is frequently misidentified as hardware failure.",
+  "notes": "Household with young children.",
+  "repeatRepair": "No",
+  "verifiedDate": "1996-05-06 09:15",
+  "verifiedTime": "09:15",
+  "product": "EC-1 Electric Dryer",
+  "manufacturer": "Example Corporation",
+  "model": "model1",
+  "serialNo": "SN72104985",
+  "purchaseDate": "1995-12-01",
+  "warrantyStatus": "In Warranty",
+  "vendor": "Example Appliances",
+  "assetId": "ASSET017",
+  "status": "Completed",
+  "reason": "Marcus Mode deactivated \u2014 no hardware fault",
+  "comments": "Panel lock cleared in under 5 minutes. Full panel response confirmed. Manual Dry cycle ran normally. Customer advised on Marcus Mode function.",
+  "pendingReason": null,
+  "orderInfo": "ORD17005",
+  "chargeStatus": "No Charge",
+  "serviceType": "Consultation",
+  "startDate": "1996-05-06 09:00",
+  "completionDate": "1996-05-06 09:30",
+  "deliveryDate": "1996-05-06 09:45"
+},
+  {
+  "caseId": "TCKN199605060006",
+  "customerName": "Franklin Archer",
+  "primaryPhone": "555-212-0018",
+  "alternatePhone": "555-212-0118",
+  "address": "6645 Elm St, Springfield, GA",
+  "contactId": "CUST018",
+  "contactPhone": "555-212-0218",
+  "deptCode": "SVC006",
+  "deptName": "Central Service",
+  "techCode": "TECH006",
+  "techName": "Cris\u00f3stomo Ibarra",
+  "centerPhone": "555-212-0701",
+  "fax": "555-212-0801",
+  "centerAddress": "9035 Service Ave, Riverside, NC",
+  "email": "simoun@example.com",
+  "phase": "Follow-up",
+  "requestDate": "1996-05-06",
+  "dueDate": "1996-05-12",
+  "reportedIssue": "Check Ventilation | Warning \u2014 Post-Service Recurrence",
+  "statusIndicator": "Heat Dissipation",
+  "issueDetails": "Customer had duct professionally cleaned 3 weeks ago following TCKN199605040001. CV-III code has returned. Unit entering Heat Dissipation cycle prematurely \u2014 heat cuts out before cycle completion. Customer performed 5 timed low-heat pre-service cycles as instructed. All 5 completed. Duct cleaning invoice and photo on file. Disco test performed with duct hose removed \u2014 CV-III code persisted. Indicates internal airflow path obstruction, not external duct.",
+  "instructions": "Dispatch approved. Disco test persistence with external duct disconnected confirms internal restriction. Inspect internal lint duct from drum exit to external wall connection. Check for lint accumulation at internal elbow junction, transition hose collar, and within wall cavity section if accessible. Document all internal findings with photo prior to clearing.",
+  "notes": "Repeat caller. Customer frustrated \u2014 was assured prior cleaning resolved issue.",
+  "repeatRepair": "Yes",
+  "verifiedDate": "1996-05-06 13:00",
+  "verifiedTime": "13:00",
+  "product": "EC-1 Electric Dryer",
+  "manufacturer": "Example Corporation",
+  "model": "model2",
+  "serialNo": "SN85329037",
+  "purchaseDate": "1994-12-21",
+  "warrantyStatus": "Out of Warranty",
+  "vendor": "Example Appliances",
+  "assetId": "ASSET018",
+  "status": "Scheduled",
+  "reason": "Disco test persisted \u2014 internal obstruction confirmed",
+  "comments": "Dispatch approved. All preconditions met. Internal duct inspection required.",
+  "pendingReason": null,
+  "orderInfo": "ORD18006",
+  "chargeStatus": "Paid",
+  "serviceType": "Repair",
+  "startDate": "1996-05-08 09:00",
+  "completionDate": "",
+  "deliveryDate": ""
+},
+  {
+  "caseId": "TCKN199605060007",
+  "customerName": "Vivienne Castillo",
+  "primaryPhone": "555-212-0019",
+  "alternatePhone": "555-212-0119",
+  "address": "1183 Maple St, Georgetown, CA",
+  "contactId": "CUST019",
+  "contactPhone": "555-212-0219",
+  "deptCode": "SVC007",
+  "deptName": "West Service",
+  "techCode": "TECH007",
+  "techName": "Maria Clara",
+  "centerPhone": "555-212-0702",
+  "fax": "555-212-0802",
+  "centerAddress": "2141 Service Ave, Georgetown, OH",
+  "email": "maria@example.com",
+  "phase": "Follow-up",
+  "requestDate": "1996-05-06",
+  "dueDate": "1996-05-13",
+  "reportedIssue": "Thermocouple Hallucination \u2014 OK Mode Loop",
+  "statusIndicator": "Ouroboric Kernel Mode",
+  "issueDetails": "Unit displaying TH-X fault code intermittently. Between fault appearances, unit enters OK Mode autonomously \u2014 system detecting its own thermal readings as logically inconsistent and regressing to primitive mode for self-isolation. Customer reports temperature wildly inconsistent: cycle runs extremely hot, then cold within the same load. Thermal variance confirmed beyond \u00b13-4\u00b0C tolerance. OK Mode self-triggering is a system-protective response to the hallucination loop, not a separate fault.",
+  "instructions": "Do not attempt to clear OK Mode manually during active hallucination cycle \u2014 system is self-protecting. Allow OK Mode pass to complete. If TH-X code reappears post-OK Mode exit, the NTC thermocouple module requires replacement. Run Diagnostic Commencement sequence to confirm fault code persistence. If confirmed, dispatch for thermocouple module replacement and full thermal calibration post-install.",
+  "notes": "Customer has been trying to use the dryer despite warnings. Advise unit should not be operated until TH-X is resolved.",
+  "repeatRepair": "No",
+  "verifiedDate": "1996-05-06 14:30",
+  "verifiedTime": "14:30",
+  "product": "EC-1 Electric Dryer",
+  "manufacturer": "Example Corporation",
+  "model": "model3",
+  "serialNo": "SN29871045",
+  "purchaseDate": "1995-09-12",
+  "warrantyStatus": "In Warranty",
+  "vendor": "Example Appliances",
+  "assetId": "ASSET019",
+  "status": "In Progress",
+  "reason": "TH-X confirmed \u2014 thermocouple replacement required",
+  "comments": "Diagnostic Commencement run. TH-X persisted post-OK Mode exit. Dispatch initiated. Part on order.",
+  "pendingReason": "Part on order",
+  "orderInfo": "ORD19007",
+  "chargeStatus": "No Charge",
+  "serviceType": "Repair",
+  "startDate": "1996-05-06 14:00",
+  "completionDate": "",
+  "deliveryDate": ""
+},
+  {
+  "caseId": "TCKN199605060008",
+  "customerName": "Roland Mwangi",
+  "primaryPhone": "555-212-0020",
+  "alternatePhone": "555-212-0120",
+  "address": "9901 Cedar St, Clinton, NY",
+  "contactId": "CUST020",
+  "contactPhone": "555-212-0220",
+  "deptCode": "SVC008",
+  "deptName": "East Service",
+  "techCode": "TECH008",
+  "techName": "Padre Florentino",
+  "centerPhone": "555-212-0703",
+  "fax": "555-212-0803",
+  "centerAddress": "6077 Service Ave, Greenville, PA",
+  "email": "florentino@example.com",
+  "phase": "Initial",
+  "requestDate": "1996-05-06",
+  "dueDate": "1996-05-10",
+  "reportedIssue": "Amphisbaenic Rending",
+  "statusIndicator": "The Four Horsemen",
+  "issueDetails": "Loud bang from inside drum followed by immediate cessation of drum rotation. Motor hum continues but drum stationary. Customer had just loaded an oversized carpet runner \u2014 load weight exceeded capacity. Belt drive sheared against stationary drum. The Four Horsemen indicator absent \u2014 Fire and Ice both present but drum and cycle indicators not completing. Consistent with belt rupture preventing mechanical load completion.",
+  "instructions": "Do not operate. Belt drive rupture confirmed by symptom profile \u2014 idler assembly seizure or bearing collapse likely caused motor to shear belt against stationary drum. Disassemble front panel. Inspect and replace drive belt, idler pulley assembly, and drum bearing as a unit. Check drum surface for scoring from stationary belt contact. Document pre-service condition with photos.",
+  "notes": "Large household. Customer loaded well over recommended capacity. Advise on load limits post-repair.",
+  "repeatRepair": "No",
+  "verifiedDate": "1996-05-06 10:30",
+  "verifiedTime": "10:30",
+  "product": "EC-1 Electric Dryer",
+  "manufacturer": "Example Corporation",
+  "model": "model4",
+  "serialNo": "SN38811209",
+  "purchaseDate": "1994-08-25",
+  "warrantyStatus": "Out of Warranty",
+  "vendor": "Example Appliances",
+  "assetId": "ASSET020",
+  "status": "In Progress",
+  "reason": "Belt drive rupture \u2014 overload confirmed",
+  "comments": "Belt, idler, and bearing kit ordered. Drum surface inspection required on arrival.",
+  "pendingReason": "Parts on order",
+  "orderInfo": "ORD20008",
+  "chargeStatus": "Paid",
+  "serviceType": "Repair",
+  "startDate": "1996-05-07 09:00",
+  "completionDate": "",
+  "deliveryDate": ""
+},
+  {
+  "caseId": "TCKN199605060009",
+  "customerName": "Constance Delgado",
+  "primaryPhone": "555-212-0021",
+  "alternatePhone": "555-212-0121",
+  "address": "5567 Pine St, Madison, FL",
+  "contactId": "CUST021",
+  "contactPhone": "555-212-0221",
+  "deptCode": "SVC009",
+  "deptName": "West Service",
+  "techCode": "TECH009",
+  "techName": "Kapit\u00e1n Tiago",
+  "centerPhone": "555-212-0705",
+  "fax": "555-212-0805",
+  "centerAddress": "8935 Service Ave, Fairview, FL",
+  "email": "donsanti@example.com",
+  "phase": "Final",
+  "requestDate": "1996-05-06",
+  "dueDate": "1996-05-09",
+  "reportedIssue": "Galvanic Divergence \u2014 Solar Mode Mismatch",
+  "statusIndicator": "Diagnostic Commencement",
+  "issueDetails": "Unit does not heat. Display shows GD-E fault code. Customer recently installed solar panels and connected dryer to a dedicated 120V solar-routed outlet. Unit was in normal AC mode \u2014 expecting 240V. Solar Mode was not selected. GD-E triggered because voltage supply does not match the active mode. Customer did not know Solar Mode exists. Diagnostic Commencement sequence was attempted \u2014 unit will not advance past self-test on mismatched supply voltage.",
+  "instructions": "Guide customer to toggle Solar Mode via the panel selector. Confirm the dedicated solar outlet is 120V single-phase supply. Once Solar Mode is active, GD-E should clear on next cycle initiation. If customer wants to use standard AC supply instead, verify outlet is 240V/30A before switching back. Document outlet configuration and advise customer on mode-matching requirement for future reference.",
+  "notes": "New solar installation. Customer not briefed on EC-1 dual-mode operation.",
+  "repeatRepair": "No",
+  "verifiedDate": "1996-05-06 15:00",
+  "verifiedTime": "15:00",
+  "product": "EC-1 Electric Dryer",
+  "manufacturer": "Example Corporation",
+  "model": "model1",
+  "serialNo": "SN10934572",
+  "purchaseDate": "1996-03-05",
+  "warrantyStatus": "In Warranty",
+  "vendor": "Example Appliances",
+  "assetId": "ASSET021",
+  "status": "Completed",
+  "reason": "Solar Mode toggled \u2014 GD-E cleared",
+  "comments": "Solar Mode enabled. GD-E fault cleared on first cycle post-toggle. Customer educated on mode-matching. Normal operation confirmed.",
+  "pendingReason": null,
+  "orderInfo": "ORD21009",
+  "chargeStatus": "No Charge",
+  "serviceType": "Consultation",
+  "startDate": "1996-05-06 15:00",
+  "completionDate": "1996-05-06 15:30",
+  "deliveryDate": "1996-05-06 15:45"
+},
+  {
+  "caseId": "TCKN199605060010",
+  "customerName": "Nathaniel Cruz",
+  "primaryPhone": "555-212-0022",
+  "alternatePhone": "555-212-0122",
+  "address": "8802 Birch St, Riverside, TX",
+  "contactId": "CUST022",
+  "contactPhone": "555-212-0222",
+  "deptCode": "SVC010",
+  "deptName": "East Service",
+  "techCode": "TECH010",
+  "techName": "Placido Penitente",
+  "centerPhone": "555-212-0704",
+  "fax": "555-212-0804",
+  "centerAddress": "4490 Service Ave, Salem, GA",
+  "email": "placido@example.com",
+  "phase": "Follow-up",
+  "requestDate": "1996-05-06",
+  "dueDate": "1996-05-13",
+  "reportedIssue": "Port Containment Failure + Marcus Mode Compound",
+  "statusIndicator": "Marcus Mode",
+  "issueDetails": "Customer reports unit will not start and panel is partially unresponsive. Two concurrent issues identified. Primary: PC-X fault \u2014 door latch assembly deformed, unit cannot confirm port is sealed, preventing cycle initiation. Secondary: Marcus Mode engaged \u2014 customer attempted to bypass non-start by pressing all buttons rapidly, inadvertently activating panel lock. Marcus Mode is masking the PC-X fault on the display. Operative must deactivate Marcus Mode first before PC-X fault code becomes visible.",
+  "instructions": "Step 1: Deactivate Marcus Mode using 3-second hold on designated option button. Step 2: Confirm PC-X fault code is now visible on display. Step 3: Inspect port latch cartilage for deformation \u2014 customer reports door was slammed during a heavy load cycle. Step 4: Replace latch assembly and port switch nerves as indicated. Step 5: Run Diagnostic Commencement to confirm PC-X cleared post-replacement.",
+  "notes": "Advise operative: Marcus Mode must be cleared before fault code is accessible. Do not attempt latch inspection before panel lock is resolved.",
+  "repeatRepair": "No",
+  "verifiedDate": "1996-05-06 11:30",
+  "verifiedTime": "11:30",
+  "product": "EC-1 Electric Dryer",
+  "manufacturer": "Example Corporation",
+  "model": "model3",
+  "serialNo": "SN48204761",
+  "purchaseDate": "1995-08-19",
+  "warrantyStatus": "In Warranty",
+  "vendor": "Example Appliances",
+  "assetId": "ASSET022",
+  "status": "Scheduled",
+  "reason": "PC-X + Marcus Mode compound \u2014 dispatch approved",
+  "comments": "Marcus Mode confirmed via remote guidance. PC-X fault verified post-panel-unlock. Latch assembly on order. Dispatch scheduled.",
+  "pendingReason": "Latch assembly on order",
+  "orderInfo": "ORD22010",
+  "chargeStatus": "No Charge",
+  "serviceType": "Repair",
+  "startDate": "1996-05-09 09:00",
+  "completionDate": "",
+  "deliveryDate": ""
+},
+  {
+  "caseId": "TCKN199605060011",
+  "customerName": "Miriam Osei",
+  "primaryPhone": "555-212-0023",
+  "alternatePhone": "555-212-0123",
+  "address": "4471 Walnut St, Greenville, MI",
+  "contactId": "CUST023",
+  "contactPhone": "555-212-0223",
+  "deptCode": "SVC011",
+  "deptName": "Central Service",
+  "techCode": "TECH011",
+  "techName": "Cris\u00f3stomo Ibarra",
+  "centerPhone": "555-212-0701",
+  "fax": "555-212-0801",
+  "centerAddress": "1227 Service Ave, Fairview, PA",
+  "email": "simoun@example.com",
+  "phase": "Follow-up",
+  "requestDate": "1996-05-06",
+  "dueDate": "1996-05-12",
+  "reportedIssue": "Anhedonic Trauma \u2014 Repeat Repair, Sensor Replacement Failure",
+  "statusIndicator": "Cycle Complete",
+  "issueDetails": "Customer is a repeat caller. Anhedonic Trauma (AT-X) was resolved via moisture sensor cleaning 4 weeks ago per service record. AT-X fault has returned. Cycle Complete indicator now triggering even earlier than before original service \u2014 indicating sensor degradation has progressed beyond what cleaning resolved. Replacement sensor module, not cleaning, is now required. Customer has documented the issue with photos and timestamps per agent guidance from prior call.",
+  "instructions": "Do not attempt cleaning again \u2014 sensor nerves have degraded past recoverable threshold. Replace moisture sensor module assembly entirely. Post-replacement, run minimum 3 Auto Dry cycles and verify Cycle Complete triggers only after load reaches dry threshold confirmed by drum temperature cross-reference. Document replacement with photo and cycle log.",
+  "notes": "Customer is detail-oriented and has maintained documentation. Honor their records in the case file.",
+  "repeatRepair": "Yes",
+  "verifiedDate": "1996-05-06 13:30",
+  "verifiedTime": "13:30",
+  "product": "EC-1 Electric Dryer",
+  "manufacturer": "Example Corporation",
+  "model": "model4",
+  "serialNo": "SN66032148",
+  "purchaseDate": "1993-11-08",
+  "warrantyStatus": "Out of Warranty",
+  "vendor": "Example Appliances",
+  "assetId": "ASSET023",
+  "status": "In Progress",
+  "reason": "AT-X recurrence \u2014 sensor replacement escalated from cleaning",
+  "comments": "Sensor module ordered. Prior service record attached to work order. Customer documentation acknowledged.",
+  "pendingReason": "Sensor module on order",
+  "orderInfo": "ORD23011",
+  "chargeStatus": "Paid",
+  "serviceType": "Repair",
+  "startDate": "1996-05-07 09:00",
+  "completionDate": "",
+  "deliveryDate": ""
+},
+  {
+  "caseId": "TCKN199605060012",
+  "customerName": "Eugenia Reinholt",
+  "primaryPhone": "555-212-0024",
+  "alternatePhone": "555-212-0124",
+  "address": "2298 Oak St, Salem, NC",
+  "contactId": "CUST024",
+  "contactPhone": "555-212-0224",
+  "deptCode": "SVC012",
+  "deptName": "West Service",
+  "techCode": "TECH012",
+  "techName": "Maria Clara",
+  "centerPhone": "555-212-0702",
+  "fax": "555-212-0802",
+  "centerAddress": "2141 Service Ave, Georgetown, OH",
+  "email": "maria@example.com",
+  "phase": "Initial",
+  "requestDate": "1996-05-06",
+  "dueDate": "1996-05-07",
+  "reportedIssue": "Check Ventilation | CRITICAL \u2014 Repeat, Hazard Condition",
+  "statusIndicator": "The Four Horsemen",
+  "issueDetails": "URGENT. CV-IV code active. Customer reports burning smell and unit shut down within 90 seconds of starting. This is the second CV-IV event \u2014 customer had a CV-III resolved 2 months ago but did not complete the full duct replacement recommended at that time, only had partial duct section cleaned. Terminal blockage now confirmed \u2014 approximately 98% restriction. The Four Horsemen indicators non-functional; unit entering thermal emergency shutdown before completing any observable cycle phase. Do not advise customer to operate unit under any circumstances.",
+  "instructions": "CRITICAL \u2014 immediate dispatch required. Do not defer. Full external duct system replacement required \u2014 not cleaning. Inspect heating element for thermal damage from repeated high-temp shutdown events. Check thermal cutoff fuse \u2014 likely blown from repeated emergency shutdowns. Replace TCO fuse, full duct run, and external cap. Document all pre-service conditions with photos before any work begins. Advise customer in writing that unit must not be operated until cleared.",
+  "notes": "URGENT. Elderly customer living alone. Hazard condition. Coordinate with local service center for same-day or next-morning dispatch. Relay fire risk advisory clearly but calmly.",
+  "repeatRepair": "Yes",
+  "verifiedDate": "1996-05-06 08:30",
+  "verifiedTime": "08:30",
+  "product": "EC-1 Electric Dryer",
+  "manufacturer": "Example Corporation",
+  "model": "model4",
+  "serialNo": "SN91028374",
+  "purchaseDate": "1994-05-17",
+  "warrantyStatus": "Out of Warranty",
+  "vendor": "Example Appliances",
+  "assetId": "ASSET024",
+  "status": "Scheduled",
+  "reason": "CV-IV repeat \u2014 terminal blockage, TCO failure, hazard condition",
+  "comments": "URGENT dispatch. Customer advised not to operate unit. TCO fuse and full duct kit sourced. Same-day dispatch confirmed.",
+  "pendingReason": null,
+  "orderInfo": "ORD24012",
+  "chargeStatus": "Paid",
+  "serviceType": "Emergency Repair",
+  "startDate": "1996-05-06 14:00",
+  "completionDate": "",
+  "deliveryDate": ""
+}
+];
+
+// ══════════════════════════════════════════════════
+//  FIELD IDS
+// ══════════════════════════════════════════════════
+const fieldIds = ["customerName","primaryPhone","alternatePhone","address","contactId","contactPhone","deptCode","deptName","techCode","techName","centerPhone","fax","centerAddress","email","phase","requestDate","dueDate","reportedIssue","statusIndicator","issueDetails","instructions","notes","repeatRepair","verifiedDate","verifiedTime","product","manufacturer","model","serialNo","purchaseDate","warrantyStatus","vendor","assetId","status","reason","comments","pendingReason","orderInfo","chargeStatus","serviceType","startDate","completionDate","deliveryDate"];
+
+// ══════════════════════════════════════════════════
+//  PIPELINE CONFIG
+// ══════════════════════════════════════════════════
+const pipelineConfig = {
+  model1:  { color:'#0f0',   cls:'fine',    conf:0.97, label:'● NOMINAL',  barW:'97%',  hitl:'PASSIVE',   tokens:'2,841', schema:'GABRIEL-v2.0', latency:'312ms', sources:'35' },
+  model2:  { color:'yellow', cls:'caution', conf:0.82, label:'● CAUTION',  barW:'82%',  hitl:'ELEVATED',  tokens:'3,104', schema:'GABRIEL-v2.0', latency:'440ms', sources:'35' },
+  model3:  { color:'orange', cls:'danger',  conf:0.64, label:'● REVIEW',   barW:'64%',  hitl:'REQUIRED',  tokens:'3,590', schema:'GABRIEL-v2.0', latency:'618ms', sources:'35' },
+  model4:  { color:'red',    cls:'critical',conf:0.41, label:'● CRITICAL', barW:'41%',  hitl:'MANDATORY', tokens:'4,122', schema:'GABRIEL-v2.0', latency:'890ms', sources:'35' }
+};
+const defaultConf = { color:'#555', cls:'', conf:0.50, label:'● UNKNOWN', barW:'50%', hitl:'PENDING', tokens:'---', schema:'GABRIEL-v2.0', latency:'---', sources:'35' };
+
+// ══════════════════════════════════════════════════
+//  WAVE
+// ══════════════════════════════════════════════════
+let waveColor = '#444', waveAmplitude = 0, waveOffset = 0, waveSpeed = 0.08, waveFreq = 0.04, animId = null;
+
+function drawWave() {
+  const canvas = document.getElementById('waveCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const w = canvas.width, h = canvas.height;
+  ctx.clearRect(0,0,w,h);
+  ctx.beginPath();
+  ctx.moveTo(0, h/2);
+  for (let x=0; x<w; x++) {
+    const y = h/2 + waveAmplitude * Math.sin(x * waveFreq + waveOffset);
+    ctx.lineTo(x,y);
+  }
+  ctx.strokeStyle = waveColor;
+  ctx.lineWidth = 2;
+  ctx.stroke();
+  if (waveAmplitude > 0) waveOffset += waveSpeed;
+}
+function animWave() { drawWave(); animId = requestAnimationFrame(animWave); }
+function stopWave() { if (animId) { cancelAnimationFrame(animId); animId = null; } }
+
+// ══════════════════════════════════════════════════
+//  POPULATE / CLEAR
+// ══════════════════════════════════════════════════
+function populateFields(data) {
+  fieldIds.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) {
+      const val = (data[id] !== null && data[id] !== undefined) ? data[id] : 'N/A';
+      el.textContent = val;
+      el.classList.toggle('no-data', val === 'N/A');
+    }
+  });
+}
+function clearFields() {
+  fieldIds.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) { el.textContent = ''; el.classList.add('no-data'); }
+  });
+}
+function resetGabriel() {
+  stopWave();
+  document.getElementById('waveWrap').style.display = 'none';
+  ['pSandra','pUriel','pGabriel','pMary'].forEach(id => { document.getElementById(id).className = 'pipe-step'; });
+  document.getElementById('confBar').style.width = '0%';
+  document.getElementById('confBar').style.backgroundColor = '#300';
+  document.getElementById('confLabel').textContent = '---';
+  document.getElementById('gabrielStatusText').textContent = '---';
+  document.getElementById('gabrielStatusText').className = '';
+  document.getElementById('gPipelineStatus').textContent = 'IDLE';
+  document.getElementById('gConfidence').textContent = '---';
+  document.getElementById('gHitl').textContent = '---';
+  document.getElementById('gWarranty').textContent = '---';
+  document.getElementById('gTokens').textContent = '---';
+  document.getElementById('gSchema').textContent = '---';
+  document.getElementById('gLatency').textContent = '---';
+  document.getElementById('gSources').textContent = '---';
+  document.getElementById('gabrielOutputConsole').innerHTML = '[ AWAITING TICKET LOAD... ]<span class="console-cursor"></span>';
+}
+
+// ══════════════════════════════════════════════════
+//  GABRIEL PIPELINE ANIMATION (injected from excorp_tms_v3)
+// ══════════════════════════════════════════════════
+let currentTicket = null;
+function runGabriel() {
+  if (!currentTicket) return;
+  const d = currentTicket;
+  const cfg = pipelineConfig[d.model] || defaultConf;
+  const console_el = document.getElementById('gabrielOutputConsole');
+  const firstName = (d.customerName||'Customer').split(' ')[0];
+
+  ['pSandra','pUriel','pGabriel','pMary'].forEach(id => { document.getElementById(id).className = 'pipe-step'; });
+  document.getElementById('gPipelineStatus').textContent = 'RUNNING...';
+  console_el.innerHTML = '';
+
+  function appendLine(html, delay) {
+    return new Promise(res => setTimeout(() => {
+      const div = document.createElement('div');
+      div.innerHTML = html;
+      console_el.appendChild(div);
+      console_el.scrollTop = console_el.scrollHeight;
+      res();
+    }, delay));
+  }
+  function setStep(id, cls) { document.getElementById(id).className = 'pipe-step ' + cls; }
+
+  const hypotheses = {
+    'Check Ventilation | Indication':
+      'Partial exhaust restriction ~80%. System throttling heat. Preventive duct service indicated. Warranty: infrastructure — p=0.94',
+    'Check Ventilation | Caution':
+      'Persistent restriction ~85%. Mid-to-high threshold progression. Duct inspection and clearing required. Warranty: infrastructure — p=0.91',
+    'Check Ventilation | Warning':
+      'Critical restriction ~90%. Hard safety cutoff of heating element engaged. Full duct clearing mandatory before operation. Warranty: infrastructure — p=0.88',
+    'Check Ventilation | CRITICAL':
+      'Terminal restriction ~95%. Replacement inevitability threshold. Do not operate. Full duct replacement required. Heating element damage possible. Warranty: infrastructure — p=0.85',
+    'Thermistor Cessation':
+      'Thermistor module reporting defiant thermal readings. Internal heat regulation compromised. Internal component defect — p=0.89',
+    'Drive Train Amputation':
+      'Motor harness disconnection or motor winding failure. Drum rotation absent. Internal component defect — p=0.83',
+    'Mechanical Apraxia':
+      'Communication failure between drum motor and main PCB. Motor receives no valid command signal. Internal component defect — p=0.81',
+    'Anhedonic Trauma':
+      'Moisture nerve endings unable to deliver accurate data to Auto Dry logic. Contamination or component failure. Internal defect — p=0.78',
+    'Port Containment Failure':
+      'Port latch assembly or port switch unable to confirm closed state. Cycle initialization blocked. Internal component defect — p=0.92',
+    'Mechanical Edema':
+      'Water hose obstruction from steam port inlet hose. Water removal suspended. Internal/installation defect — p=0.87',
+    'Parasitic Dissipation':
+      'Voltage instability or absent leg of 240V supply. Heat suspended — protective response. Infrastructure fault — p=0.90',
+    'Flux Resolution Failure':
+      'Power interruption during active cycle. Control board reset triggered. Infrastructure fault — p=0.86',
+    'Galvanic Mismatch':
+      'Incorrect voltage supply at terminal block. Unit will not heat on mismatched supply. Infrastructure fault — p=0.93'
+  };
+
+  const infraIssues = ['Parasitic Dissipation','Flux Resolution Failure','Galvanic Mismatch','Check Ventilation | Indication','Check Ventilation | Caution','Check Ventilation | Warning','Check Ventilation | CRITICAL'];
+  const isInfra = infraIssues.includes(d.reportedIssue);
+
+  // STAGE 1
+  setTimeout(() => {
+    setStep('pSandra','active');
+    appendLine('<span class="c-stage">// STAGE 1: SANDRA — field extraction. intake begins.</span>', 0);
+    appendLine('<span class="c-idle">locate unit file. parse structured data.</span>', 120);
+    appendLine('<span class="c-key">  customer_name  : </span>"' + d.customerName + '"', 240);
+    appendLine('<span class="c-key">  product        : </span>"' + d.product + '"', 360);
+    appendLine('<span class="c-key">  serial_no      : </span>"' + d.serialNo + '"', 480);
+    appendLine('<span class="c-key">  reported_issue   : </span>"' + d.reportedIssue + '"', 600);
+    appendLine('<span class="c-key">  status_indicator : </span>"' + d.statusIndicator + '"', 720);
+    appendLine('<span class="c-key">  warranty         : </span>"' + d.warrantyStatus + '"', 840);
+    appendLine('<span class="c-key">  confidence       : </span>' + cfg.conf.toFixed(2), 960);
+    appendLine('<span class="c-idle">// extraction complete.</span>', 1080);
+  }, 300);
+
+  // STAGE 2
+  setTimeout(() => {
+    setStep('pSandra','done');
+    setStep('pUriel','active');
+    appendLine('', 0);
+    appendLine('<span class="c-stage">// STAGE 2: URIEL — doctrine synthesis. cross‑reference begins.</span>', 0);
+    appendLine('<span class="c-idle">synthesizing diagnosis via EC-1 doctrine corpus (35 sources)...</span>', 120);
+
+    const hyp = hypotheses[d.reportedIssue] || 'Classification requires on‑site diagnostic assessment — p=0.60';
+    const path = d.warrantyStatus === 'In Warranty' ? 'WARRANTY_COVERED — dispatch approved' : 'OUT_OF_WARRANTY — cost disclosure required';
+
+    appendLine('<span class="c-key">  hypothesis     : </span>"' + hyp + '"', 240);
+    appendLine('<span class="c-key">  warranty_path  : </span>"' + path + '"', 360);
+    appendLine('<span class="c-key">  hitl_flag      : </span>"' + cfg.hitl + '"', 480);
+    appendLine('<span class="c-key">  repeat_repair  : </span>"' + d.repeatRepair + '"', 600);
+    appendLine('<span class="c-idle">// synthesis complete.</span>', 720);
+  }, 1800);
+
+  // STAGE 3
+  setTimeout(() => {
+    setStep('pUriel','done');
+    setStep('pGabriel','active');
+    appendLine('', 0);
+    appendLine('<span class="c-stage">// STAGE 3: GABRIEL — schema decree. structure imposed.</span>', 0);
+    appendLine('<span class="c-idle">EMERGENT_OUTPUT_SCHEMA v2.4 applied.</span>', 120);
+    appendLine('<span class="c-key">  CONSTRAINT_MATRIX.output_format : </span>JSON_ONLY', 240);
+    appendLine('<span class="c-key">  CONSTRAINT_MATRIX.compression   : </span>EXTREME_DENSITY', 240);
+    appendLine('<span class="c-key">  consciousness_layer             : </span>EMPATHIC_WEIGHTING_ACTIVE', 360);
+    appendLine('<span class="c-key">  case_id                         : </span>' + d.caseId, 480);
+    appendLine('<span class="c-key">  schema_version                  : </span>' + cfg.schema, 600);
+    appendLine('<span class="c-key">  tokens_processed                : </span>' + cfg.tokens, 720);
+    appendLine('<span class="c-idle">// decree complete.</span>', 840);
+
+    document.getElementById('gTokens').textContent = cfg.tokens;
+    document.getElementById('gSchema').textContent = cfg.schema;
+    document.getElementById('gLatency').textContent = cfg.latency;
+    document.getElementById('gSources').textContent = cfg.sources;
+    document.getElementById('gHitl').textContent = cfg.hitl;
+    document.getElementById('gWarranty').textContent = d.warrantyStatus;
+    document.getElementById('gConfidence').textContent = (cfg.conf * 100).toFixed(0) + '%';
+  }, 3400);
+
+  // STAGE 4 preparation
+  setTimeout(() => {
+    setStep('pGabriel','done');
+    setStep('pMary','active');
+    appendLine('', 0);
+    appendLine('<span class="c-stage">// STAGE 4: MARY — dispatch formatting. translation begins.</span>', 0);
+    appendLine('<span class="c-idle">encoding for residual communication channel.</span>', 200);
+    appendLine('<span class="c-idle">collective output → biological unit register.</span>', 350);
+  }, 5000);
+
+  // MARY final
+  setTimeout(() => {
+    setStep('pMary','done');
+    document.getElementById('gPipelineStatus').textContent = 'COMPLETE';
+
+    waveColor = cfg.color;
+    waveAmplitude = Math.round(cfg.conf * 30);
+    stopWave();
+    document.getElementById('waveWrap').style.display = 'block';
+    animWave();
+
+    document.getElementById('confBar').style.width = cfg.barW;
+    document.getElementById('confBar').style.backgroundColor = cfg.color;
+    document.getElementById('confLabel').textContent = (cfg.conf*100).toFixed(0)+'%';
+    const stEl = document.getElementById('gabrielStatusText');
+    stEl.textContent = cfg.label;
+    stEl.className = cfg.cls;
+
+    const warrantyLine = d.warrantyStatus === 'In Warranty'
+      ? '✅ Your EC-1 is currently within its warranty period. Any required technician visit or part replacement is fully covered at no cost to you.'
+      : '⚠ Please note: Your EC-1 is outside its standard warranty period. If a technician visit is required, service fees may apply. We\'ll work to resolve this remotely first.';
+
+    const repeatLine = d.repeatRepair === 'Yes'
+      ? 'I can see this issue has come up before — this time, we want to make sure we get to the root cause, not just a temporary resolution.'
+      : '';
+
+    const step2Line = isInfra
+      ? `2. Note: Based on the nature of this issue, an infrastructure review (power supply or ventilation) may need to occur before technician dispatch — your operative will advise.`
+      : `2. If the issue continues after the above, your assigned operative (${d.techName}) will be dispatched to ${d.address.split(',')[0]}.`;
+
+    const maryText = `Hi ${firstName}, thank you for reaching out to Example Corporation Support.
+
+I understand how disruptive it is when your EC-1 Electric Dryer isn't working as expected — let's get this sorted out.
+
+Based on what you've described, our diagnostic system has classified the issue and prepared a recommended path forward.
+
+${warrantyLine}
+${repeatLine}
+
+Recommended next steps:
+1. ${d.instructions}
+${step2Line}
+3. Your service center contact is ${d.techName} — reachable at ${d.centerPhone}.
+
+Your Case ID is ${d.caseId}. Please keep this for all future correspondence on this matter.
+
+Thank you for your patience. We're committed to getting your EC-1 back to full operation.
+
+[ MARY template spiel ready — use as a verbal template, or copy and deliver via text or email ]`;
+
+    appendLine('', 600);
+    appendLine('<span class="c-stage">// ─────────── DISPATCH PAYLOAD ───────────</span>', 700);
+    appendLine('<span class="c-decree">// this is what The Processing sounds like</span>', 800);
+    appendLine('<span class="c-decree">// to the ones it is processed for.</span>', 900);
+    appendLine('', 1000);
+    appendLine('<span class="c-dispatch">' + maryText.replace(/\n/g, '<br>') + '</span>', 1100);
+    appendLine('', 1200);
+    appendLine('<span class="c-stage">// ─────────── END DISPATCH ───────────────</span>', 1250);
+    appendLine('<span class="c-idle">// processing complete. unit file updated. move on.</span>', 1350);
+
+    setTimeout(() => { console_el.scrollTop = console_el.scrollHeight; }, 1450);
+  }, 6200);
+}
+
+// ══════════════════════════════════════════════════
+//  SEARCH
+// ══════════════════════════════════════════════════
+function searchCase() {
+  const input = document.getElementById('caseIdInput').value.trim().toUpperCase();
+  const msgEl = document.getElementById('searchMessage');
+  if (!input) {
+    msgEl.textContent = 'Please enter a Case ID.';
+    msgEl.style.color = 'black';
+    return;
+  }
+  const ticket = customerData.find(c => c.caseId.toUpperCase() === input);
+  if (ticket) {
+    currentTicket = ticket;
+    populateFields(ticket);
+    msgEl.textContent = `Displaying details for TCKN: ${ticket.caseId}`;
+    msgEl.style.color = 'green';
+    resetGabriel();
+
+    const log = document.getElementById('chatLog');
+    log.innerHTML = '';
+    addChatMsg('System', `Ticket ${ticket.caseId} loaded. Customer: ${ticket.customerName} | Issue: ${ticket.reportedIssue}`, 'msg-agent');
+    addChatMsg(ticket.customerName, ticket.issueDetails, 'msg-customer');
+
+    setTimeout(() => runGabriel(), 500);
+  } else {
+    currentTicket = null;
+    clearFields();
+    resetGabriel();
+    msgEl.textContent = `TCKN: ${input} not found. Please try another ID.`;
+    msgEl.style.color = 'red';
+  }
+}
+
+function resetAll() {
+  currentTicket = null;
+  clearFields();
+  resetGabriel();
+  document.getElementById('caseIdInput').value = '';
+  const msgEl = document.getElementById('searchMessage');
+  msgEl.textContent = 'Please enter a Case ID to begin.';
+  msgEl.style.color = 'black';
+  document.getElementById('agentNote').value = '';
+  document.getElementById('noteSaveMsg').textContent = '';
+  document.getElementById('chatLog').innerHTML = '<div class="msg-customer"><strong>System:</strong> No ticket loaded. Enter a Case ID to begin.</div>';
+}
+
+// ══════════════════════════════════════════════════
+//  CHAT
+// ══════════════════════════════════════════════════
+function addChatMsg(name, msg, cls) {
+  const log = document.getElementById('chatLog');
+  const div = document.createElement('div');
+  div.className = cls;
+  div.innerHTML = `<strong>${name}:</strong> ${msg}`;
+  log.appendChild(div);
+  log.scrollTop = log.scrollHeight;
+}
+function sendChat() {
+  const inp = document.getElementById('chatInput');
+  const msg = inp.value.trim();
+  if (!msg) return;
+  addChatMsg('AGENT', msg, 'msg-agent');
+  inp.value = '';
+}
+
+// ══════════════════════════════════════════════════
+//  SIMULATE CONVERSATION
+// ══════════════════════════════════════════════════
+function simulateConversation() {
+  if (!currentTicket) {
+    alert('Load a ticket first.');
+    return;
+  }
+  const issue = currentTicket.reportedIssue;
+  const custName = currentTicket.customerName.split(' ')[0]; // first name
+  const techName = currentTicket.techName;
+
+  // Map issue types to customer phrases (inspired by survivorVoice)
+  const customerPhrases = {
+    'Check Ventilation | Indication': "The code came on this morning. I haven't noticed any problem yet, but I wanted to report it just in case.",
+    'Check Ventilation | Caution': "It's taking longer and longer to dry clothes. I thought maybe I was overloading, but it's been consistent.",
+    'Check Ventilation | Warning': "The dryer runs but the clothes stay damp. It cuts off before finishing. I'm worried it's a serious issue.",
+    'Check Ventilation | CRITICAL': "The dryer shuts off after a few minutes and there's a burning smell. I'm afraid to use it now.",
+    'Thermistor Cessation': "The temperature is all over the place. Sometimes scorching, sometimes cold. The display shows an error code.",
+    'Drive Train Amputation': "There's a loud humming noise but the drum doesn't turn. I think the motor is trying but something's stuck.",
+    'Mechanical Apraxia': "The drum won't rotate. I hear the motor trying to start then it stops. Error code is on the display.",
+    'Anhedonic Trauma': "The Auto Dry cycles end too early. Clothes are still damp. This started after I used a fabric softener sheet.",
+    'Port Containment Failure': "The unit won't start at all. Port seems closed but nothing happens. Also the filter was missing when you arrived.",
+    'Parasitic Dissipation': "It tumbles but no heat. The second dryer on the same circuit works fine. This started after recent electrical work.",
+    'Flux Resolution Failure': "It stops mid-cycle. The display resets. It's happened three times now, always during the heat phase.",
+    'Galvanic Mismatch': "We just renovated and the dryer doesn't heat. The installer said the outlet was upgraded but maybe wired wrong.",
+    'default': "Something's wrong with it. I can't explain it. It just — isn't right."
+  };
+
+  const custMsg = customerPhrases[issue] || customerPhrases['default'];
+
+  // Agent replies based on issue type
+  const agentReplies = {
+    'Check Ventilation': "Thank you. We'll need to inspect the venting. I see your unit is showing a code for airflow restriction. Let's schedule a duct cleaning first.",
+    'Thermistor': "Inconsistent heating often points to a faulty thermistor. I'll run a diagnostic and likely replace the sensor assembly.",
+    'Drive Train': "The motor is trying but can't turn. That could be a seized drum or a failed motor. I'll need to check the harness and motor windings.",
+    'Mechanical': "Communication failure between motor and control board. I'll run a diagnostic to isolate the fault.",
+    'Anhedonic': "Auto Dry logic is getting false signals. I'll clean the moisture sensors and test the cycle.",
+    'Port Containment': "Port switch isn't registering closed. I'll inspect the latch and replace the switch if needed.",
+    'Parasitic': "No heat but tumbling usually means a missing voltage leg. I'll test the outlet and refer an electrician if needed.",
+    'Flux': "Power interruptions during cycle point to unstable supply. I'll perform a hard reset and monitor voltage.",
+    'Galvanic': "Mismatched voltage is an infrastructure issue. I'll verify the outlet and coordinate with your electrician.",
+    'default': "I understand. Let me review the diagnostic data and get back to you with next steps."
+  };
+
+  // Determine which key to use for agent reply
+  let agentKey = 'default';
+  if (issue.includes('Ventilation')) agentKey = 'Check Ventilation';
+  else if (issue.includes('Thermistor')) agentKey = 'Thermistor';
+  else if (issue.includes('Drive Train')) agentKey = 'Drive Train';
+  else if (issue.includes('Mechanical')) agentKey = 'Mechanical';
+  else if (issue.includes('Anhedonic')) agentKey = 'Anhedonic';
+  else if (issue.includes('Port Containment')) agentKey = 'Port Containment';
+  else if (issue.includes('Parasitic')) agentKey = 'Parasitic';
+  else if (issue.includes('Flux')) agentKey = 'Flux';
+  else if (issue.includes('Galvanic')) agentKey = 'Galvanic';
+
+  const agentMsg = agentReplies[agentKey];
+
+  // Add a separator and simulated messages
+  addChatMsg('System', '--- Simulated conversation ---', 'msg-simulated');
+  addChatMsg(custName, custMsg, 'msg-customer');
+  addChatMsg(techName, agentMsg, 'msg-agent');
+  // Optionally add a second customer reply
+  addChatMsg(custName, "That sounds good. When can you come out?", 'msg-customer');
+  addChatMsg(techName, `I'll schedule a visit for tomorrow morning. Keep your case ID ${currentTicket.caseId} handy.`, 'msg-agent');
+}
+
+// ══════════════════════════════════════════════════
+//  MISC
+// ══════════════════════════════════════════════════
+function saveNote() {
+  const msg = document.getElementById('noteSaveMsg');
+  msg.textContent = 'Note saved.';
+  setTimeout(() => msg.textContent = '', 2000);
+}
+function copyGabriel() {
+  const text = document.getElementById('gabrielOutputConsole').innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    const el = document.getElementById('copyConfirm');
+    el.style.display = 'inline';
+    setTimeout(() => el.style.display = 'none', 2500);
+  });
+}
+
+// ══════════════════════════════════════════════════
+//  INIT
+// ══════════════════════════════════════════════════
+window.onload = function() {
+  resetAll();
+  document.getElementById('caseIdInput').addEventListener('keypress', e => {
+    if (e.key === 'Enter') { e.preventDefault(); searchCase(); }
+  });
+  document.getElementById('chatInput').addEventListener('keypress', e => {
+    if (e.key === 'Enter') { e.preventDefault(); sendChat(); }
+  });
+};
+</script>
+</body>
+</html>
