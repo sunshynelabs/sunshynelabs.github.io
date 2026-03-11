@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ExCortext UPI v3.0 | Unit Processing Interface</title>
+  <title>ExCortext UPI v3.7 | Unit Processing Interface</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -174,50 +174,50 @@
 
     <div class="section">
       <span class="header">Customer Information</span>
-      <div class="field-row"><div class="field-label">Customer Name:</div><div class="field-value copyable-text" id="customerName"></div></div>
-      <div class="field-row"><div class="field-label">Primary Phone:</div><div class="field-value copyable-text" id="primaryPhone"></div></div>
-      <div class="field-row"><div class="field-label">Alternate Phone:</div><div class="field-value copyable-text" id="alternatePhone"></div></div>
-      <div class="field-row"><div class="field-label">Registry Cipher:</div><div class="field-value copyable-text" id="contactId"></div></div>
-      <div class="field-row"><div class="field-label">Corporal Address:</div><div class="field-value copyable-text" id="address"></div></div>
-      <div class="field-row"><div class="field-label">Digital Address:</div><div class="field-value copyable-text" id="email"></div></div>
+      <div class="field-row"><div class="field-label">Customer Name:</div><input type="text" readonly class="field-value copyable-text" id="customerName"></div>
+      <div class="field-row"><div class="field-label">Primary Phone:</div><input type="text" readonly class="field-value copyable-text" id="primaryPhone"></div>
+      <div class="field-row"><div class="field-label">Alternate Phone:</div><input type="text" readonly class="field-value copyable-text" id="alternatePhone"></div>
+      <div class="field-row"><div class="field-label">Registry Cipher:</div><input type="text" readonly class="field-value copyable-text" id="contactId"></div>
+      <div class="field-row"><div class="field-label">Corporal Address:</div><input type="text" readonly class="field-value copyable-text" id="address"></div>
+      <div class="field-row"><div class="field-label">Digital Address:</div><input type="text" readonly class="field-value copyable-text" id="email"></div>
     </div>
 
     <div class="section">
       <span class="header">Operative Information</span>
-      <div class="field-row"><div class="field-label">Sector Code:</div><div class="field-value copyable-text" id="deptCode"></div></div>
-      <div class="field-row"><div class="field-label">Designation:</div><div class="field-value copyable-text" id="deptName"></div></div>
-      <div class="field-row"><div class="field-label">Registry Triage:</div><div class="field-value copyable-text" id="techCode"></div></div>
-      <div class="field-row"><div class="field-label">Designated Title:</div><div class="field-value copyable-text" id="techName"></div></div>
-      <div class="field-row"><div class="field-label">Primary Contact Node:</div><div class="field-value copyable-text" id="centerPhone"></div></div>
-      <div class="field-row"><div class="field-label">Alternate Contact Node:</div><div class="field-value copyable-text" id="fax"></div></div>
-      <div class="field-row"><div class="field-label">Designation Address:</div><div class="field-value copyable-text" id="centerAddress"></div></div>
+      <div class="field-row"><div class="field-label">Sector Code:</div><input type="text" readonly class="field-value copyable-text" id="deptCode"></div>
+      <div class="field-row"><div class="field-label">Designation:</div><input type="text" readonly class="field-value copyable-text" id="deptName"></div>
+      <div class="field-row"><div class="field-label">Registry Triage:</div><input type="text" readonly class="field-value copyable-text" id="techCode"></div>
+      <div class="field-row"><div class="field-label">Designated Title:</div><input type="text" readonly class="field-value copyable-text" id="techName"></div>
+      <div class="field-row"><div class="field-label">Primary Contact Node:</div><input type="text" readonly class="field-value copyable-text" id="centerPhone"></div>
+      <div class="field-row"><div class="field-label">Alternate Contact Node:</div><input type="text" readonly class="field-value copyable-text" id="fax"></div>
+      <div class="field-row"><div class="field-label">Designation Address:</div><input type="text" readonly class="field-value copyable-text" id="centerAddress"></div>
     </div>
 
     <div class="section">
       <span class="header">Repair Information</span>
-      <div class="field-row"><div class="field-label">Phase:</div><div class="field-value copyable-text" id="phase"></div></div>
-      <div class="field-row"><div class="field-label">Request Date:</div><div class="field-value copyable-text" id="requestDate"></div></div>
-      <div class="field-row"><div class="field-label">Resolution Mandate:</div><div class="field-value copyable-text" id="dueDate"></div></div>
-      <div class="field-row"><div class="field-label">Reported Malfunction:</div><div class="field-value copyable-text" id="reportedIssue"></div></div>
-      <div class="field-row"><div class="field-label">Status Indicator:</div><div class="field-value copyable-text" id="statusIndicator"></div></div>
-      <div class="field-row"><div class="field-label">Issue Details:</div><div class="field-value copyable-text" id="issueDetails"></div></div>
-      <div class="field-row"><div class="field-label">Instructions:</div><div class="field-value copyable-text" id="instructions"></div></div>
-      <div class="field-row"><div class="field-label">Notes:</div><div class="field-value copyable-text" id="notes"></div></div>
-      <div class="field-row"><div class="field-label">Recurrence Flag:</div><div class="field-value copyable-text" id="repeatRepair"></div></div>
-      <div class="field-row"><div class="field-label">Verification Timestamp:</div><div class="field-value copyable-text" id="verifiedDate"></div></div>
-      <div class="field-row"><div class="field-label">Temporal Interval:</div><div class="field-value copyable-text" id="verifiedTime"></div></div>
+      <div class="field-row"><div class="field-label">Phase:</div><input type="text" readonly class="field-value copyable-text" id="phase"></div>
+      <div class="field-row"><div class="field-label">Request Date:</div><input type="text" readonly class="field-value copyable-text" id="requestDate"></div>
+      <div class="field-row"><div class="field-label">Resolution Mandate:</div><input type="text" readonly class="field-value copyable-text" id="dueDate"></div>
+      <div class="field-row"><div class="field-label">Reported Malfunction:</div><input type="text" readonly class="field-value copyable-text" id="reportedIssue"></div>
+      <div class="field-row"><div class="field-label">Status Indicator:</div><input type="text" readonly class="field-value copyable-text" id="statusIndicator"></div>
+      <div class="field-row"><div class="field-label">Issue Details:</div><input type="text" readonly class="field-value copyable-text" id="issueDetails"></div>
+      <div class="field-row"><div class="field-label">Instructions:</div><input type="text" readonly class="field-value copyable-text" id="instructions"></div>
+      <div class="field-row"><div class="field-label">Notes:</div><input type="text" readonly class="field-value copyable-text" id="notes"></div>
+      <div class="field-row"><div class="field-label">Recurrence Flag:</div><input type="text" readonly class="field-value copyable-text" id="repeatRepair"></div>
+      <div class="field-row"><div class="field-label">Verification Timestamp:</div><input type="text" readonly class="field-value copyable-text" id="verifiedDate"></div>
+      <div class="field-row"><div class="field-label">Temporal Interval:</div><input type="text" readonly class="field-value copyable-text" id="verifiedTime"></div>
     </div>
 
     <div class="section">
       <span class="header">Product Information</span>
-      <div class="field-row"><div class="field-label">Product:</div><div class="field-value copyable-text" id="product"></div></div>
-      <div class="field-row"><div class="field-label">Manufacturer:</div><div class="field-value copyable-text" id="manufacturer"></div></div>
-      <div class="field-row"><div class="field-label">Model:</div><div class="field-value copyable-text" id="model"></div></div>
-      <div class="field-row"><div class="field-label">Serial No:</div><div class="field-value copyable-text" id="serialNo"></div></div>
-      <div class="field-row"><div class="field-label">Purchase Date:</div><div class="field-value copyable-text" id="purchaseDate"></div></div>
-      <div class="field-row"><div class="field-label">Warranty Status:</div><div class="field-value copyable-text" id="warrantyStatus"></div></div>
-      <div class="field-row"><div class="field-label">Vendor:</div><div class="field-value copyable-text" id="vendor"></div></div>
-      <div class="field-row"><div class="field-label">Asset ID:</div><div class="field-value copyable-text" id="assetId"></div></div>
+      <div class="field-row"><div class="field-label">Product:</div><input type="text" readonly class="field-value copyable-text" id="product"></div>
+      <div class="field-row"><div class="field-label">Manufacturer:</div><input type="text" readonly class="field-value copyable-text" id="manufacturer"></div>
+      <div class="field-row"><div class="field-label">Model:</div><input type="text" readonly class="field-value copyable-text" id="model"></div>
+      <div class="field-row"><div class="field-label">Serial No:</div><input type="text" readonly class="field-value copyable-text" id="serialNo"></div>
+      <div class="field-row"><div class="field-label">Purchase Date:</div><input type="text" readonly class="field-value copyable-text" id="purchaseDate"></div>
+      <div class="field-row"><div class="field-label">Warranty Status:</div><input type="text" readonly class="field-value copyable-text" id="warrantyStatus"></div>
+      <div class="field-row"><div class="field-label">Vendor:</div><input type="text" readonly class="field-value copyable-text" id="vendor"></div>
+      <div class="field-row"><div class="field-label">Asset ID:</div><input type="text" readonly class="field-value copyable-text" id="assetId"></div>
     </div>
 
   </div><!-- end left column -->
@@ -308,13 +308,13 @@
           </tr>
         </tbody>
       </table>
-      <div class="field-row" style="margin-top:8px;"><div class="field-label">Suspension Basis:</div><div class="field-value copyable-text" id="pendingReason"></div></div>
-      <div class="field-row"><div class="field-label">Procurement Record:</div><div class="field-value copyable-text" id="orderInfo"></div></div>
-      <div class="field-row"><div class="field-label">Liability Class:</div><div class="field-value copyable-text" id="chargeStatus"></div></div>
-      <div class="field-row"><div class="field-label">Operational Requirement:</div><div class="field-value copyable-text" id="serviceType"></div></div>
-      <div class="field-row"><div class="field-label">Initiation Timestamp:</div><div class="field-value copyable-text" id="startDate"></div></div>
-      <div class="field-row"><div class="field-label">Resolution Timestamp:</div><div class="field-value copyable-text" id="completionDate"></div></div>
-      <div class="field-row"><div class="field-label">Return Timestamp:</div><div class="field-value copyable-text" id="deliveryDate"></div></div>
+      <div class="field-row" style="margin-top:8px;"><div class="field-label">Suspension Basis:</div><input type="text" readonly class="field-value copyable-text" id="pendingReason"></div>
+      <div class="field-row"><div class="field-label">Procurement Record:</div><input type="text" readonly class="field-value copyable-text" id="orderInfo"></div>
+      <div class="field-row"><div class="field-label">Liability Class:</div><input type="text" readonly class="field-value copyable-text" id="chargeStatus"></div>
+      <div class="field-row"><div class="field-label">Operational Requirement:</div><input type="text" readonly class="field-value copyable-text" id="serviceType"></div>
+      <div class="field-row"><div class="field-label">Initiation Timestamp:</div><input type="text" readonly class="field-value copyable-text" id="startDate"></div>
+      <div class="field-row"><div class="field-label">Resolution Timestamp:</div><input type="text" readonly class="field-value copyable-text" id="completionDate"></div>
+      <div class="field-row"><div class="field-label">Return Timestamp:</div><input type="text" readonly class="field-value copyable-text" id="deliveryDate"></div>
     </div>
 
   </div><!-- end right column -->
@@ -408,7 +408,7 @@ function populateFields(data) {
     const el = document.getElementById(id);
     if (el) {
       const val = (data[id] !== null && data[id] !== undefined) ? data[id] : 'N/A';
-      el.textContent = val;
+      if (el.tagName === 'INPUT') { el.value = val; } else { el.textContent = val; }
       el.classList.toggle('no-data', val === 'N/A');
     }
   });
@@ -416,7 +416,10 @@ function populateFields(data) {
 function clearFields() {
   fieldIds.forEach(id => {
     const el = document.getElementById(id);
-    if (el) { el.textContent = ''; el.classList.add('no-data'); }
+    if (el) {
+      if (el.tagName === 'INPUT') { el.value = ''; } else { el.textContent = ''; }
+      el.classList.add('no-data');
+    }
   });
 }
 function resetGabriel() {
@@ -747,12 +750,6 @@ window.onload = function() {
   // Block right-click
   document.addEventListener('contextmenu', function(e) {
     e.preventDefault(); return false;
-  });
-
-  // user-select:none on field values (runtime enforcement)
-  document.querySelectorAll('.field-value').forEach(el => {
-    el.style.userSelect = 'none';
-    el.style.webkitUserSelect = 'none';
   });
 
   // Block click-drag text selection on field values
