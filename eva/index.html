@@ -11102,6 +11102,8 @@ let notes = new Array(records.length).fill("");
 
 
 
+const sessionLog = [];
+
 function toggleQuestPanel() {
   const panel = document.getElementById("questPanel");
   const arrow = document.getElementById("heroArrow");
@@ -11164,8 +11166,6 @@ function syntaxHighlight(json) {
     });
 }
 
-
-const sessionLog = [];
 
 function submitReview() {
   const name = document.getElementById("fieldName").value.trim();
@@ -11268,12 +11268,12 @@ function renderSavedEntries() {
 }
 
 // Load saved on start
-(function() {
+window.addEventListener("load", function() {
   try {
     const saved = localStorage.getItem("eva_reviews");
     if (saved && JSON.parse(saved).length > 0) renderSavedEntries();
   } catch(e) {}
-})();
+});
 
 function startQuiz() {
   document.getElementById("introScreen").style.display = "none";
