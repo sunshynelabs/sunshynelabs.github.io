@@ -11206,9 +11206,10 @@ function submitReview() {
   status.style.color = "#8ab0cc";
   status.textContent = "Submitting...";
 
-  fetch("https://formspree.io/f/xkoqageq", {
+  fetch("https://script.google.com/macros/s/AKfycbyu5HQYi5rvR8q3FcRx5IBF-E-8wco0fQW36QmueujExw-y8TvNaNe6wEEia-97BI6KQw/exec", {
     method: "POST",
-    headers: { "Content-Type": "application/json", "Accept": "application/json" },
+    mode: "no-cors",
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       record: r.title,
       panel: r.panel,
@@ -11219,15 +11220,9 @@ function submitReview() {
       timestamp: entry.timestamp
     })
   })
-  .then(res => res.json())
-  .then(data => {
-    if (data.ok) {
-      status.style.color = "#00ff88";
-      status.textContent = "✓ Review submitted.";
-    } else {
-      status.style.color = "#ff6b35";
-      status.textContent = "⚠ Saved locally. Remote submit failed.";
-    }
+  .then(() => {
+    status.style.color = "#00ff88";
+    status.textContent = "✓ Review submitted.";
   })
   .catch(() => {
     status.style.color = "#ff6b35";
