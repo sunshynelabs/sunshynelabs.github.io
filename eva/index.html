@@ -1017,7 +1017,8 @@
     <div class="advisory-icon">⚠</div>
     <div class="advisory-text">
       <strong>Recommendation & Advisory</strong>
-       For staff verification only. Critical health information requires review by a licensed medical professional. While accessible to non-technical staff, these records do not constitute nor substitute for professional medical advice, diagnosis and treatment.
+      For staff verification only. Critical health information requires review by a licensed medical professional. While accessible to non-technical staff, these records do not constitute nor substitute for professional medical advice, diagnosis and treatment.
+    </div>
   </div>
 
   <!-- INTRO SCREEN -->
@@ -1111,7 +1112,7 @@
   <!-- COMPLETION SCREEN -->
   <div class="completion" id="completionScreen">
     <div class="completion-icon" id="completionIcon">✓</div>
-    <div class="completion-title" id="completionTitle">Test Complete</div>
+    <div class="completion-title" id="completionTitle">Verification Complete</div>
     <div class="completion-score" id="completionScore"></div>
     <div class="completion-sub" id="completionSub"></div>
 
@@ -10773,7 +10774,7 @@ const ALL_RECORDS = [
     ready: true,
     summary: `Jacob's amino acid blood test was drawn on <span class="highlight">March 27, 2025</span>, while fasting. Most of the amino acid numbers were in the normal range. Two readings could not be measured well enough: <strong style="color:var(--warn)">hydroxyproline</strong> and <strong style="color:var(--warn)">cystathionine</strong> — both say "see note" because the lab said the peak quality was poor.<br><br>
 The readings marked <span class="flag-high">HIGH</span> were: beta-alanine 7, valine 446, leucine 190, phenylalanine 86, and ornithine 112. The one reading marked <span class="flag-high">LOW</span> was arginine 32.<br><br>
-Everything else was in the normal range: aspartic acid 1, glutamic acid 36, serine 135, asparagine 43, alpha aminoadipic acid 1, glycine 206, glutamine 643, sarcosine 1, taurine 65, histidine 89, citrulline 26, threonine 139, alanine 315, 1-methylhistidine 1, gamma aminobutyric acid &lt;1, 3-methylhistidine 4, beta aminoisobutyric acid &lt;2, proline 200, ethanolamine 5, alpha aminobutyric acid 17, tyrosine 51, methionine 22, isoleucine 86, homocystine &lt;1, tryptophan 71, and lysine 168. 34 total readings, no backup OCR needed.`,
+Everything else was in the normal range: aspartic acid 1, glutamic acid 36, serine 135, asparagine 43, alpha aminoadipic acid 1, glycine 206, glutamine 643, sarcosine 1, taurine 65, histidine 89, citrulline 26, threonine 139, alanine 315, 1-methylhistidine 1, gamma aminobutyric acid &lt;1, 3-methylhistidine 4, beta aminoisobutyric acid &lt;2, proline 200, ethanolamine 5, alpha aminobutyric acid 17, tyrosine 51, methionine 22, isoleucine 86, homocystine &lt;1, tryptophan 71, and lysine 168. Extraction quality was strong — 34 total readings, no backup OCR needed.`,
     analytes: [
       { name: "Valine", value: "446 H", unit: "umol/L", range: "normal", flag: "HIGH" },
       { name: "Leucine", value: "190 H", unit: "umol/L", range: "normal", flag: "HIGH" },
@@ -10794,7 +10795,7 @@ Everything else was in the normal range: aspartic acid 1, glutamic acid 36, seri
     ready: true,
     summary: `Jacob's Vitamin D blood test was collected on <span class="highlight">November 30, 2023</span> and reported on <span class="highlight">December 1, 2023</span>.<br><br>
 It has 1 reading total: <strong style="color:var(--text-bright)">Vitamin D, 25-OH, Total = <span class="flag-normal">69 ng/mL</span></strong>. The lab's normal range is 30–100 ng/mL, so this result was inside the normal range and was not marked high or low.<br><br>
-In very simple terms, this file shows a normal vitamin D level. 1 total reading.`,
+In very simple terms, this file shows a normal vitamin D level. Extraction quality was strong — 1 total reading, no warning flags, no backup OCR needed.`,
     analytes: [
       { name: "Vitamin D, 25-OH Total (IA)", value: "69", unit: "ng/mL", range: "30–100", flag: null }
     ],
@@ -10809,9 +10810,9 @@ In very simple terms, this file shows a normal vitamin D level. 1 total reading.
     pdfName: "Allergen Report 4.19.24.pdf",
     pdfUrl: "https://drive.google.com/file/d/160Eo09-9nK4cBJNytlrDIOkFv17tRIMn/view?usp=sharing",
     ready: true,
-    summary: `Jacob's allergy blood test was collected on <span class="highlight">April 18, 2024</span>. It checked breathing and environmental allergies. The results were very low across the whole panel.<br><br>
+    summary: `Jacob's allergy blood test was collected on <span class="highlight">April 18, 2024</span>. It checked breathing and environmental allergies, and the big picture is that the results were very low across the whole panel.<br><br>
 The total allergy marker, Immunoglobulin E, was <span class="flag-normal">28 kU/L</span>, which was still inside the normal range of 114 or less. Every single specific allergy test came back at <span class="flag-normal">&lt;0.10 kU/L</span>, meaning the lab did not find a strong blood-test signal for any of these allergens.<br><br>
-Tested: cat dander, dog dander, cockroach, mouse urine proteins, oak, elm, hickory/pecan, white mulberry, maple/box elder, birch, mountain cedar, walnut tree, sycamore, cottonwood, white ash, bermuda grass, timothy grass, common ragweed, rough pigweed, russian thistle, sheep sorrel, dust mite (D. pteronyssinus), dust mite (D. farinae), penicillium, cladosporium, aspergillus fumigatus, and alternaria alternata mold. 28 total readings.`,
+Tested: cat dander, dog dander, cockroach, mouse urine proteins, oak, elm, hickory/pecan, white mulberry, maple/box elder, birch, mountain cedar, walnut tree, sycamore, cottonwood, white ash, bermuda grass, timothy grass, common ragweed, rough pigweed, russian thistle, sheep sorrel, dust mite (D. pteronyssinus), dust mite (D. farinae), penicillium, cladosporium, aspergillus fumigatus, and alternaria alternata mold. Extraction quality was strong — 28 total readings, no warning flags, no backup OCR needed.`,
     analytes: [
       { name: "Immunoglobulin E (Total)", value: "28", unit: "kU/L", range: "≤114", flag: null },
       { name: "Cat Dander", value: "<0.10", unit: "kU/L", range: "—", flag: null },
@@ -10819,7 +10820,7 @@ Tested: cat dander, dog dander, cockroach, mouse urine proteins, oak, elm, hicko
       { name: "Dust Mite (D. pteronyssinus)", value: "<0.10", unit: "kU/L", range: "—", flag: null },
       { name: "Common Ragweed", value: "<0.10", unit: "kU/L", range: "—", flag: null }
     ],
-    question: "Does the summary above accurately describe the lab report?"
+    question: "Does the summary above accurately describe the Allergen Report?"
   },
   {
     id: "psa",
@@ -10834,7 +10835,7 @@ Tested: cat dander, dog dander, cockroach, mouse urine proteins, oak, elm, hicko
 • <strong style="color:var(--text-bright)">PSA Total:</strong> <span class="flag-normal">0.5 ng/mL</span> — normal range is 4.0 or less<br>
 • <strong style="color:var(--text-bright)">PSA Free:</strong> <span class="flag-normal">0.3 ng/mL</span> — no listed reference range in the extracted file<br>
 • <strong style="color:var(--text-bright)">PSA % Free:</strong> <span class="flag-normal">60%</span> — reference target is more than 25%<br><br>
-This file shows a low total PSA and a percent free PSA that is well above the listed target, with no abnormal flags. 3 total readings.`,
+In very simple terms, this file shows a low total PSA and a percent free PSA that is well above the listed target, with no abnormal flags. Extraction quality was strong — 3 total readings, no warning flags, no backup OCR needed.`,
     analytes: [
       { name: "PSA, Total", value: "0.5", unit: "ng/mL", range: "≤4.0", flag: null },
       { name: "PSA, Free", value: "0.3", unit: "ng/mL", range: "—", flag: null },
@@ -10854,7 +10855,7 @@ This file shows a low total PSA and a percent free PSA that is well above the li
     summary: `Jacob's fasting blood test was collected on <span class="highlight">December 30, 2025</span>. It covers testosterone-related markers, liver-function markers, uric acid, and C-peptide.<br><br>
 The items marked outside the normal range were: <span class="flag-high">SHBG 72 HIGH</span> (normal: 10–50 nmol/L), <span class="flag-high">uric acid 3.5 LOW</span> (normal: 4.0–8.0 mg/dL), and <span class="flag-high">C-peptide 0.39 LOW</span> (normal: 0.80–3.85 ng/mL).<br><br>
 Testosterone results were all inside the lab ranges: albumin 4.5 g/dL, free testosterone 60.6 pg/mL, bioavailable testosterone 124.7 ng/dL, and total testosterone 846 ng/dL.<br><br>
-The liver-related readings were all in range: protein total 6.6 g/dL, albumin 4.5, globulin 2.1, A/G ratio 2.1, bilirubin total 0.7 mg/dL, direct bilirubin 0.1, indirect bilirubin 0.6, alkaline phosphatase 41 U/L, AST 25 U/L, and ALT 31 U/L. 17 total readings.`,
+The liver-related readings were all in range: protein total 6.6 g/dL, albumin 4.5, globulin 2.1, A/G ratio 2.1, bilirubin total 0.7 mg/dL, direct bilirubin 0.1, indirect bilirubin 0.6, alkaline phosphatase 41 U/L, AST 25 U/L, and ALT 31 U/L. Extraction quality was strong — 17 total readings, no warning flags, no backup OCR needed.`,
     analytes: [
       { name: "SHBG", value: "72 H", unit: "nmol/L", range: "10–50", flag: "HIGH" },
       { name: "Uric Acid", value: "3.5 L", unit: "mg/dL", range: "4.0–8.0", flag: "LOW" },
@@ -10875,7 +10876,7 @@ The liver-related readings were all in range: protein total 6.6 g/dL, albumin 4.
     ready: true,
     summary: `Jacob's fasting insulin blood test was collected on <span class="highlight">August 3, 2023</span>. It has 1 reading total:<br><br>
 <strong style="color:var(--text-bright)">Insulin:</strong> <span class="flag-normal">1.7 uIU/mL</span>. The lab's normal range was 18.4 or less, so this result was inside the normal range and was not marked high or low.<br><br>
-This file shows a normal fasting insulin level. no warning flags, no backup OCR needed.`,
+In very simple terms, this file shows a normal fasting insulin level. Extraction quality was strong — no warning flags, no backup OCR needed.`,
     analytes: [
       { name: "Insulin, Fasting", value: "1.7", unit: "uIU/mL", range: "≤18.4", flag: null }
     ],
@@ -10894,7 +10895,7 @@ This file shows a normal fasting insulin level. no warning flags, no backup OCR 
 <strong style="color:var(--text-bright)">Lipid Panel:</strong> total cholesterol 172, HDL 71, triglycerides 42, LDL 89, cholesterol/HDL ratio 2.4, non-HDL 101 — all in range.<br>
 <strong style="color:var(--text-bright)">Metabolic Panel:</strong> glucose 93, BUN 23, creatinine 0.84, eGFR 109, sodium 136, potassium 4.5, chloride 104, CO₂ 26, calcium 9.4, protein total 6.3, albumin 4.5, globulin 1.8 low, A/G ratio 2.5, bilirubin total 0.5, ALP 43, AST 25, ALT 36. Hemoglobin A1c 5.4 — in range.<br>
 <strong style="color:var(--text-bright)">Hepatic Panel:</strong> protein 6.3, albumin 4.5, globulin 1.8 low, A/G 2.5, bilirubin total 0.5, direct 0.1, indirect 0.4, ALP 43, AST 25, ALT 36. LD 144, GGT 11, TSH 1.36 — all in range.<br>
-<strong style="color:var(--text-bright)">CBC:</strong> WBC 4.4, RBC 4.31, hemoglobin 13.5, hematocrit 40.8, MCV 94.7, MCH 31.3, MCHC 33.1, RDW 12.2, platelets 290, MPV 10.2 — all in range.`,
+<strong style="color:var(--text-bright)">CBC:</strong> WBC 4.4, RBC 4.31, hemoglobin 13.5, hematocrit 40.8, MCV 94.7, MCH 31.3, MCHC 33.1, RDW 12.2, platelets 290, MPV 10.2 — all in range. Extraction quality was strong — 58 total readings, no warning flags, no backup OCR needed.`,
     analytes: [
       { name: "Globulin", value: "1.8 L", unit: "g/dL", range: "normal", flag: "LOW" },
       { name: "LDL Cholesterol", value: "89", unit: "mg/dL", range: "normal", flag: null },
@@ -10916,7 +10917,7 @@ This file shows a normal fasting insulin level. no warning flags, no backup OCR 
     summary: `Jacob's fasting lab test was collected on <span class="highlight">August 15, 2025</span>. It includes a metabolic panel, iron markers, thyroid markers, hormone markers, and nutrition-related markers — 41 readings total. Most results were in the normal range.<br><br>
 Results flagged <span class="flag-high">OUTSIDE RANGE:</span> % saturation 19 LOW, total testosterone 837 HIGH, sex hormone binding globulin 101 HIGH, free testosterone 42.6 LOW, and bioavailable testosterone 87.6 LOW.<br><br>
 <strong style="color:var(--text-bright)">Metabolic Panel (all normal):</strong> glucose 94, BUN 24, creatinine 0.83, eGFR 109, sodium 137, potassium 4.4, chloride 106, CO₂ 25, calcium 9.5, protein total 6.4, albumin 4.5, globulin 1.9, A/G ratio 2.4, bilirubin total 0.3, ALP 62, AST 24, ALT 25. BUN/creatinine ratio was not reported per lab note.<br><br>
-<strong style="color:var(--text-bright)">Other normal results:</strong> LD 145, TSH 3.02, free T4 1.3, free T3 2.6, reverse T3 16, thyroglobulin antibodies &lt;1, thyroid peroxidase antibodies 1, DHT 38, iron total 58, iron binding capacity 308, vitamin B12 669, pregnenolone 83, DHEA sulfate 105, FSH 4.7, LH 6.5, selenium 116, albumin 4.5, and estradiol ultrasensitive 15.`,
+<strong style="color:var(--text-bright)">Other normal results:</strong> LD 145, TSH 3.02, free T4 1.3, free T3 2.6, reverse T3 16, thyroglobulin antibodies &lt;1, thyroid peroxidase antibodies 1, DHT 38, iron total 58, iron binding capacity 308, vitamin B12 669, pregnenolone 83, DHEA sulfate 105, FSH 4.7, LH 6.5, selenium 116, albumin 4.5, and estradiol ultrasensitive 15. Extraction quality was strong — no warning flags, no backup OCR needed.`,
     analytes: [
       { name: "Testosterone, Total", value: "837 H", unit: "ng/dL", range: "normal", flag: "HIGH" },
       { name: "SHBG", value: "101 H", unit: "normal", range: "normal", flag: "HIGH" },
@@ -10937,7 +10938,7 @@ Results flagged <span class="flag-high">OUTSIDE RANGE:</span> % saturation 19 LO
     ready: true,
     summary: `Jacob's fasting fatty acid blood test was collected on <span class="highlight">April 8, 2025</span>. It looks at different fats in the blood, especially omega-3 and omega-6 fats. All of the readings with a listed reference range were inside the lab's normal range — none were marked high or low.<br><br>
 The readings were: arachidonic acid <span class="flag-normal">15.2 % by wt</span> (normal: 8.6–15.6), arachidonic acid/EPA ratio <span class="flag-normal">15.1</span> (normal: 3.7–40.7), DHA <span class="flag-normal">3.4 % by wt</span> (normal: 1.4–5.1), DPA <span class="flag-normal">1.3 % by wt</span> (normal: 0.8–1.8), EPA <span class="flag-normal">1.0 % by wt</span> (normal: 0.2–2.3), EPA+DPA+DHA <span class="flag-normal">5.8 % by wt</span> (normal: &gt;5.4), linoleic acid <span class="flag-normal">25.7 % by wt</span> (normal: 18.6–29.5), omega-6/omega-3 ratio <span class="flag-normal">7.5</span> (normal: 3.7–14.4), omega-3 total 5.8 % by wt, and omega-6 total 43.5 % by wt.<br><br>
-10 total readings.`,
+Extraction quality was strong — 10 total readings, no warning flags, no backup OCR needed.`,
     analytes: [
       { name: "EPA+DPA+DHA", value: "5.8", unit: "% by wt", range: ">5.4", flag: null },
       { name: "DHA", value: "3.4", unit: "% by wt", range: "1.4–5.1", flag: null },
@@ -10963,7 +10964,7 @@ Results flagged <span class="flag-high">OUTSIDE TARGET RANGE:</span><br>
 • <span class="flag-high">LDL Peak Size 216.8 LOW</span> (goal: &gt;222.9 Angstrom)<br>
 • <span class="flag-high">LDL Small 311 HIGH</span> (goal: &lt;142 nmol/L)<br><br>
 <strong style="color:var(--text-bright)">Results in target range:</strong> apolipoprotein B 79 (&lt;90 mg/dL), cholesterol/HDL ratio 2.3 (&lt;5.0), total cholesterol 175 (&lt;200 mg/dL), HDL cholesterol 75 (&gt;39 mg/dL), HDL large 7548 (&gt;6729 nmol/L), LDL cholesterol 87 (&lt;100 mg/dL), lipoprotein(a) 13 (&lt;75 nmol/L), non-HDL 100 (&lt;130 mg/dL), and triglycerides 45 (&lt;150 mg/dL).<br><br>
-Good standard cholesterol numbers, but the LDL particle pattern was more concerning. 14 total readings.`,
+In simple terms: good standard cholesterol numbers, but the LDL particle pattern was more concerning. Extraction quality was strong — 14 total readings, no warning flags, no backup OCR needed.`,
     analytes: [
       { name: "LDL Particle Number", value: "1806 H", unit: "nmol/L", range: "<1138", flag: "HIGH" },
       { name: "LDL Small", value: "311 H", unit: "nmol/L", range: "<142", flag: "HIGH" },
@@ -10982,7 +10983,7 @@ Good standard cholesterol numbers, but the LDL particle pattern was more concern
     pdfName: "Final August 2025 lab.pdf",
     pdfUrl: "https://drive.google.com/file/d/1kYiE27Aon2pwPYFK55Q5l_ogw2zswQlp/view?usp=sharing",
     ready: true,
-    summary: `Jacob's fasting lab report was collected on <span class="highlight">July 18, 2025</span> and reported on <span class="highlight">August 7, 2025</span> 63 readings total. Most basic chemistry, liver, blood sugar, vitamin D, PSA, mineral, and heart-risk numbers were normal.<br><br>
+    summary: `Jacob's fasting lab report was collected on <span class="highlight">July 18, 2025</span> and reported on <span class="highlight">August 7, 2025</span> — 63 readings total. Most basic chemistry, liver, blood sugar, vitamin D, PSA, mineral, and heart-risk numbers were normal.<br><br>
 Results flagged <span class="flag-high">OUTSIDE RANGE:</span> BUN 34 HIGH, BUN/creatinine ratio 44 HIGH, iron total 49 LOW, % saturation 14 LOW, arachidonic acid/EPA ratio 3.2 LOW, and EPA 3.6 HIGH.<br><br>
 <strong style="color:var(--text-bright)">Group 1 (all normal unless noted):</strong> HS CRP &lt;0.2, homocysteine 5.6, apolipoprotein A1 132, glucose 92, BUN <span class="flag-high">34 H</span>, creatinine 0.77, eGFR 112, BUN/creatinine ratio <span class="flag-high">44 H</span>, sodium 139, potassium 4.3, chloride 104, CO₂ 28, calcium 9.3, protein total 6.6, albumin 4.5, globulin 2.1, A/G ratio 2.1, bilirubin total 0.3, ALP 77, AST 36, ALT 40, hemoglobin A1c 5.3, uric acid 4.0, and GGT 10.<br><br>
 <strong style="color:var(--text-bright)">Iron, vitamins, hormones (all normal unless noted):</strong> iron total <span class="flag-high">49 L</span>, iron binding capacity 345, % saturation <span class="flag-high">14 L</span>, ferritin 80, alpha-1-antitrypsin 94, insulin 4.4, PSA total 0.8, PSA free 0.4, PSA % free 50, magnesium RBC 4.6, zinc 69, copper 109, vitamin D total 73, vitamin D3 73, vitamin D2 &lt;4.0.<br><br>
@@ -11009,7 +11010,7 @@ Results flagged <span class="flag-high">OUTSIDE RANGE:</span> BUN 34 HIGH, BUN/c
 The one result marked <span class="flag-high">HIGH:</span> Sex Hormone Binding Globulin (SHBG) <span class="flag-high">80 nmol/L</span> (normal: 10–50).<br><br>
 <strong style="color:var(--text-bright)">Testosterone-related readings (all in range):</strong> albumin 4.7 g/dL, free testosterone 55.7 pg/mL, bioavailable testosterone 119.3 ng/dL, and total testosterone 866 ng/dL.<br><br>
 <strong style="color:var(--text-bright)">Liver panel readings (all in range):</strong> protein total 6.7 g/dL, albumin 4.7, globulin 2.0, A/G ratio 2.4, bilirubin total 0.3 mg/dL, direct bilirubin 0.1, indirect bilirubin 0.2, alkaline phosphatase 65 U/L, AST 31 U/L, and ALT 40 U/L.<br><br>
-Normal testosterone numbers and normal liver numbers, but SHBG was high. 15 total readings.`,
+In simple terms: normal testosterone numbers and normal liver numbers, but SHBG was high. Extraction quality was strong — 15 total readings, no warning flags, no backup OCR needed.`,
     analytes: [
       { name: "SHBG", value: "80 H", unit: "nmol/L", range: "10–50", flag: "HIGH" },
       { name: "Testosterone, Free", value: "55.7", unit: "pg/mL", range: "46.0–224.0", flag: null },
@@ -11030,7 +11031,7 @@ Normal testosterone numbers and normal liver numbers, but SHBG was high. 15 tota
     ready: true,
     summary: `Jacob's fasting comprehensive metabolic panel was collected on <span class="highlight">April 30, 2025</span> and reported on <span class="highlight">May 1, 2025</span> — 19 readings total. Almost everything was in the normal range.<br><br>
 <strong style="color:var(--text-bright)">All normal readings:</strong> glucose 83, BUN 18, creatinine 1.01, eGFR 93, sodium 137, potassium 4.6, chloride 104, CO₂ 26, calcium 9.5, protein total 6.5, albumin 4.5, globulin 2.0, A/G ratio 2.3, bilirubin total 0.5, alkaline phosphatase 39, AST 27, ALT 34, and GGT 8.<br><br>
-The only item without a clean number was BUN/creatinine ratio, which said "SEE NOTE:" instead of a value (reference range 6–22), and the file marked that one as needs review. Normal blood sugar, kidney markers, electrolytes, protein markers, bilirubin, and liver enzymes. 18 total readings.`,
+The only item without a clean number was BUN/creatinine ratio, which said "SEE NOTE:" instead of a value (reference range 6–22), and the file marked that one as needs review. In simple terms: normal blood sugar, kidney markers, electrolytes, protein markers, bilirubin, and liver enzymes. Extraction quality was mostly strong — 18 candidate readings, 1 needs-review reading, no backup OCR needed.`,
     analytes: [
       { name: "Glucose", value: "83", unit: "mg/dL", range: "65–99", flag: null },
       { name: "eGFR", value: "93", unit: "mL/min/1.73m²", range: "≥60", flag: null },
@@ -11103,11 +11104,7 @@ function toggleQuestPanel() {
   const btn = document.querySelector(".btn-hero-sub");
   panel.classList.toggle("open");
   arrow.classList.toggle("open");
-  if (panel.classList.contains("open")) {
-    btn.textContent = "14 records · tap to collapse";
-  } else {
-    btn.textContent = "14 records · tap to expand";
-  }
+
 }
 
 function backToMenu() {
@@ -11168,7 +11165,7 @@ function submitReview() {
 
   if (!name) {
     status.style.color = "#ff6b35";
-    status.textContent = "Please enter your name.";
+    status.textContent = "Please enter your name before saving.";
     setTimeout(() => status.textContent = "", 2500);
     return;
   }
@@ -11217,11 +11214,11 @@ function submitReview() {
   })
   .then(() => {
     status.style.color = "#00ff88";
-    status.textContent = "✓ Saved";
+    status.textContent = "✓ Review submitted.";
   })
   .catch(() => {
-    status.style.color = "#00ff88";
-    status.textContent = "✓ Saved";
+    status.style.color = "#ff6b35";
+    status.textContent = "⚠ Saved locally. Check your connection.";
   })
   .finally(() => {
     btn.disabled = false;
