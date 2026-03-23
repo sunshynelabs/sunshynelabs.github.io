@@ -11386,7 +11386,7 @@ function showCompletion() {
   document.getElementById("completionTitle").textContent = flagged === 0 ? "All Records Verified" : "Verification Complete — Flags Noted";
   document.getElementById("completionScore").textContent = pct + "%";
   document.getElementById("completionSub").textContent = flagged === 0
-    ? `All ${total} records confirmed. This batch is cleared for ingestion with the Ideal Scene.`
+    ? `All ${total} records confirmed. This batch is cleared for ingestion for the Ideal Scene.`
     : `${confirmed} of ${total} records confirmed. ${flagged} record${flagged > 1 ? 's' : ''} flagged for review.`;
 
   let summaryHTML = records.map((r, i) => `
