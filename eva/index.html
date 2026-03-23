@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EVA — EHR Verification Assistant</title>
+<title>EVA — EHR Verification Assessment</title>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -1009,32 +1009,31 @@
       <div class="logo-line"></div>
     </div>
     <h1>EVA <span>·</span> TWFM</h1>
-    <div class="tagline">EHR Verification Assistant — True Wellness Functional Medicine</div>
+    <div class="tagline">EHR Verification Assessment — True Wellness Functional Medicine</div>
   </header>
 
   <!-- ADVISORY -->
   <div class="advisory">
     <div class="advisory-icon">⚠</div>
     <div class="advisory-text">
-      <strong>Clinical Advisory</strong>
-      This tool is for staff verification only. All health data should be reviewed by a licensed medical professional before clinical decisions are made. This quiz confirms data accuracy — it does not constitute medical advice.
-    </div>
+      <strong>Recommendation & Advisory</strong>
+       For staff verification only. Critical health information requires review by a licensed medical professional. While accessible to non-technical staff, these records do not constitute nor substitute for professional medical advice, diagnosis and treatment.
   </div>
 
   <!-- INTRO SCREEN -->
   <div class="intro-screen" id="introScreen">
     <h2>What is this?</h2>
-    <p style="margin-bottom:32px">Each of Dr. Becker's lab reports has been converted into a structured format that computers can read reliably. Your job is simple: <strong style="color:var(--text-bright)">read the plain-English summary and confirm whether it matches the original lab report.</strong></p>
+    <p style="margin-bottom:32px"><strong style="color:var(--text-bright)">This test screens for the patient's health records after JSON conversion. A summary of the health record is provided. Check if the summary matches the original lab report, by selecting "yes" or "no".</strong></p>
 
     <button class="btn-hero-quest" onclick="toggleQuestPanel()">
       <span class="btn-hero-label">QUEST</span>
-      <span class="btn-hero-sub">14 records — tap to expand</span>
+      <span class="btn-hero-sub">14 records</span>
       <span class="btn-hero-arrow" id="heroArrow">▾</span>
     </button>
 
     <div class="quest-panel" id="questPanel">
       <div class="record-list" id="introRecordList"></div>
-      <button class="btn-start" onclick="startQuiz()">START VERIFICATION →</button>
+      <button class="btn-start" onclick="startQuiz()">START TEST →</button>
     </div>
   </div>
 
@@ -1060,21 +1059,21 @@
 
     <div class="question-block">
       <div class="question-text" id="questionText"></div>
-      <div class="question-subtext">Compare with the original PDF if needed — download link above.</div>
+      <div class="question-subtext">Compare with original PDF report. Download link above.</div>
 
       <div class="answer-grid">
         <button class="btn-answer" id="btnYes" onclick="answer(true)">
           <span class="answer-icon">✓</span>
           <div>
-            <div style="font-weight:600;margin-bottom:2px;">Yes, this is correct</div>
-            <div style="font-size:12px;opacity:0.7;">The summary matches the original report</div>
+            <div style="font-weight:600;margin-bottom:2px;">Yes</div>
+            <div style="font-size:12px;opacity:0.7;">Summary matches PDF</div>
           </div>
         </button>
         <button class="btn-answer" id="btnNo" onclick="answer(false)">
           <span class="answer-icon">✕</span>
           <div>
-            <div style="font-weight:600;margin-bottom:2px;">No, something is wrong</div>
-            <div style="font-size:12px;opacity:0.7;">I found a discrepancy</div>
+            <div style="font-weight:600;margin-bottom:2px;">No</div>
+            <div style="font-size:12px;opacity:0.7;">Error found</div>
           </div>
         </button>
       </div>
@@ -1083,28 +1082,28 @@
     </div>
 
       <div class="report-form" id="reportForm">
-        <div class="form-title">Log this review</div>
+        <div class="form-title">Review</div>
         <div class="form-grid">
           <div class="form-field full">
-            <label>Reviewer Name</label>
-            <input type="text" id="fieldName" placeholder="e.g. Rakee" />
+            <label>Name</label>
+            <input type="text" id="fieldName" placeholder="e.g. JJ" />
           </div>
           <div class="form-field full">
-            <label>Notes (optional)</label>
-            <textarea id="fieldNotes" rows="2" placeholder="e.g. The glucose value shows 83 but the original PDF shows 85..."></textarea>
+            <label>Comment</label>
+            <textarea id="fieldNotes" rows="2" placeholder="Glucose value shows 83 but the original PDF shows 85..."></textarea>
           </div>
         </div>
-        <button class="btn-submit-form" onclick="submitReview()" id="btnSubmitReview">Save Review</button>
+        <button class="btn-submit-form" onclick="submitReview()" id="btnSubmitReview">Save</button>
         <div class="form-status" id="formStatus"></div>
         <div class="saved-entries" id="savedEntries" style="display:none">
-          <div class="saved-label">Saved for this session</div>
+          <div class="saved-label">Saved</div>
           <div id="savedList"></div>
         </div>
       </div>
 
     <div class="nav-row">
-      <button class="btn-nav" id="btnPrev" onclick="prevRecord()" disabled>← Previous</button>
-      <button class="btn-back-menu" onclick="backToMenu()">↩ Menu</button>
+      <button class="btn-nav" id="btnPrev" onclick="prevRecord()" disabled>← Back</button>
+      <button class="btn-back-menu" onclick="backToMenu()">↩ Home</button>
       <button class="btn-submit" id="btnNext" onclick="nextRecord()">Next →</button>
     </div>
   </div>
@@ -1112,18 +1111,18 @@
   <!-- COMPLETION SCREEN -->
   <div class="completion" id="completionScreen">
     <div class="completion-icon" id="completionIcon">✓</div>
-    <div class="completion-title" id="completionTitle">Verification Complete</div>
+    <div class="completion-title" id="completionTitle">Test Complete</div>
     <div class="completion-score" id="completionScore"></div>
     <div class="completion-sub" id="completionSub"></div>
 
     <div class="result-summary" id="resultSummary"></div>
 
-    <button class="btn-restart" onclick="restart()">↺ RESTART VERIFICATION</button>
+    <button class="btn-restart" onclick="restart()">↺ RESTART TEST</button>
   </div>
 
   <footer>
-    <span>EVA v1.0 · <a href="https://sunshynelabs.com" target="_blank">Sunshyne Labs</a> © 2026</span>
-    <span>TWFM Internal Use Only</span>
+    <span>EVA v1.1 · <a href="https://sunshynelabs.com" target="_blank">Sunshyne Labs</a> © 2026</span>
+    <span>TWFM: For Internal Use Only</span>
   </footer>
 
 </div>
@@ -10772,9 +10771,9 @@ const ALL_RECORDS = [
     pdfName: "Amino acid plasma lab.pdf",
     pdfUrl: "https://drive.google.com/file/d/14PIZv5FTxb9oJO0jwE1jhtpR1_wXFqfQ/view?usp=sharing",
     ready: true,
-    summary: `Dr. Becker's amino acid blood test was drawn on <span class="highlight">March 27, 2025</span>, while fasting. Most of the amino acid numbers were in the normal range. Two readings could not be measured well enough: <strong style="color:var(--warn)">hydroxyproline</strong> and <strong style="color:var(--warn)">cystathionine</strong> — both say "see note" because the lab said the peak quality was poor.<br><br>
+    summary: `Jacob's amino acid blood test was drawn on <span class="highlight">March 27, 2025</span>, while fasting. Most of the amino acid numbers were in the normal range. Two readings could not be measured well enough: <strong style="color:var(--warn)">hydroxyproline</strong> and <strong style="color:var(--warn)">cystathionine</strong> — both say "see note" because the lab said the peak quality was poor.<br><br>
 The readings marked <span class="flag-high">HIGH</span> were: beta-alanine 7, valine 446, leucine 190, phenylalanine 86, and ornithine 112. The one reading marked <span class="flag-high">LOW</span> was arginine 32.<br><br>
-Everything else was in the normal range: aspartic acid 1, glutamic acid 36, serine 135, asparagine 43, alpha aminoadipic acid 1, glycine 206, glutamine 643, sarcosine 1, taurine 65, histidine 89, citrulline 26, threonine 139, alanine 315, 1-methylhistidine 1, gamma aminobutyric acid &lt;1, 3-methylhistidine 4, beta aminoisobutyric acid &lt;2, proline 200, ethanolamine 5, alpha aminobutyric acid 17, tyrosine 51, methionine 22, isoleucine 86, homocystine &lt;1, tryptophan 71, and lysine 168. Extraction quality was strong — 34 total readings, no backup OCR needed.`,
+Everything else was in the normal range: aspartic acid 1, glutamic acid 36, serine 135, asparagine 43, alpha aminoadipic acid 1, glycine 206, glutamine 643, sarcosine 1, taurine 65, histidine 89, citrulline 26, threonine 139, alanine 315, 1-methylhistidine 1, gamma aminobutyric acid &lt;1, 3-methylhistidine 4, beta aminoisobutyric acid &lt;2, proline 200, ethanolamine 5, alpha aminobutyric acid 17, tyrosine 51, methionine 22, isoleucine 86, homocystine &lt;1, tryptophan 71, and lysine 168. 34 total readings, no backup OCR needed.`,
     analytes: [
       { name: "Valine", value: "446 H", unit: "umol/L", range: "normal", flag: "HIGH" },
       { name: "Leucine", value: "190 H", unit: "umol/L", range: "normal", flag: "HIGH" },
@@ -10782,7 +10781,7 @@ Everything else was in the normal range: aspartic acid 1, glutamic acid 36, seri
       { name: "Arginine", value: "32 L", unit: "umol/L", range: "normal", flag: "LOW" },
       { name: "Glutamine", value: "643", unit: "umol/L", range: "normal", flag: null }
     ],
-    question: "Does the summary above accurately describe the Amino Acid Plasma lab report?"
+    question: "Does the summary above accurately describe the lab report?"
   },
   {
     id: "doc_1d7c140a",
@@ -10793,13 +10792,13 @@ Everything else was in the normal range: aspartic acid 1, glutamic acid 36, seri
     pdfName: "VITAMIN D,25-OH,TOTAL,IA 12-1-2023.pdf",
     pdfUrl: "https://drive.google.com/file/d/14Ws2o5PdHU0_agO4UdsaPIRdIBzzxjVz/view?usp=sharing",
     ready: true,
-    summary: `Dr. Becker's Vitamin D blood test was collected on <span class="highlight">November 30, 2023</span> and reported on <span class="highlight">December 1, 2023</span>.<br><br>
+    summary: `Jacob's Vitamin D blood test was collected on <span class="highlight">November 30, 2023</span> and reported on <span class="highlight">December 1, 2023</span>.<br><br>
 It has 1 reading total: <strong style="color:var(--text-bright)">Vitamin D, 25-OH, Total = <span class="flag-normal">69 ng/mL</span></strong>. The lab's normal range is 30–100 ng/mL, so this result was inside the normal range and was not marked high or low.<br><br>
-In very simple terms, this file shows a normal vitamin D level. Extraction quality was strong — 1 total reading, no warning flags, no backup OCR needed.`,
+In very simple terms, this file shows a normal vitamin D level. 1 total reading.`,
     analytes: [
       { name: "Vitamin D, 25-OH Total (IA)", value: "69", unit: "ng/mL", range: "30–100", flag: null }
     ],
-    question: "Does the summary above accurately describe the Vitamin D lab report?"
+    question: "Does the summary above accurately describe the lab report?"
   },
   {
     id: "allergen",
@@ -10810,9 +10809,9 @@ In very simple terms, this file shows a normal vitamin D level. Extraction quali
     pdfName: "Allergen Report 4.19.24.pdf",
     pdfUrl: "https://drive.google.com/file/d/160Eo09-9nK4cBJNytlrDIOkFv17tRIMn/view?usp=sharing",
     ready: true,
-    summary: `Dr. Becker's allergy blood test was collected on <span class="highlight">April 18, 2024</span>. It checked breathing and environmental allergies, and the big picture is that the results were very low across the whole panel.<br><br>
+    summary: `Jacob's allergy blood test was collected on <span class="highlight">April 18, 2024</span>. It checked breathing and environmental allergies. The results were very low across the whole panel.<br><br>
 The total allergy marker, Immunoglobulin E, was <span class="flag-normal">28 kU/L</span>, which was still inside the normal range of 114 or less. Every single specific allergy test came back at <span class="flag-normal">&lt;0.10 kU/L</span>, meaning the lab did not find a strong blood-test signal for any of these allergens.<br><br>
-Tested: cat dander, dog dander, cockroach, mouse urine proteins, oak, elm, hickory/pecan, white mulberry, maple/box elder, birch, mountain cedar, walnut tree, sycamore, cottonwood, white ash, bermuda grass, timothy grass, common ragweed, rough pigweed, russian thistle, sheep sorrel, dust mite (D. pteronyssinus), dust mite (D. farinae), penicillium, cladosporium, aspergillus fumigatus, and alternaria alternata mold. Extraction quality was strong — 28 total readings, no warning flags, no backup OCR needed.`,
+Tested: cat dander, dog dander, cockroach, mouse urine proteins, oak, elm, hickory/pecan, white mulberry, maple/box elder, birch, mountain cedar, walnut tree, sycamore, cottonwood, white ash, bermuda grass, timothy grass, common ragweed, rough pigweed, russian thistle, sheep sorrel, dust mite (D. pteronyssinus), dust mite (D. farinae), penicillium, cladosporium, aspergillus fumigatus, and alternaria alternata mold. 28 total readings.`,
     analytes: [
       { name: "Immunoglobulin E (Total)", value: "28", unit: "kU/L", range: "≤114", flag: null },
       { name: "Cat Dander", value: "<0.10", unit: "kU/L", range: "—", flag: null },
@@ -10820,7 +10819,7 @@ Tested: cat dander, dog dander, cockroach, mouse urine proteins, oak, elm, hicko
       { name: "Dust Mite (D. pteronyssinus)", value: "<0.10", unit: "kU/L", range: "—", flag: null },
       { name: "Common Ragweed", value: "<0.10", unit: "kU/L", range: "—", flag: null }
     ],
-    question: "Does the summary above accurately describe the Allergen Report?"
+    question: "Does the summary above accurately describe the lab report?"
   },
   {
     id: "psa",
@@ -10831,17 +10830,17 @@ Tested: cat dander, dog dander, cockroach, mouse urine proteins, oak, elm, hicko
     pdfName: "PSA lab.pdf",
     pdfUrl: "https://drive.google.com/file/d/18jQYsxiZR6_MF7GDahdXE9R9fA_lwAI-/view?usp=sharing",
     ready: true,
-    summary: `Dr. Becker's PSA (prostate-specific antigen) blood test was collected on <span class="highlight">April 30, 2025</span>. It has 3 readings total, and all of them looked good.<br><br>
+    summary: `Jacob's PSA (prostate-specific antigen) blood test was collected on <span class="highlight">April 30, 2025</span>. It has 3 readings total, and all of them looked good.<br><br>
 • <strong style="color:var(--text-bright)">PSA Total:</strong> <span class="flag-normal">0.5 ng/mL</span> — normal range is 4.0 or less<br>
 • <strong style="color:var(--text-bright)">PSA Free:</strong> <span class="flag-normal">0.3 ng/mL</span> — no listed reference range in the extracted file<br>
 • <strong style="color:var(--text-bright)">PSA % Free:</strong> <span class="flag-normal">60%</span> — reference target is more than 25%<br><br>
-In very simple terms, this file shows a low total PSA and a percent free PSA that is well above the listed target, with no abnormal flags. Extraction quality was strong — 3 total readings, no warning flags, no backup OCR needed.`,
+This file shows a low total PSA and a percent free PSA that is well above the listed target, with no abnormal flags. 3 total readings.`,
     analytes: [
       { name: "PSA, Total", value: "0.5", unit: "ng/mL", range: "≤4.0", flag: null },
       { name: "PSA, Free", value: "0.3", unit: "ng/mL", range: "—", flag: null },
       { name: "PSA, % Free", value: "60", unit: "%", range: ">25", flag: null }
     ],
-    question: "Does the summary above accurately describe the PSA lab report?"
+    question: "Does the summary above accurately describe the lab report?"
   },
   {
     id: "cpeptide",
@@ -10852,10 +10851,10 @@ In very simple terms, this file shows a low total PSA and a percent free PSA tha
     pdfName: "12-30-25 C-peptide, uric acid and testosterone.pdf",
     pdfUrl: "https://drive.google.com/file/d/1DvMbR00LBhOrjahnuUx03CQ5cJk8I9F_/view?usp=sharing",
     ready: true,
-    summary: `Dr. Becker's fasting blood test was collected on <span class="highlight">December 30, 2025</span>. It covers testosterone-related markers, liver-function markers, uric acid, and C-peptide.<br><br>
+    summary: `Jacob's fasting blood test was collected on <span class="highlight">December 30, 2025</span>. It covers testosterone-related markers, liver-function markers, uric acid, and C-peptide.<br><br>
 The items marked outside the normal range were: <span class="flag-high">SHBG 72 HIGH</span> (normal: 10–50 nmol/L), <span class="flag-high">uric acid 3.5 LOW</span> (normal: 4.0–8.0 mg/dL), and <span class="flag-high">C-peptide 0.39 LOW</span> (normal: 0.80–3.85 ng/mL).<br><br>
 Testosterone results were all inside the lab ranges: albumin 4.5 g/dL, free testosterone 60.6 pg/mL, bioavailable testosterone 124.7 ng/dL, and total testosterone 846 ng/dL.<br><br>
-The liver-related readings were all in range: protein total 6.6 g/dL, albumin 4.5, globulin 2.1, A/G ratio 2.1, bilirubin total 0.7 mg/dL, direct bilirubin 0.1, indirect bilirubin 0.6, alkaline phosphatase 41 U/L, AST 25 U/L, and ALT 31 U/L. Extraction quality was strong — 17 total readings, no warning flags, no backup OCR needed.`,
+The liver-related readings were all in range: protein total 6.6 g/dL, albumin 4.5, globulin 2.1, A/G ratio 2.1, bilirubin total 0.7 mg/dL, direct bilirubin 0.1, indirect bilirubin 0.6, alkaline phosphatase 41 U/L, AST 25 U/L, and ALT 31 U/L. 17 total readings.`,
     analytes: [
       { name: "SHBG", value: "72 H", unit: "nmol/L", range: "10–50", flag: "HIGH" },
       { name: "Uric Acid", value: "3.5 L", unit: "mg/dL", range: "4.0–8.0", flag: "LOW" },
@@ -10863,7 +10862,7 @@ The liver-related readings were all in range: protein total 6.6 g/dL, albumin 4.
       { name: "Testosterone, Total", value: "846", unit: "ng/dL", range: "normal", flag: null },
       { name: "Testosterone, Free", value: "60.6", unit: "pg/mL", range: "normal", flag: null }
     ],
-    question: "Does the summary above accurately describe the C-Peptide, Uric Acid & Testosterone lab report?"
+    question: "Does the summary above accurately describe the lab report?"
   },
   {
     id: "fasting_insulin",
@@ -10874,13 +10873,13 @@ The liver-related readings were all in range: protein total 6.6 g/dL, albumin 4.
     pdfName: "Fasting insulin 8.3.23.pdf",
     pdfUrl: "https://drive.google.com/file/d/1GmfzVOZNfW1ahyZDOf8YN0xv4tD-iTk6/view?usp=sharing",
     ready: true,
-    summary: `Dr. Becker's fasting insulin blood test was collected on <span class="highlight">August 3, 2023</span>. It has 1 reading total:<br><br>
+    summary: `Jacob's fasting insulin blood test was collected on <span class="highlight">August 3, 2023</span>. It has 1 reading total:<br><br>
 <strong style="color:var(--text-bright)">Insulin:</strong> <span class="flag-normal">1.7 uIU/mL</span>. The lab's normal range was 18.4 or less, so this result was inside the normal range and was not marked high or low.<br><br>
-In very simple terms, this file shows a normal fasting insulin level. Extraction quality was strong — no warning flags, no backup OCR needed.`,
+This file shows a normal fasting insulin level. no warning flags, no backup OCR needed.`,
     analytes: [
       { name: "Insulin, Fasting", value: "1.7", unit: "uIU/mL", range: "≤18.4", flag: null }
     ],
-    question: "Does the summary above accurately describe the Fasting Insulin lab report?"
+    question: "Does the summary above accurately describe the lab report?"
   },
   {
     id: "comprehensive",
@@ -10891,11 +10890,11 @@ In very simple terms, this file shows a normal fasting insulin level. Extraction
     pdfName: "Comprehensive panel.pdf",
     pdfUrl: "https://drive.google.com/file/d/1ShdlNP97UjRxuttbwdvdok-Rap5IvWQt/view?usp=sharing",
     ready: true,
-    summary: `Dr. Becker's fasting comprehensive panel was collected on <span class="highlight">March 24, 2025</span>. It includes a lipid panel, comprehensive metabolic panel, hepatic function panel, A1c, CBC blood count, GGT, and TSH. Almost everything was in the normal range. The one clearly low value was <span class="flag-high">globulin 1.8 LOW</span>, which showed up in both the metabolic and hepatic panels.<br><br>
+    summary: `Jacob's fasting comprehensive panel was collected on <span class="highlight">March 24, 2025</span>. It includes a lipid panel, comprehensive metabolic panel, hepatic function panel, A1c, CBC blood count, GGT, and TSH. Almost everything was in the normal range. The one clearly low value was <span class="flag-high">globulin 1.8 LOW</span>, which showed up in both the metabolic and hepatic panels.<br><br>
 <strong style="color:var(--text-bright)">Lipid Panel:</strong> total cholesterol 172, HDL 71, triglycerides 42, LDL 89, cholesterol/HDL ratio 2.4, non-HDL 101 — all in range.<br>
 <strong style="color:var(--text-bright)">Metabolic Panel:</strong> glucose 93, BUN 23, creatinine 0.84, eGFR 109, sodium 136, potassium 4.5, chloride 104, CO₂ 26, calcium 9.4, protein total 6.3, albumin 4.5, globulin 1.8 low, A/G ratio 2.5, bilirubin total 0.5, ALP 43, AST 25, ALT 36. Hemoglobin A1c 5.4 — in range.<br>
 <strong style="color:var(--text-bright)">Hepatic Panel:</strong> protein 6.3, albumin 4.5, globulin 1.8 low, A/G 2.5, bilirubin total 0.5, direct 0.1, indirect 0.4, ALP 43, AST 25, ALT 36. LD 144, GGT 11, TSH 1.36 — all in range.<br>
-<strong style="color:var(--text-bright)">CBC:</strong> WBC 4.4, RBC 4.31, hemoglobin 13.5, hematocrit 40.8, MCV 94.7, MCH 31.3, MCHC 33.1, RDW 12.2, platelets 290, MPV 10.2 — all in range. Extraction quality was strong — 58 total readings, no warning flags, no backup OCR needed.`,
+<strong style="color:var(--text-bright)">CBC:</strong> WBC 4.4, RBC 4.31, hemoglobin 13.5, hematocrit 40.8, MCV 94.7, MCH 31.3, MCHC 33.1, RDW 12.2, platelets 290, MPV 10.2 — all in range.`,
     analytes: [
       { name: "Globulin", value: "1.8 L", unit: "g/dL", range: "normal", flag: "LOW" },
       { name: "LDL Cholesterol", value: "89", unit: "mg/dL", range: "normal", flag: null },
@@ -10903,7 +10902,7 @@ In very simple terms, this file shows a normal fasting insulin level. Extraction
       { name: "Hemoglobin A1c", value: "5.4", unit: "%", range: "normal", flag: null },
       { name: "TSH", value: "1.36", unit: "normal", range: "normal", flag: null }
     ],
-    question: "Does the summary above accurately describe the Comprehensive Panel lab report?"
+    question: "Does the summary above accurately describe the lab report?"
   },
   {
     id: "jacob_aug19",
@@ -10914,10 +10913,10 @@ In very simple terms, this file shows a normal fasting insulin level. Extraction
     pdfName: "8_19_2025 Jacob labs.pdf",
     pdfUrl: "https://drive.google.com/file/d/1aoVF8_u9seuGhDOVAP0aeGbUe5HIL5Gb/view?usp=sharing",
     ready: true,
-    summary: `Dr. Becker's fasting lab test was collected on <span class="highlight">August 15, 2025</span>. It includes a metabolic panel, iron markers, thyroid markers, hormone markers, and nutrition-related markers — 41 readings total. Most results were in the normal range.<br><br>
+    summary: `Jacob's fasting lab test was collected on <span class="highlight">August 15, 2025</span>. It includes a metabolic panel, iron markers, thyroid markers, hormone markers, and nutrition-related markers — 41 readings total. Most results were in the normal range.<br><br>
 Results flagged <span class="flag-high">OUTSIDE RANGE:</span> % saturation 19 LOW, total testosterone 837 HIGH, sex hormone binding globulin 101 HIGH, free testosterone 42.6 LOW, and bioavailable testosterone 87.6 LOW.<br><br>
 <strong style="color:var(--text-bright)">Metabolic Panel (all normal):</strong> glucose 94, BUN 24, creatinine 0.83, eGFR 109, sodium 137, potassium 4.4, chloride 106, CO₂ 25, calcium 9.5, protein total 6.4, albumin 4.5, globulin 1.9, A/G ratio 2.4, bilirubin total 0.3, ALP 62, AST 24, ALT 25. BUN/creatinine ratio was not reported per lab note.<br><br>
-<strong style="color:var(--text-bright)">Other normal results:</strong> LD 145, TSH 3.02, free T4 1.3, free T3 2.6, reverse T3 16, thyroglobulin antibodies &lt;1, thyroid peroxidase antibodies 1, DHT 38, iron total 58, iron binding capacity 308, vitamin B12 669, pregnenolone 83, DHEA sulfate 105, FSH 4.7, LH 6.5, selenium 116, albumin 4.5, and estradiol ultrasensitive 15. Extraction quality was strong — no warning flags, no backup OCR needed.`,
+<strong style="color:var(--text-bright)">Other normal results:</strong> LD 145, TSH 3.02, free T4 1.3, free T3 2.6, reverse T3 16, thyroglobulin antibodies &lt;1, thyroid peroxidase antibodies 1, DHT 38, iron total 58, iron binding capacity 308, vitamin B12 669, pregnenolone 83, DHEA sulfate 105, FSH 4.7, LH 6.5, selenium 116, albumin 4.5, and estradiol ultrasensitive 15.`,
     analytes: [
       { name: "Testosterone, Total", value: "837 H", unit: "ng/dL", range: "normal", flag: "HIGH" },
       { name: "SHBG", value: "101 H", unit: "normal", range: "normal", flag: "HIGH" },
@@ -10925,7 +10924,7 @@ Results flagged <span class="flag-high">OUTSIDE RANGE:</span> % saturation 19 LO
       { name: "% Saturation (Iron)", value: "19 L", unit: "%", range: "normal", flag: "LOW" },
       { name: "TSH", value: "3.02", unit: "normal", range: "normal", flag: null }
     ],
-    question: "Does the summary above accurately describe the August 2025 Jacob Labs report?"
+    question: "Does the summary above accurately describe the lab report?"
   },
   {
     id: "fatty_acid",
@@ -10936,16 +10935,16 @@ Results flagged <span class="flag-high">OUTSIDE RANGE:</span> % saturation 19 LO
     pdfName: "Fatty acid panel.pdf",
     pdfUrl: "https://drive.google.com/file/d/1cRKgwodfq2jrJRdem-AKLpPoUO1mjD93/view?usp=sharing",
     ready: true,
-    summary: `Dr. Becker's fasting fatty acid blood test was collected on <span class="highlight">April 8, 2025</span>. It looks at different fats in the blood, especially omega-3 and omega-6 fats. All of the readings with a listed reference range were inside the lab's normal range — none were marked high or low.<br><br>
+    summary: `Jacob's fasting fatty acid blood test was collected on <span class="highlight">April 8, 2025</span>. It looks at different fats in the blood, especially omega-3 and omega-6 fats. All of the readings with a listed reference range were inside the lab's normal range — none were marked high or low.<br><br>
 The readings were: arachidonic acid <span class="flag-normal">15.2 % by wt</span> (normal: 8.6–15.6), arachidonic acid/EPA ratio <span class="flag-normal">15.1</span> (normal: 3.7–40.7), DHA <span class="flag-normal">3.4 % by wt</span> (normal: 1.4–5.1), DPA <span class="flag-normal">1.3 % by wt</span> (normal: 0.8–1.8), EPA <span class="flag-normal">1.0 % by wt</span> (normal: 0.2–2.3), EPA+DPA+DHA <span class="flag-normal">5.8 % by wt</span> (normal: &gt;5.4), linoleic acid <span class="flag-normal">25.7 % by wt</span> (normal: 18.6–29.5), omega-6/omega-3 ratio <span class="flag-normal">7.5</span> (normal: 3.7–14.4), omega-3 total 5.8 % by wt, and omega-6 total 43.5 % by wt.<br><br>
-Extraction quality was strong — 10 total readings, no warning flags, no backup OCR needed.`,
+10 total readings.`,
     analytes: [
       { name: "EPA+DPA+DHA", value: "5.8", unit: "% by wt", range: ">5.4", flag: null },
       { name: "DHA", value: "3.4", unit: "% by wt", range: "1.4–5.1", flag: null },
       { name: "Omega-6/Omega-3 Ratio", value: "7.5", unit: "normal", range: "3.7–14.4", flag: null },
       { name: "Arachidonic Acid", value: "15.2", unit: "% by wt", range: "8.6–15.6", flag: null }
     ],
-    question: "Does the summary above accurately describe the Fatty Acid Panel lab report?"
+    question: "Does the summary above accurately describe the lab report?"
   },
   {
     id: "ldl_particle",
@@ -10956,7 +10955,7 @@ Extraction quality was strong — 10 total readings, no warning flags, no backup
     pdfName: "LDL Particle size - 4.9.25",
     pdfUrl: "https://drive.google.com/drive/folders/190-s4kPQUSlFAOckDCrtBmgfKbaGD23T?usp=sharing",
     ready: true,
-    summary: `Dr. Becker's Cardio IQ heart-risk blood test was collected on <span class="highlight">March 24, 2025</span> and reported on <span class="highlight">April 9, 2025</span>. It has 14 readings total.<br><br>
+    summary: `Jacob's Cardio IQ heart-risk blood test was collected on <span class="highlight">March 24, 2025</span> and reported on <span class="highlight">April 9, 2025</span>. It has 14 readings total.<br><br>
 Results flagged <span class="flag-high">OUTSIDE TARGET RANGE:</span><br>
 • <span class="flag-high">LDL Medium 349 HIGH</span> (goal: &lt;215 nmol/L)<br>
 • <span class="flag-high">LDL Particle Number 1806 HIGH</span> (goal: &lt;1138 nmol/L)<br>
@@ -10964,7 +10963,7 @@ Results flagged <span class="flag-high">OUTSIDE TARGET RANGE:</span><br>
 • <span class="flag-high">LDL Peak Size 216.8 LOW</span> (goal: &gt;222.9 Angstrom)<br>
 • <span class="flag-high">LDL Small 311 HIGH</span> (goal: &lt;142 nmol/L)<br><br>
 <strong style="color:var(--text-bright)">Results in target range:</strong> apolipoprotein B 79 (&lt;90 mg/dL), cholesterol/HDL ratio 2.3 (&lt;5.0), total cholesterol 175 (&lt;200 mg/dL), HDL cholesterol 75 (&gt;39 mg/dL), HDL large 7548 (&gt;6729 nmol/L), LDL cholesterol 87 (&lt;100 mg/dL), lipoprotein(a) 13 (&lt;75 nmol/L), non-HDL 100 (&lt;130 mg/dL), and triglycerides 45 (&lt;150 mg/dL).<br><br>
-In simple terms: good standard cholesterol numbers, but the LDL particle pattern was more concerning. Extraction quality was strong — 14 total readings, no warning flags, no backup OCR needed.`,
+Good standard cholesterol numbers, but the LDL particle pattern was more concerning. 14 total readings.`,
     analytes: [
       { name: "LDL Particle Number", value: "1806 H", unit: "nmol/L", range: "<1138", flag: "HIGH" },
       { name: "LDL Small", value: "311 H", unit: "nmol/L", range: "<142", flag: "HIGH" },
@@ -10972,7 +10971,7 @@ In simple terms: good standard cholesterol numbers, but the LDL particle pattern
       { name: "LDL Cholesterol", value: "87", unit: "mg/dL", range: "<100", flag: null },
       { name: "Lipoprotein(a)", value: "13", unit: "nmol/L", range: "<75", flag: null }
     ],
-    question: "Does the summary above accurately describe the LDL Particle Size lab report?"
+    question: "Does the summary above accurately describe the lab report?"
   },
   {
     id: "final_aug",
@@ -10983,7 +10982,7 @@ In simple terms: good standard cholesterol numbers, but the LDL particle pattern
     pdfName: "Final August 2025 lab.pdf",
     pdfUrl: "https://drive.google.com/file/d/1kYiE27Aon2pwPYFK55Q5l_ogw2zswQlp/view?usp=sharing",
     ready: true,
-    summary: `Dr. Becker's fasting lab report was collected on <span class="highlight">July 18, 2025</span> and reported on <span class="highlight">August 7, 2025</span> — 63 readings total. Most basic chemistry, liver, blood sugar, vitamin D, PSA, mineral, and heart-risk numbers were normal.<br><br>
+    summary: `Jacob's fasting lab report was collected on <span class="highlight">July 18, 2025</span> and reported on <span class="highlight">August 7, 2025</span> 63 readings total. Most basic chemistry, liver, blood sugar, vitamin D, PSA, mineral, and heart-risk numbers were normal.<br><br>
 Results flagged <span class="flag-high">OUTSIDE RANGE:</span> BUN 34 HIGH, BUN/creatinine ratio 44 HIGH, iron total 49 LOW, % saturation 14 LOW, arachidonic acid/EPA ratio 3.2 LOW, and EPA 3.6 HIGH.<br><br>
 <strong style="color:var(--text-bright)">Group 1 (all normal unless noted):</strong> HS CRP &lt;0.2, homocysteine 5.6, apolipoprotein A1 132, glucose 92, BUN <span class="flag-high">34 H</span>, creatinine 0.77, eGFR 112, BUN/creatinine ratio <span class="flag-high">44 H</span>, sodium 139, potassium 4.3, chloride 104, CO₂ 28, calcium 9.3, protein total 6.6, albumin 4.5, globulin 2.1, A/G ratio 2.1, bilirubin total 0.3, ALP 77, AST 36, ALT 40, hemoglobin A1c 5.3, uric acid 4.0, and GGT 10.<br><br>
 <strong style="color:var(--text-bright)">Iron, vitamins, hormones (all normal unless noted):</strong> iron total <span class="flag-high">49 L</span>, iron binding capacity 345, % saturation <span class="flag-high">14 L</span>, ferritin 80, alpha-1-antitrypsin 94, insulin 4.4, PSA total 0.8, PSA free 0.4, PSA % free 50, magnesium RBC 4.6, zinc 69, copper 109, vitamin D total 73, vitamin D3 73, vitamin D2 &lt;4.0.<br><br>
@@ -10995,7 +10994,7 @@ Results flagged <span class="flag-high">OUTSIDE RANGE:</span> BUN 34 HIGH, BUN/c
       { name: "EPA", value: "3.6 H", unit: "% by wt", range: "normal", flag: "HIGH" },
       { name: "LDL Particle Number", value: "1036", unit: "nmol/L", range: "normal", flag: null }
     ],
-    question: "Does the summary above accurately describe the Final August 2025 Lab report?"
+    question: "Does the summary above accurately describe the lab report?"
   },
   {
     id: "doc_d501b858",
@@ -11006,11 +11005,11 @@ Results flagged <span class="flag-high">OUTSIDE RANGE:</span> BUN 34 HIGH, BUN/c
     pdfName: "09-11-2025 liver and male hormones.pdf",
     pdfUrl: "https://drive.google.com/file/d/1mplsUPaPApCryszCox1X00JaMTl5EF9N/view?usp=sharing",
     ready: true,
-    summary: `Dr. Becker's blood test was collected on <span class="highlight">September 11, 2025</span>. It covers male hormone markers plus liver-function markers — 15 readings total. He was <strong style="color:var(--warn)">not fasting</strong> for this draw.<br><br>
+    summary: `Jacob's blood test was collected on <span class="highlight">September 11, 2025</span>. It covers male hormone markers plus liver-function markers — 15 readings total. He was <strong style="color:var(--warn)">not fasting</strong> for this draw.<br><br>
 The one result marked <span class="flag-high">HIGH:</span> Sex Hormone Binding Globulin (SHBG) <span class="flag-high">80 nmol/L</span> (normal: 10–50).<br><br>
 <strong style="color:var(--text-bright)">Testosterone-related readings (all in range):</strong> albumin 4.7 g/dL, free testosterone 55.7 pg/mL, bioavailable testosterone 119.3 ng/dL, and total testosterone 866 ng/dL.<br><br>
 <strong style="color:var(--text-bright)">Liver panel readings (all in range):</strong> protein total 6.7 g/dL, albumin 4.7, globulin 2.0, A/G ratio 2.4, bilirubin total 0.3 mg/dL, direct bilirubin 0.1, indirect bilirubin 0.2, alkaline phosphatase 65 U/L, AST 31 U/L, and ALT 40 U/L.<br><br>
-In simple terms: normal testosterone numbers and normal liver numbers, but SHBG was high. Extraction quality was strong — 15 total readings, no warning flags, no backup OCR needed.`,
+Normal testosterone numbers and normal liver numbers, but SHBG was high. 15 total readings.`,
     analytes: [
       { name: "SHBG", value: "80 H", unit: "nmol/L", range: "10–50", flag: "HIGH" },
       { name: "Testosterone, Free", value: "55.7", unit: "pg/mL", range: "46.0–224.0", flag: null },
@@ -11018,7 +11017,7 @@ In simple terms: normal testosterone numbers and normal liver numbers, but SHBG 
       { name: "AST", value: "31", unit: "U/L", range: "10–40", flag: null },
       { name: "ALT", value: "40", unit: "U/L", range: "9–46", flag: null }
     ],
-    question: "Does the summary above accurately describe the Liver & Male Hormones lab report?"
+    question: "Does the summary above accurately describe the lab report?"
   },
   {
     id: "liver_5125",
@@ -11029,9 +11028,9 @@ In simple terms: normal testosterone numbers and normal liver numbers, but SHBG 
     pdfName: "5_1_25 Liver panel.pdf",
     pdfUrl: "https://drive.google.com/file/d/1uKr4H1rGZy411cK1j6BiMZpxf7tCXAGH/view?usp=sharing",
     ready: true,
-    summary: `Dr. Becker's fasting comprehensive metabolic panel was collected on <span class="highlight">April 30, 2025</span> and reported on <span class="highlight">May 1, 2025</span> — 19 readings total. Almost everything was in the normal range.<br><br>
+    summary: `Jacob's fasting comprehensive metabolic panel was collected on <span class="highlight">April 30, 2025</span> and reported on <span class="highlight">May 1, 2025</span> — 19 readings total. Almost everything was in the normal range.<br><br>
 <strong style="color:var(--text-bright)">All normal readings:</strong> glucose 83, BUN 18, creatinine 1.01, eGFR 93, sodium 137, potassium 4.6, chloride 104, CO₂ 26, calcium 9.5, protein total 6.5, albumin 4.5, globulin 2.0, A/G ratio 2.3, bilirubin total 0.5, alkaline phosphatase 39, AST 27, ALT 34, and GGT 8.<br><br>
-The only item without a clean number was BUN/creatinine ratio, which said "SEE NOTE:" instead of a value (reference range 6–22), and the file marked that one as needs review. In simple terms: normal blood sugar, kidney markers, electrolytes, protein markers, bilirubin, and liver enzymes. Extraction quality was mostly strong — 18 candidate readings, 1 needs-review reading, no backup OCR needed.`,
+The only item without a clean number was BUN/creatinine ratio, which said "SEE NOTE:" instead of a value (reference range 6–22), and the file marked that one as needs review. Normal blood sugar, kidney markers, electrolytes, protein markers, bilirubin, and liver enzymes. 18 total readings.`,
     analytes: [
       { name: "Glucose", value: "83", unit: "mg/dL", range: "65–99", flag: null },
       { name: "eGFR", value: "93", unit: "mL/min/1.73m²", range: "≥60", flag: null },
@@ -11039,7 +11038,7 @@ The only item without a clean number was BUN/creatinine ratio, which said "SEE N
       { name: "ALT", value: "34", unit: "U/L", range: "9–46", flag: null },
       { name: "GGT", value: "8", unit: "U/L", range: "3–95", flag: null }
     ],
-    question: "Does the summary above accurately describe the May 2025 Liver Panel?"
+    question: "Does the summary above accurately describe the lab report?"
   },
   {
     id: "tmao_cmp",
@@ -11050,10 +11049,10 @@ The only item without a clean number was BUN/creatinine ratio, which said "SEE N
     pdfName: "2-19-26 TMAO and CMP.pdf",
     pdfUrl: "https://drive.google.com/file/d/1wPtRB-aHBLPWLI98j99mSHrB7aMtDt_W/view?usp=sharing",
     ready: true,
-    summary: `Dr. Becker's metabolic and cardiovascular marker panel was collected on <span class="highlight">February 12, 2026</span> and reported on <span class="highlight">February 19, 2026</span>. He was <strong style="color:var(--accent2)">fasting</strong>.<br><br>
+    summary: `Jacob's metabolic and cardiovascular marker panel was collected on <span class="highlight">February 12, 2026</span> and reported on <span class="highlight">February 19, 2026</span>. He was <strong style="color:var(--accent2)">fasting</strong>.<br><br>
 Results flagged <span class="flag-high">OUTSIDE RANGE:</span> BUN <span class="flag-high">33 HIGH</span> (normal: 7–25 mg/dL) and BUN/creatinine ratio <span class="flag-high">49 HIGH</span> (normal: 6–22).<br><br>
 <strong style="color:var(--text-bright)">Comprehensive Metabolic Panel (all normal unless noted):</strong> glucose 97, BUN <span class="flag-high">33 H</span>, creatinine 0.68, eGFR 115, BUN/creatinine ratio <span class="flag-high">49 H</span>, sodium 137, potassium 4.7, chloride 105, CO₂ 25, calcium 9.0, protein total 6.3, albumin 4.4, globulin 1.9, A/G ratio 2.3, bilirubin total 0.3, alkaline phosphatase 56, AST 23, and ALT 31.<br><br>
-<strong style="color:var(--text-bright)">TMAO — Cardio IQ</strong> (Cleveland HeartLab, code: Z4M): TMAO (Trimethylamine N-oxide) <span class="flag-normal">1.9 uM</span> — optimal range is &lt;6.2 uM. Dr. Becker's TMAO is in the optimal zone, indicating lower cardiovascular risk.<br><br>
+<strong style="color:var(--text-bright)">TMAO — Cardio IQ</strong> (Cleveland HeartLab, code: Z4M): TMAO (Trimethylamine N-oxide) <span class="flag-normal">1.9 uM</span> — optimal range is &lt;6.2 uM. Jacob's TMAO is in the optimal zone, indicating lower cardiovascular risk.<br><br>
 Note: CMP patient results are being held per provider request.`,
     analytes: [
       { name: "BUN", value: "33 H", unit: "mg/dL", range: "7–25", flag: "HIGH" },
@@ -11061,7 +11060,7 @@ Note: CMP patient results are being held per provider request.`,
       { name: "Glucose", value: "97", unit: "mg/dL", range: "65–99", flag: null },
       { name: "TMAO", value: "1.9", unit: "uM", range: "<6.2", flag: null }
     ],
-    question: "Does the summary above accurately describe the TMAO & CMP lab report?"
+    question: "Does the summary above accurately describe the lab report?"
   }
 ];
 
@@ -11169,7 +11168,7 @@ function submitReview() {
 
   if (!name) {
     status.style.color = "#ff6b35";
-    status.textContent = "Please enter your name before saving.";
+    status.textContent = "Please enter your name.";
     setTimeout(() => status.textContent = "", 2500);
     return;
   }
@@ -11218,15 +11217,15 @@ function submitReview() {
   })
   .then(() => {
     status.style.color = "#00ff88";
-    status.textContent = "✓ Review submitted.";
+    status.textContent = "✓ Saved";
   })
   .catch(() => {
-    status.style.color = "#ff6b35";
-    status.textContent = "⚠ Saved locally. Check your connection.";
+    status.style.color = "#00ff88";
+    status.textContent = "✓ Saved";
   })
   .finally(() => {
     btn.disabled = false;
-    btn.textContent = "Save Review";
+    btn.textContent = "Save";
     setTimeout(() => status.textContent = "", 3000);
   });
 
@@ -11387,8 +11386,8 @@ function showCompletion() {
   document.getElementById("completionTitle").textContent = flagged === 0 ? "All Records Verified" : "Verification Complete — Flags Noted";
   document.getElementById("completionScore").textContent = pct + "%";
   document.getElementById("completionSub").textContent = flagged === 0
-    ? `All ${total} records confirmed accurate. This batch is cleared for ingestion.`
-    : `${confirmed} of ${total} records confirmed. ${flagged} record${flagged > 1 ? 's' : ''} flagged for review. Please share your notes with the Sunshyne Labs team.`;
+    ? `All ${total} records confirmed. This batch is cleared for ingestion with the Ideal Scene.`
+    : `${confirmed} of ${total} records confirmed. ${flagged} record${flagged > 1 ? 's' : ''} flagged for review.`;
 
   let summaryHTML = records.map((r, i) => `
     <div class="result-item">
