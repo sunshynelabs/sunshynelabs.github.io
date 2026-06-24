@@ -1,848 +1,820 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sunshyne Labs | Building Better Tomorrows</title>
-    <meta name="description" content="Sunshyne Labs builds systems designed to simplify complex admin tasks in the real world." />
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-      :root {
-        --bg-primary: #0a0a0f;
-        --bg-secondary: #12121a;
-        --bg-card: rgba(255, 255, 255, 0.02);
-        --accent: #facc15;
-        --accent-soft: rgba(250, 204, 21, 0.1);
-        --accent-glow: rgba(250, 204, 21, 0.3);
-        --text-primary: #fafafa;
-        --text-secondary: #a1a1aa;
-        --text-tertiary: #71717a;
-        --border: rgba(255, 255, 255, 0.06);
-        --border-hover: rgba(250, 204, 21, 0.2);
-        
-        --font-display: 'Space Grotesk', sans-serif;
-        --font-body: 'Inter', system-ui, sans-serif;
-        
-        --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-        --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Jerome Juliano">
+  <meta name="description" content="Sunshyne Labs is an independent process improvement consultancy based in Metro Manila. We solve real operational problems that help clients save time, money, and energy.">
+  <meta name="keywords" content="process improvement consultancy, AI workflow design, prompt engineering, LLM orchestration, BPO automation, extraction pipeline, human-in-the-loop, Lean Six Sigma, knowledge management, operational excellence, Philippines">
+
+  <title>Sunshyne Labs — Process Improvement Consultancy</title>
+
+  <!-- CANONICAL -->
+  <link rel="canonical" href="https://sunshynelabs.com/">
+
+  <!-- IDENTITY -->
+  <link rel="me" href="https://linkedin.com/in/jeromejuliano">
+  <link rel="me" href="mailto:info@sunshynelabs.com">
+
+  <!-- OPEN GRAPH -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sunshynelabs.com/">
+  <meta property="og:site_name" content="Sunshyne Labs">
+  <meta property="og:title" content="Sunshyne Labs — Process Improvement Consultancy">
+  <meta property="og:description" content="Independent process improvement consultancy. AI as the implementation substrate — not the brand identity. Systems built under zero institutional mandate, zero API access, zero budget.">
+  <meta property="og:locale" content="en_PH">
+
+  <!-- TWITTER / X CARD -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Sunshyne Labs — Process Improvement Consultancy">
+  <meta name="twitter:description" content="Independent process improvement consultancy. AI as the implementation substrate — not the brand identity.">
+
+  <!-- GOOGLE SCHOLAR CITATION META TAGS
+       One set per published work. Duplicated on individual project pages.
+  -->
+  <meta name="citation_author" content="Juliano, Jerome">
+
+  <meta name="citation_title" content="JACK Omega v4.0: Governed LLM Workflow Framework with Provenance Tracking and Audit Trails">
+  <meta name="citation_doi" content="10.5281/zenodo.17445112">
+  <meta name="citation_year" content="2025">
+  <meta name="citation_publisher" content="Zenodo">
+  <meta name="citation_abstract_html_url" content="https://zenodo.org/records/17445112">
+
+  <meta name="citation_title" content="MARY v3.0: Customer Retention and Compliance Engine">
+  <meta name="citation_doi" content="10.5281/zenodo.18115752">
+  <meta name="citation_year" content="2025">
+  <meta name="citation_publisher" content="Zenodo">
+  <meta name="citation_abstract_html_url" content="https://zenodo.org/records/18115752">
+
+  <meta name="citation_title" content="SANDRA v5.0: Deterministic Extraction Pipeline for High-Fidelity Structured Data Retrieval">
+  <meta name="citation_doi" content="10.5281/zenodo.18439730">
+  <meta name="citation_year" content="2025">
+  <meta name="citation_publisher" content="Zenodo">
+  <meta name="citation_abstract_html_url" content="https://zenodo.org/records/18439730">
+
+  <!-- JSON-LD STRUCTURED DATA
+       Machine-readable knowledge graph declarations.
+       Parsed by: Google Knowledge Panel, GPTBot, ClaudeBot,
+       PerplexityBot, Bing, Yandex, academic crawlers.
+  -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+
+      {
+        "@type": "WebSite",
+        "@id": "https://sunshynelabs.com/#website",
+        "url": "https://sunshynelabs.com",
+        "name": "Sunshyne Labs",
+        "description": "Independent process improvement consultancy. AI as the implementation substrate.",
+        "publisher": { "@id": "https://sunshynelabs.com/#organization" }
+      },
+
+      {
+        "@type": "Organization",
+        "@id": "https://sunshynelabs.com/#organization",
+        "name": "Sunshyne Labs",
+        "legalName": "Sunshyne Labs",
+        "url": "https://sunshynelabs.com",
+        "logo": "https://sunshynelabs.com/assets/logo.png",
+        "description": "Independent process improvement consultancy based in Parañaque City, Philippines. Specializes in AI-assisted workflow design, automation pipelines, extraction architectures, and structured communication systems. All systems built under zero institutional mandate, zero API access, zero budget.",
+        "foundingDate": "2025-09",
+        "founder": { "@id": "https://sunshynelabs.com/#jerome-juliano" },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Parañaque City",
+          "addressRegion": "Metro Manila",
+          "addressCountry": "PH"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "info@sunshynelabs.com",
+          "contactType": "business inquiries",
+          "areaServed": "Worldwide",
+          "availableLanguage": "English"
+        },
+        "sameAs": [
+          "https://linkedin.com/in/jeromejuliano",
+          "https://zenodo.org/search?q=sunshyne+labs",
+          "https://github.com/sunshynelabs"
+        ],
+        "knowsAbout": [
+          "Process Improvement",
+          "AI Workflow Design",
+          "Prompt Engineering",
+          "LLM Orchestration",
+          "Lean Six Sigma",
+          "Business Process Automation",
+          "Human-in-the-Loop Systems",
+          "Knowledge Management",
+          "BPO Operations"
+        ]
+      },
+
+      {
+        "@type": "Person",
+        "@id": "https://sunshynelabs.com/#jerome-juliano",
+        "name": "Jerome Juliano",
+        "givenName": "Jerome",
+        "familyName": "Juliano",
+        "jobTitle": "Founder, AI Systems and Process Automation Consultant",
+        "worksFor": { "@id": "https://sunshynelabs.com/#organization" },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Parañaque City",
+          "addressRegion": "Metro Manila",
+          "addressCountry": "PH"
+        },
+        "email": "info@sunshynelabs.com",
+        "url": "https://sunshynelabs.com",
+        "sameAs": [
+          "https://linkedin.com/in/jeromejuliano",
+          "https://zenodo.org/search?q=jerome+juliano"
+        ],
+        "knowsAbout": [
+          "Process Improvement",
+          "Prompt Engineering",
+          "LLM Orchestration",
+          "AI Workflow Design",
+          "Lean Six Sigma",
+          "Systems Thinking",
+          "BPO Operations",
+          "Human-in-the-Loop Automation",
+          "Knowledge Management Systems",
+          "Deterministic Extraction Pipelines",
+          "Provenance-Aware Retrieval"
+        ],
+        "hasCredential": [
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "certificate",
+            "name": "Lean Six Sigma Yellow Belt"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "certificate",
+            "name": "Systems Thinking Program",
+            "educationalLevel": "professional",
+            "recognizedBy": {
+              "@type": "Organization",
+              "name": "Asian Institute of Management"
+            }
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "certificate",
+            "name": "McKinsey Forward Learning Program",
+            "recognizedBy": {
+              "@type": "Organization",
+              "name": "McKinsey and Company"
+            }
+          }
+        ]
+      },
+
+      {
+        "@type": "ScholarlyArticle",
+        "@id": "https://doi.org/10.5281/zenodo.17445112",
+        "name": "JACK Omega v4.0: Governed LLM Workflow Framework with Provenance Tracking and Audit Trails",
+        "headline": "JACK Omega v4.0",
+        "description": "Governed LLM workflow framework implementing provenance tracking, audit trails, and deterministic prompt execution. Achieves reliable outputs, hallucination reduction, and identity boundary preservation in production environments.",
+        "author": { "@id": "https://sunshynelabs.com/#jerome-juliano" },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Zenodo",
+          "url": "https://zenodo.org"
+        },
+        "identifier": {
+          "@type": "PropertyValue",
+          "propertyID": "DOI",
+          "value": "10.5281/zenodo.17445112"
+        },
+        "url": "https://zenodo.org/records/17445112",
+        "isPartOf": { "@id": "https://sunshynelabs.com/#website" },
+        "about": [
+          "LLM Orchestration",
+          "Prompt Engineering",
+          "AI Governance",
+          "Provenance Tracking",
+          "Workflow Automation"
+        ]
+      },
+
+      {
+        "@type": "ScholarlyArticle",
+        "@id": "https://doi.org/10.5281/zenodo.18115752",
+        "name": "MARY v3: Customer Retention and Compliance Engine",
+        "headline": "MARY v3.0",
+        "description": "Decision support and operator guidance system for high-stakes customer conversations. Deployed in live BPO production environments. Delivers consistent, policy-aware escalation handling and structured communication outcomes.",
+        "author": { "@id": "https://sunshynelabs.com/#jerome-juliano" },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Zenodo",
+          "url": "https://zenodo.org"
+        },
+        "identifier": {
+          "@type": "PropertyValue",
+          "propertyID": "DOI",
+          "value": "10.5281/zenodo.18115752"
+        },
+        "url": "https://zenodo.org/records/18115752",
+        "isPartOf": { "@id": "https://sunshynelabs.com/#website" },
+        "about": [
+          "Customer Retention",
+          "BPO Operations",
+          "Escalation Handling",
+          "Decision Support Systems",
+          "Structured Communication"
+        ]
+      },
+
+      {
+        "@type": "ScholarlyArticle",
+        "@id": "https://doi.org/10.5281/zenodo.18439730",
+        "name": "SANDRA v5.0: Deterministic Extraction Pipeline for High-Fidelity Structured Data Retrieval",
+        "headline": "SANDRA",
+        "description": "Deterministic extraction pipeline achieving 96% reduction in data retrieval cycle time (from 20 minutes to under 1 minute). Implements full traceability, hallucination reduction, and provenance-aware metadata layers for complex document sets.",
+        "author": { "@id": "https://sunshynelabs.com/#jerome-juliano" },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Zenodo",
+          "url": "https://zenodo.org"
+        },
+        "identifier": {
+          "@type": "PropertyValue",
+          "propertyID": "DOI",
+          "value": "10.5281/zenodo.18439730"
+        },
+        "url": "https://zenodo.org/records/18439730",
+        "isPartOf": { "@id": "https://sunshynelabs.com/#website" },
+        "about": [
+          "Data Extraction",
+          "Provenance Tracking",
+          "Document Intelligence",
+          "Structured Retrieval",
+          "AI Governance"
+        ]
       }
 
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+    ]
+  }
+  </script>
 
-      html {
-        scroll-behavior: smooth;
-        background: var(--bg-primary);
-      }
+  <style>
+    /* =============================================
+       TOKENS
+    ============================================= */
+    :root {
+      --bg:     #F9F5ED;
+      --ink:    #1A1A18;
+      --sun:    #B85C00;
+      --fade:   #6E6459;
+      --line:   #C4B99A;
+      --vis:    #5A3E1B;
+    }
 
+    /* =============================================
+       RESET
+    ============================================= */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* =============================================
+       BASE
+    ============================================= */
+    html {
+      font-size: 16px;
+    }
+
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      background-color: var(--bg);
+      color: var(--ink);
+      line-height: 1.7;
+      max-width: 740px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 5rem;
+    }
+
+    /* =============================================
+       TYPOGRAPHY
+    ============================================= */
+    h1, h2, h3, h4 {
+      font-family: 'Courier New', Courier, monospace;
+      font-weight: normal;
+    }
+
+    h2 {
+      font-size: 2.1rem;
+      line-height: 1.2;
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    /* =============================================
+       LINKS
+    ============================================= */
+    a {
+      color: var(--sun);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    a:visited {
+      color: var(--vis);
+    }
+
+    /* =============================================
+       RULES
+    ============================================= */
+    hr {
+      border: none;
+      border-top: 1px solid var(--line);
+      margin: 2.75rem 0;
+    }
+
+    /* =============================================
+       HEADER
+    ============================================= */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 3rem;
+    }
+
+    .brand {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .brand:visited {
+      color: var(--ink);
+    }
+
+    nav {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.78rem;
+    }
+
+    nav a {
+      color: var(--fade);
+      margin-left: 1.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    nav a:hover {
+      color: var(--sun);
+      text-decoration: none;
+    }
+
+    nav a:visited {
+      color: var(--fade);
+    }
+
+    /* =============================================
+       HERO
+    ============================================= */
+    .hero-label {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--fade);
+      margin-bottom: 1rem;
+    }
+
+    .hero h2 {
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-desc {
+      color: var(--fade);
+      font-size: 0.95rem;
+      max-width: 580px;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-row {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.82rem;
+    }
+
+    .cta-row a {
+      color: var(--sun);
+      margin-right: 2.25rem;
+    }
+
+    .cta-row a:visited {
+      color: var(--vis);
+    }
+
+    /* =============================================
+       SECTION LABELS
+    ============================================= */
+    .section-label {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--fade);
+      margin-bottom: 1.1rem;
+    }
+
+    /* =============================================
+       RESEARCH TABLE
+    ============================================= */
+    .research-intro {
+      font-size: 0.9rem;
+      color: var(--fade);
+      margin-bottom: 1.75rem;
+      max-width: 600px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+
+    thead th {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+      color: var(--fade);
+      text-align: left;
+      padding: 0 1rem 0.6rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    tbody td {
+      padding: 0.7rem 1rem 0.7rem 0;
+      vertical-align: top;
+      border-bottom: 1px solid var(--line);
+    }
+
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .td-id {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.82rem;
+      white-space: nowrap;
+      min-width: 90px;
+    }
+
+    .td-id a {
+      color: var(--sun);
+    }
+
+    .td-id a:visited {
+      color: var(--vis);
+    }
+
+    .td-name strong {
+      display: block;
+      font-weight: normal;
+    }
+
+    .td-class {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--fade);
+      margin-top: 0.15rem;
+    }
+
+    .td-output {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.78rem;
+      min-width: 160px;
+    }
+
+    .td-output .doi {
+      display: block;
+      font-size: 0.66rem;
+      color: var(--fade);
+      margin-top: 0.2rem;
+      letter-spacing: 0.02em;
+    }
+
+    .td-pending {
+      color: var(--fade);
+      font-style: italic;
+    }
+
+    /* =============================================
+       ABOUT
+    ============================================= */
+    .about-body {
+      font-size: 0.95rem;
+      margin-bottom: 1.75rem;
+      max-width: 620px;
+    }
+
+    .stats {
+      display: flex;
+      gap: 3.5rem;
+      flex-wrap: wrap;
+    }
+
+    .stat-value {
+      display: block;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 1.6rem;
+      color: var(--sun);
+      line-height: 1;
+    }
+
+    .stat-label {
+      display: block;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.67rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--fade);
+      margin-top: 0.3rem;
+    }
+
+    /* =============================================
+       CONTACT
+    ============================================= */
+    .contact-desc {
+      font-size: 0.95rem;
+      color: var(--fade);
+      margin-bottom: 0.9rem;
+    }
+
+    .email-link {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.95rem;
+      color: var(--sun);
+    }
+
+    .email-link:visited {
+      color: var(--vis);
+    }
+
+    /* =============================================
+       FOOTER
+    ============================================= */
+    footer {
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--line);
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.68rem;
+      color: var(--fade);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      letter-spacing: 0.04em;
+    }
+
+    /* =============================================
+       RESPONSIVE
+    ============================================= */
+    @media (max-width: 540px) {
       body {
-        font-family: var(--font-body);
-        background: var(--bg-primary);
-        color: var(--text-primary);
-        line-height: 1.6;
-        overflow-x: hidden;
-        -webkit-font-smoothing: antialiased;
+        padding: 1.5rem 1rem 3.5rem;
       }
 
-      /* Animated Background Grid */
-      .bg-grid {
-        position: fixed;
-        inset: 0;
-        z-index: 0;
-        pointer-events: none;
-        background-image: 
-          linear-gradient(rgba(250, 204, 21, 0.03) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(250, 204, 21, 0.03) 1px, transparent 1px);
-        background-size: 60px 60px;
-        mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
-        animation: gridMove 20s linear infinite;
-      }
-
-      @keyframes gridMove {
-        0% { transform: translate(0, 0); }
-        100% { transform: translate(60px, 60px); }
-      }
-
-      /* Noise Texture */
-      .noise {
-        position: fixed;
-        inset: 0;
-        z-index: 1;
-        pointer-events: none;
-        opacity: 0.03;
-        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-      }
-
-      /* Gradient Orbs */
-      .orb {
-        position: fixed;
-        border-radius: 50%;
-        filter: blur(100px);
-        opacity: 0.15;
-        pointer-events: none;
-        z-index: 0;
-      }
-
-      .orb-1 {
-        width: 600px;
-        height: 600px;
-        background: var(--accent);
-        top: -200px;
-        right: -200px;
-        animation: float 8s ease-in-out infinite;
-      }
-
-      .orb-2 {
-        width: 400px;
-        height: 400px;
-        background: #6366f1;
-        bottom: -100px;
-        left: -100px;
-        animation: float 10s ease-in-out infinite reverse;
-      }
-
-      @keyframes float {
-        0%, 100% { transform: translate(0, 0) scale(1); }
-        50% { transform: translate(-30px, -30px) scale(1.1); }
-      }
-
-      /* Layout */
-      .container {
-        position: relative;
-        z-index: 2;
-        max-width: 1100px;
-        margin: 0 auto;
-        padding: 0 24px;
-      }
-
-      /* Header */
       header {
-        padding: 32px 0;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        border-bottom: 1px solid var(--border);
-        margin-bottom: 80px;
-        animation: fadeInDown 0.8s var(--ease-out-expo);
-      }
-
-      .brand {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-        text-decoration: none;
-        color: inherit;
-        transition: transform 0.3s var(--ease-out-expo);
-      }
-
-      .brand:hover {
-        transform: translateX(4px);
-      }
-
-      .brand-logo {
-        width: 48px;
-        height: 48px;
-        background: linear-gradient(135deg, var(--accent), #fbbf24);
-        border-radius: 12px;
-        display: grid;
-        place-items: center;
-        font-family: var(--font-display);
-        font-weight: 700;
-        font-size: 1.5rem;
-        color: var(--bg-primary);
-        box-shadow: 0 0 30px var(--accent-glow);
-        transition: box-shadow 0.3s;
-      }
-
-      .brand:hover .brand-logo {
-        box-shadow: 0 0 40px var(--accent-glow);
-      }
-
-      .brand-text h1 {
-        font-family: var(--font-display);
-        font-size: 1.25rem;
-        font-weight: 600;
-        letter-spacing: -0.02em;
-        line-height: 1.2;
-      }
-
-      .brand-text span {
-        font-size: 0.75rem;
-        color: var(--text-secondary);
-        font-family: var(--font-display);
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-      }
-
-      /* Hero */
-      .hero {
-        margin-bottom: 120px;
-        animation: fadeInUp 0.8s var(--ease-out-expo) 0.1s both;
-      }
-
-      .hero-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 8px 16px;
-        background: var(--accent-soft);
-        border: 1px solid var(--border-hover);
-        border-radius: 100px;
-        font-size: 0.75rem;
-        font-weight: 500;
-        color: var(--accent);
-        margin-bottom: 32px;
-        font-family: var(--font-display);
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-      }
-
-      .hero-badge::before {
-        content: '';
-        width: 6px;
-        height: 6px;
-        background: var(--accent);
-        border-radius: 50%;
-        box-shadow: 0 0 10px var(--accent);
-        animation: pulse 2s infinite;
-      }
-
-      @keyframes pulse {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0.5; }
-      }
-
-      .hero h2 {
-        font-family: var(--font-display);
-        font-size: clamp(2.5rem, 6vw, 4.5rem);
-        font-weight: 700;
-        line-height: 1.1;
-        letter-spacing: -0.03em;
-        margin-bottom: 24px;
-        max-width: 800px;
-      }
-
-      .hero h2 .highlight {
-        color: var(--accent);
-        position: relative;
-        display: inline-block;
-      }
-
-      .hero h2 .highlight::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 30%;
-        background: var(--accent-soft);
-        z-index: -1;
-        transform: skewX(-12deg);
-      }
-
-      .hero p {
-        font-size: 1.25rem;
-        color: var(--text-secondary);
-        max-width: 600px;
-        margin-bottom: 40px;
-        line-height: 1.7;
-      }
-
-      .hero-actions {
-        display: flex;
-        gap: 16px;
-        flex-wrap: wrap;
-      }
-
-      .btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 14px 28px;
-        font-family: var(--font-display);
-        font-size: 0.9rem;
-        font-weight: 600;
-        text-decoration: none;
-        border-radius: 8px;
-        transition: all 0.3s var(--ease-out-expo);
-        cursor: pointer;
-        border: none;
-      }
-
-      .btn-primary {
-        background: var(--accent);
-        color: var(--bg-primary);
-        box-shadow: 0 4px 20px var(--accent-glow);
-      }
-
-      .btn-primary:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 30px var(--accent-glow);
-      }
-
-      .btn-secondary {
-        background: transparent;
-        color: var(--text-primary);
-        border: 1px solid var(--border);
-      }
-
-      .btn-secondary:hover {
-        border-color: var(--accent);
-        color: var(--accent);
-        background: var(--accent-soft);
-      }
-
-      /* Main Content Grid */
-      .content-grid {
-        display: grid;
-        grid-template-columns: 2fr 1fr;
-        gap: 24px;
-        margin-bottom: 24px;
-      }
-
-      @media (max-width: 900px) {
-        .content-grid {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      /* Cards */
-      .card {
-        background: var(--bg-card);
-        border: 1px solid var(--border);
-        border-radius: 16px;
-        padding: 32px;
-        backdrop-filter: blur(10px);
-        transition: all 0.4s var(--ease-out-expo);
-        position: relative;
-        overflow: hidden;
-      }
-
-      .card::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(250, 204, 21, 0.06), transparent 40%);
-        opacity: 0;
-        transition: opacity 0.3s;
-        pointer-events: none;
-      }
-
-      .card:hover {
-        border-color: var(--border-hover);
-        transform: translateY(-4px);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-      }
-
-      .card:hover::before {
-        opacity: 1;
-      }
-
-      .card-header {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        margin-bottom: 24px;
-      }
-
-      .card-icon {
-        width: 40px;
-        height: 40px;
-        background: var(--bg-secondary);
-        border: 1px solid var(--border);
-        border-radius: 10px;
-        display: grid;
-        place-items: center;
-        color: var(--accent);
-        font-size: 1.25rem;
-      }
-
-      .card h3 {
-        font-family: var(--font-display);
-        font-size: 1.1rem;
-        font-weight: 600;
-      }
-
-      .card p {
-        color: var(--text-secondary);
-        font-size: 0.95rem;
-        line-height: 1.7;
-        margin-bottom: 24px;
-      }
-
-      /* Research List */
-      .research-list {
-        list-style: none;
-        display: flex;
         flex-direction: column;
-        gap: 12px;
+        gap: 1rem;
       }
 
-      .research-item {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 16px;
-        background: rgba(255, 255, 255, 0.02);
-        border: 1px solid var(--border);
-        border-radius: 10px;
-        transition: all 0.3s var(--ease-out-expo);
-        text-decoration: none;
-        color: inherit;
-        cursor: pointer;
+      nav a:first-child {
+        margin-left: 0;
       }
 
-      .research-item:hover {
-        border-color: var(--border-hover);
-        background: rgba(250, 204, 21, 0.03);
-        transform: translateX(8px);
+      h2 {
+        font-size: 1.65rem;
       }
 
-      .research-item-content {
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-      }
-
-      .research-item-name {
-        font-family: var(--font-display);
-        font-weight: 600;
-        font-size: 0.95rem;
-        color: var(--text-primary);
-      }
-
-      .research-item-name span {
-        color: var(--accent);
-        font-weight: 500;
-      }
-
-      .research-item-desc {
-        font-size: 0.8rem;
-        color: var(--text-tertiary);
-      }
-
-      .research-item-arrow {
-        color: var(--text-tertiary);
-        transition: all 0.3s;
-        font-size: 1.2rem;
-      }
-
-      .research-item:hover .research-item-arrow {
-        color: var(--accent);
-        transform: translateX(4px);
-      }
-
-      /* About Card */
-      .about-card {
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-      }
-
-      .about-card .quote {
-        font-family: var(--font-display);
-        font-size: 1.5rem;
-        line-height: 1.4;
-        font-weight: 300;
-        color: var(--text-primary);
-        margin-bottom: 24px;
-      }
-
-      .about-card .quote::before {
-        content: '"';
-        color: var(--accent);
-        font-size: 3rem;
-        line-height: 0;
-        vertical-align: middle;
-        margin-right: 8px;
+      thead th:nth-child(2),
+      tbody td:nth-child(2) {
+        display: none;
       }
 
       .stats {
-        display: flex;
-        gap: 24px;
-        padding-top: 24px;
-        border-top: 1px solid var(--border);
+        gap: 2rem;
       }
 
-      .stat {
-        display: flex;
-        flex-direction: column;
-      }
-
-      .stat-value {
-        font-family: var(--font-display);
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: var(--accent);
-      }
-
-      .stat-label {
-        font-size: 0.75rem;
-        color: var(--text-tertiary);
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-      }
-
-      /* Contact Section */
-      .contact-section {
-        margin-bottom: 120px;
-      }
-
-      .contact-card {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        gap: 32px;
-      }
-
-      .contact-info h3 {
-        font-family: var(--font-display);
-        font-size: 1.5rem;
-        margin-bottom: 8px;
-      }
-
-      .contact-info p {
-        color: var(--text-secondary);
-      }
-
-      .contact-email {
-        display: inline-flex;
-        align-items: center;
-        gap: 12px;
-        padding: 16px 32px;
-        background: var(--bg-secondary);
-        border: 1px solid var(--border);
-        border-radius: 12px;
-        color: var(--text-primary);
-        text-decoration: none;
-        font-family: var(--font-display);
-        font-weight: 500;
-        transition: all 0.3s var(--ease-out-expo);
-        position: relative;
-        overflow: hidden;
-      }
-
-      .contact-email::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(90deg, transparent, rgba(250, 204, 21, 0.1), transparent);
-        transform: translateX(-100%);
-        transition: transform 0.6s;
-      }
-
-      .contact-email:hover {
-        border-color: var(--accent);
-        color: var(--accent);
-        transform: translateY(-2px);
-      }
-
-      .contact-email:hover::before {
-        transform: translateX(100%);
-      }
-
-      /* Footer */
       footer {
-        border-top: 1px solid var(--border);
-        padding: 48px 0;
+        flex-direction: column;
+        gap: 0.4rem;
+        text-align: center;
+      }
+    }
+
+    /* =============================================
+       DARK MODE
+    ============================================= */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:   #17150F;
+        --ink:  #EDE8DD;
+        --fade: #9A8F7E;
+        --line: #312D24;
+        --vis:  #D4956A;
+      }
+    }
+
+    /* =============================================
+       PRINT
+    ============================================= */
+    @media print {
+      body {
+        background: #fff;
+        color: #000;
+        max-width: 100%;
+        padding: 0;
       }
 
-      .footer-content {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 24px;
+      nav,
+      .cta-row {
+        display: none;
       }
+    }
 
-      .footer-brand {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        opacity: 0.6;
-        transition: opacity 0.3s;
+    /* =============================================
+       REDUCED MOTION
+    ============================================= */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation: none !important;
+        transition: none !important;
       }
+    }
+  </style>
+</head>
+<body>
 
-      .footer-brand:hover {
-        opacity: 1;
-      }
+  <!-- HEADER -->
+  <header>
+    <a class="brand" href="/">Sunshyne Labs</a>
+    <nav aria-label="Main navigation">
+      <a href="#research">Research</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-      .footer-logo {
-        width: 32px;
-        height: 32px;
-        background: var(--accent);
-        border-radius: 8px;
-        display: grid;
-        place-items: center;
-        font-family: var(--font-display);
-        font-weight: 700;
-        font-size: 1rem;
-        color: var(--bg-primary);
-      }
+  <main>
 
-      .footer-text {
-        font-size: 0.875rem;
-        color: var(--text-tertiary);
-      }
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <p class="hero-label">Process Improvement Consultancy</p>
+      <h2 id="hero-heading">Real world solutions<br>for real world problems.</h2>
+      <p class="hero-desc">I helps clients save time, money, and energy by building bespoke systems tested against real production environments.</p>
+      <p class="cta-row">
+        <a href="#contact">Start a conversation &#x2192;</a>
+        <a href="#research">View our research &#x2192;</a>
+      </p>
+    </section>
 
-      .footer-text strong {
-        color: var(--text-secondary);
-        font-weight: 500;
-      }
+    <hr>
 
-      /* Animations */
-      @keyframes fadeInDown {
-        from {
-          opacity: 0;
-          transform: translateY(-20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
+    <!-- RESEARCH -->
+    <section id="research" aria-labelledby="research-heading">
+      <p class="section-label" id="research-heading">&#x25C8; Systems &amp; Research</p>
+      <p class="research-intro">Public versions of systems designed to reduce cost, friction, and manual overhead in production environments. Inititial versions of these projects were built in a live BPO ops for an enterprise account, and an engagement with a client in the functional medicine niche.</p>
 
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">System</th>
+            <th scope="col">Name &amp; Class</th>
+            <th scope="col">Output</th>
+          </tr>
+        </thead>
+        <tbody>
 
-      .fade-in {
-        animation: fadeInUp 0.8s var(--ease-out-expo) both;
-      }
+          <tr>
+            <td class="td-id"><a href="/projects/angel/">ANGEL</a></td>
+            <td class="td-name">
+              <strong>Trench-Grade Automaton</strong>
+              <span class="td-class">Automation Pipeline — 95.3% cycle reduction (5.3h &#x2192; 5 min)</span>
+            </td>
+            <td class="td-output">
+              <a href="#">Video &#x2192;</a>
+              <span class="doi">YouTube video demonstration</span>
+            </td>
+          </tr>
 
-      /* Scroll reveal */
-      .reveal {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: all 0.8s var(--ease-out-expo);
-      }
+          <tr>
+            <td class="td-id"><a href="/projects/sandra/">SANDRA</a></td>
+            <td class="td-name">
+              <strong>Data Extraction</strong>
+              <span class="td-class">Extraction Pipeline — 96% cycle reduction (20 min &#x2192; &lt;1 min) / High-fidelity medical record extraction system for high-compliance environments</span>
+            </td>
+            <td class="td-output">
+              <a href="https://zenodo.org/records/18439730" target="_blank" rel="noopener">Zenodo &#x2192;</a>
+              <span class="doi">10.5281/zenodo.18439730</span>
+            </td>
+          </tr>
 
-      .reveal.active {
-        opacity: 1;
-        transform: translateY(0);
-      }
+          <tr>
+            <td class="td-id"><a href="/projects/mary/">MARY</a></td>
+            <td class="td-name">
+              <strong>Compliance Matrix</strong>
+              <span class="td-class">Retention &amp; Decision Assistance Engine</span>
+            </td>
+            <td class="td-output">
+              <a href="https://zenodo.org/records/18115752" target="_blank" rel="noopener">Zenodo &#x2192;</a>
+              <span class="doi">10.5281/zenodo.18115752</span>
+            </td>
+          </tr>
 
-      /* Mobile */
-      @media (max-width: 640px) {
-        .hero h2 {
-          font-size: 2rem;
-        }
-        
-        .hero p {
-          font-size: 1rem;
-        }
-        
-        .card {
-          padding: 24px;
-        }
-        
-        .contact-card {
-          flex-direction: column;
-          align-items: flex-start;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <!-- Background Effects -->
-    <div class="bg-grid"></div>
-    <div class="noise"></div>
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
+          <tr>
+            <td class="td-id"><a href="/projects/gabriel/">GABRIEL</a></td>
+            <td class="td-name">
+              <strong>Knowledge Base</strong>
+              <span class="td-class">Autopoietic Architecture</span>
+            </td>
+            <td class="td-output">
+              <a href="#">Video &#x2192;</a>
+              <span class="doi">YouTube video demonstration</span>
+            </td>
+          </tr>
+          
+          <tr>
+            <td class="td-id"><a href="/projects/jack/">JACK&#x3A9;</a></td>
+            <td class="td-name">
+              <strong>Decision Architecture</strong>
+              <span class="td-class">Governed LLM Framework</span>
+            </td>
+            <td class="td-output">
+              <a href="https://zenodo.org/records/17445112" target="_blank" rel="noopener">Zenodo &#x2192;</a>
+              <span class="doi">10.5281/zenodo.17445112</span>
+            </td>
+          </tr>
 
-    <div class="container">
-      <!-- Header -->
-      <header>
-        <a href="#" class="brand">
-          <div class="brand-logo">S</div>
-          <div class="brand-text">
-            <h1>Sunshyne Labs</h1>
-            <span>Building Better Tomorrows</span>
-          </div>
-        </a>
-      </header>
+        </tbody>
+      </table>
+    </section>
 
-      <!-- Hero -->
-      <section class="hero">
-        <div class="hero-badge">Process Improvement Consultancy</div>
-        <h2>
-          Hard on systems.<br>
-          <span class="highlight">Soft on people.</span>
-        </h2>
-        <p>
-          Sunshyne Labs is an independent process improvement consultancy that solves real problems and help clients save time, money and energy.
-        </p>
-        <div class="hero-actions">
-          <a href="#contact" class="btn btn-primary">Start a conversation</a>
-          <a href="#research" class="btn btn-secondary">View our research</a>
+    <hr>
+
+    <!-- ABOUT -->
+    <section id="about" aria-labelledby="about-heading">
+      <p class="section-label" id="about-heading">&#x25C9; About</p>
+      <p class="about-body">Sunshyne Labs is an independent process improvement consultancy founded by
+        <a href="https://linkedin.com/in/jeromejuliano" rel="me noopener" target="_blank">Jerome Juliano</a>
+        and based in Metro Manila. Emphasizing systems thinking and a more humanistic, holistic approach to solving real enterprise problems, Sunshyne Labs serves to help production environments save time, money and energy through bespoke systems and standardization.</p>
+      <div class="stats">
+        <div>
+          <span class="stat-value">6+</span>
+          <span class="stat-label">Systems</span>
         </div>
-      </section>
-
-      <!-- Content Grid -->
-      <div class="content-grid" id="research">
-        <!-- Research -->
-        <section class="card reveal">
-          <div class="card-header">
-            <div class="card-icon">◈</div>
-            <h3>Research & Systems</h3>
-          </div>
-          <p>
-            Proprietary frameworks designed to mitigate cost, reduce human friction, 
-            and streamline operations in production environments and in the real world.
-          </p>
-          <ul class="research-list">
-            <li class="research-item" onclick="window.open('https://sunshynelabs.com/mary', '_blank')">
-              <div class="research-item-content">
-                <span class="research-item-name"><span>MARY</span> Compliance Matrix</span>
-                <span class="research-item-desc">Retention & compliance engine</span>
-              </div>
-              <span class="research-item-arrow">→</span>
-            </li>
-            <li class="research-item" onclick="window.open('https://sunshynelabs.com/gabriel', '_blank')">
-              <div class="research-item-content">
-                <span class="research-item-name"><span>GABRIEL∞</span> Knowledge Base</span>
-                <span class="research-item-desc">Autopoietic system architecture</span>
-              </div>
-              <span class="research-item-arrow">→</span>
-            </li>
-            <li class="research-item" onclick="window.open('https://sunshynelabs.com/sandra', '_blank')">
-              <div class="research-item-content">
-                <span class="research-item-name"><span>SANDRA</span> Data Accelerator</span>
-                <span class="research-item-desc">Entry & processing pipeline</span>
-              </div>
-              <span class="research-item-arrow">→</span>
-            </li>
-            <li class="research-item" onclick="window.open('https://sunshynelabs.com/angel', '_blank')">
-              <div class="research-item-content">
-                <span class="research-item-name"><span>ANGEL</span> Automaton</span>
-                <span class="research-item-desc">Intelligent data entry</span>
-              </div>
-              <span class="research-item-arrow">→</span>
-            </li>
-            <li class="research-item" onclick="window.open('https://sunshynelabs.com/jack', '_blank')">
-              <div class="research-item-content">
-                <span class="research-item-name"><span>JACKΩ</span> Framework</span>
-                <span class="research-item-desc">Decision architecture</span>
-              </div>
-              <span class="research-item-arrow">→</span>
-            </li>
-            <li class="research-item" onclick="window.open('https://sunshynelabs.com/ec', '_blank')">
-              <div class="research-item-content">
-                <span class="research-item-name"><span>Example Corp</span> Sandbox</span>
-                <span class="research-item-desc">Testing environment</span>
-              </div>
-              <span class="research-item-arrow">→</span>
-            </li>
-          </ul>
-        </section>
-
-        <!-- About -->
-        <section class="card about-card reveal">
-          <div>
-            <div class="card-header">
-              <div class="card-icon">◉</div>
-              <h3>About</h3>
-            </div>
-            <p class="quote">
-              Independent process improvement consultancy focused on reducing friction by building systems for real problems in the real world.
-            </p>
-          </div>
-          <div class="stats">
-            <div class="stat">
-              <span class="stat-value">6+</span>
-              <span class="stat-label">Systems</span>
-            </div>
-            <div class="stat">
-              <span class="stat-value">∞</span>
-              <span class="stat-label">Possibilities</span>
-            </div>
-          </div>
-        </section>
+        <div>
+          <span class="stat-value">96%</span>
+          <span class="stat-label">Max cycle reduction</span>
+        </div>
+        <div>
+          <span class="stat-value">+22</span>
+          <span class="stat-label">NPS uplift</span>
+        </div>
       </div>
+    </section>
 
-      <!-- Contact -->
-      <section class="contact-section reveal" id="contact">
-        <div class="card contact-card">
-          <div class="contact-info">
-            <h3>Let's build you better tomorrows.</h3>
-            <p>Reach out for consultation inquiries.</p>
-          </div>
-          <a href="mailto:info@sunshynelabs.com" class="contact-email">
-            <span>info@sunshynelabs.com</span>
-            <span>→</span>
-          </a>
-        </div>
-      </section>
+    <hr>
 
-      <!-- Footer -->
-      <footer>
-        <div class="footer-content">
-          <div class="footer-brand">
-            <div class="footer-logo">S</div>
-            <span class="footer-text">
-              <strong>Sunshyne Labs</strong> — With AI. For humans.
-            </span>
-          </div>
-          <span class="footer-text">© 2025-2026 All rights reserved</span>
-        </div>
-      </footer>
-    </div>
+    <!-- CONTACT -->
+    <section id="contact" aria-labelledby="contact-heading">
+      <p class="section-label" id="contact-heading">Contact</p>
+      <address style="font-style: normal;">
+        <a class="email-link" href="mailto:info@sunshynelabs.com">info@sunshynelabs.com &#x2192;</a>
+      </address>
+    </section>
 
-    <script>
-      // Mouse tracking for card glow effect
-      document.querySelectorAll('.card').forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-          const rect = card.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-          card.style.setProperty('--mouse-x', `${x}px`);
-          card.style.setProperty('--mouse-y', `${y}px`);
-        });
-      });
+  </main>
 
-      // Scroll reveal animation
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-      };
+  <!-- FOOTER -->
+  <footer>
+    <span>With AI. For humans.</span>
+    <span>&#x00A9; 2025&#x2013;2026 All rights reserved</span>
+  </footer>
 
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('active');
-          }
-        });
-      }, observerOptions);
-
-      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-      // Smooth scroll for anchor links
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-          e.preventDefault();
-          const target = document.querySelector(this.getAttribute('href'));
-          if (target) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
-        });
-      });
-    </script>
-  </body>
+</body>
 </html>
