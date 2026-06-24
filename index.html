@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index, follow">
   <meta name="author" content="Jerome Juliano">
-  <meta name="description" content="Sunshyne Labs is an independent process improvement consultancy based in Metro Manila. We solve real operational problems that help clients save time, money, and energy.">
-  <meta name="keywords" content="process improvement consultancy, AI workflow design, prompt engineering, LLM orchestration, BPO automation, extraction pipeline, human-in-the-loop, Lean Six Sigma, knowledge management, operational excellence, Philippines">
+  <meta name="description" content="Sunshyne Labs is an independent process improvement consultancy based in Metro Manila. We solve real operational problems that help clients save time, money, and en[...]
+  <meta name="keywords" content="process improvement consultancy, AI workflow design, prompt engineering, LLM orchestration, BPO automation, extraction pipeline, human-in-the-loop, Lean Six Sigma, kno[...]
 
   <title>Sunshyne Labs — Process Improvement Consultancy</title>
 
@@ -22,7 +22,7 @@
   <meta property="og:url" content="https://sunshynelabs.com/">
   <meta property="og:site_name" content="Sunshyne Labs">
   <meta property="og:title" content="Sunshyne Labs — Process Improvement Consultancy">
-  <meta property="og:description" content="Independent process improvement consultancy. AI as the implementation substrate — not the brand identity. Systems built under zero institutional mandate, zero API access, zero budget.">
+  <meta property="og:description" content="Independent process improvement consultancy. AI as the implementation substrate — not the brand identity. Systems built under zero institutional mandate, z[...]
   <meta property="og:locale" content="en_PH">
 
   <!-- TWITTER / X CARD -->
@@ -79,7 +79,7 @@
         "legalName": "Sunshyne Labs",
         "url": "https://sunshynelabs.com",
         "logo": "https://sunshynelabs.com/assets/logo.png",
-        "description": "Independent process improvement consultancy based in Parañaque City, Philippines. Specializes in AI-assisted workflow design, automation pipelines, extraction architectures, and structured communication systems. All systems built under zero institutional mandate, zero API access, zero budget.",
+        "description": "Independent process improvement consultancy based in Parañaque City, Philippines. Specializes in AI-assisted workflow design, automation pipelines, extraction architectures, a[...]
         "foundingDate": "2025-09",
         "founder": { "@id": "https://sunshynelabs.com/#jerome-juliano" },
         "address": {
@@ -179,7 +179,7 @@
         "@id": "https://doi.org/10.5281/zenodo.17445112",
         "name": "JACK Omega v4.0: Governed LLM Workflow Framework with Provenance Tracking and Audit Trails",
         "headline": "JACK Omega v4.0",
-        "description": "Governed LLM workflow framework implementing provenance tracking, audit trails, and deterministic prompt execution. Achieves reliable outputs, hallucination reduction, and identity boundary preservation in production environments.",
+        "description": "Governed LLM workflow framework implementing provenance tracking, audit trails, and deterministic prompt execution. Achieves reliable outputs, hallucination reduction, and iden[...]
         "author": { "@id": "https://sunshynelabs.com/#jerome-juliano" },
         "publisher": {
           "@type": "Organization",
@@ -207,7 +207,7 @@
         "@id": "https://doi.org/10.5281/zenodo.18115752",
         "name": "MARY v3: Customer Retention and Compliance Engine",
         "headline": "MARY v3.0",
-        "description": "Decision support and operator guidance system for high-stakes customer conversations. Deployed in live BPO production environments. Delivers consistent, policy-aware escalation handling and structured communication outcomes.",
+        "description": "Decision support and operator guidance system for high-stakes customer conversations. Deployed in live BPO production environments. Delivers consistent, policy-aware escalation[...]
         "author": { "@id": "https://sunshynelabs.com/#jerome-juliano" },
         "publisher": {
           "@type": "Organization",
@@ -235,7 +235,7 @@
         "@id": "https://doi.org/10.5281/zenodo.18439730",
         "name": "SANDRA v5.0: Deterministic Extraction Pipeline for High-Fidelity Structured Data Retrieval",
         "headline": "SANDRA",
-        "description": "Deterministic extraction pipeline achieving 96% reduction in data retrieval cycle time (from 20 minutes to under 1 minute). Implements full traceability, hallucination reduction, and provenance-aware metadata layers for complex document sets.",
+        "description": "Deterministic extraction pipeline achieving 96% reduction in data retrieval cycle time (from 20 minutes to under 1 minute). Implements full traceability, hallucination reductio[...]
         "author": { "@id": "https://sunshynelabs.com/#jerome-juliano" },
         "publisher": {
           "@type": "Organization",
@@ -353,6 +353,18 @@
       padding-bottom: 1.25rem;
       border-bottom: 1px solid var(--line);
       margin-bottom: 3rem;
+    }
+
+    .brand-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .brand-logo {
+      width: 40px;
+      height: 40px;
+      flex-shrink: 0;
     }
 
     .brand {
@@ -672,7 +684,24 @@
 
   <!-- HEADER -->
   <header>
-    <a class="brand" href="/">Sunshyne Labs</a>
+    <div class="brand-wrapper">
+      <svg class="brand-logo" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+        <!-- Outer circle -->
+        <circle cx="128" cy="128" r="120" fill="none" stroke="#1A1A18" stroke-width="3"/>
+        
+        <!-- Gradient top to bottom stripes -->
+        <rect x="8" y="35" width="240" height="20" fill="#C79A56"/>
+        <rect x="8" y="55" width="240" height="18" fill="#A64D74"/>
+        <rect x="8" y="73" width="240" height="18" fill="#8B3D8C"/>
+        <rect x="8" y="91" width="240" height="18" fill="#6B5B95"/>
+        <rect x="8" y="109" width="240" height="18" fill="#5A7BA8"/>
+        <rect x="8" y="127" width="240" height="18" fill="#4A9AB8"/>
+        <rect x="8" y="145" width="240" height="18" fill="#3FA395"/>
+        <rect x="8" y="163" width="240" height="18" fill="#4AB88A"/>
+        <rect x="8" y="181" width="240" height="30" fill="#5AC8A0"/>
+      </svg>
+      <a class="brand" href="/">Sunshyne Labs</a>
+    </div>
     <nav aria-label="Main navigation">
       <a href="#research">Research</a>
       <a href="#about">About</a>
@@ -686,7 +715,7 @@
     <section class="hero" aria-labelledby="hero-heading">
       <p class="hero-label">Process Improvement Consultancy</p>
       <h2 id="hero-heading">Building<br>Better<br>Tomorrows.</h2>
-      <p class="hero-desc">Helping clients save time, money, and energy by building bespoke systems for production environments.</p>
+      <p class="hero-desc">I help clients save time, money, and energy by building bespoke systems for real production environments.</p>
       <p class="cta-row">
         <a href="#contact">Start a conversation &#x2192;</a>
         <a href="#research">View our research &#x2192;</a>
@@ -698,7 +727,7 @@
     <!-- RESEARCH -->
     <section id="research" aria-labelledby="research-heading">
       <p class="section-label" id="research-heading">&#x25C8; Systems &amp; Research</p>
-      <p class="research-intro">Public versions of systems built for different bottlenecks in production environments. Initial versions of these projects were built inside a live BPO environment.</p>
+      <p class="research-intro">Public versions of systems built to reduce cost, friction, and energy in production environments. Initial versions of these projects were built inside a live BPO enviro[...]
 
       <table>
         <thead>
@@ -781,7 +810,7 @@
       <p class="section-label" id="about-heading">&#x25C9; About</p>
       <p class="about-body">Sunshyne Labs is an independent process improvement consultancy founded by
         <a href="https://linkedin.com/in/jeromejuliano" rel="me noopener" target="_blank">Jerome Juliano</a>
-        and based in Metro Manila. Through systems thinking and standardized frameworks, Sunshyne Labs aims to fix bottlenecks in real world production environments, with real stakes and real outcomes.</p>
+        and based in Metro Manila. Emphasizing systems thinking and a more humanistic, holistic approach to solving real enterprise problems, Sunshyne Labs serves to help production environments save [...]
       <div class="stats">
         <div>
           <span class="stat-value">6+</span>
