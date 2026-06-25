@@ -1,17 +1,345 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>ANGEL</title>
-  <meta http-equiv="refresh" content="0; url=https://youtu.be/Brqu4RHxZbE">
-  <link rel="canonical" href="https://youtu.be/Brqu4RHxZbE">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Jerome Juliano">
+  <meta name="description" content="ANGEL: Automation system for legacy production environments. 95.3% cycle reduction. UI-level. Offline-ready. No API access required.">
+  <meta name="keywords" content="process improvement consultancy, AI workflow design, prompt engineering, LLM orchestration, BPO automation, extraction pipeline, human-in-the-loop, Lean Six Sigma, knowledge management, operational excellence, Philippines">
+
+  <title>ANGEL — Sunshyne Labs</title>
+
+  <!-- CANONICAL -->
+  <link rel="canonical" href="https://sunshynelabs.com/angel">
+
+  <!-- IDENTITY -->
+  <link rel="me" href="https://linkedin.com/in/jeromejuliano">
+  <link rel="me" href="mailto:info@sunshynelabs.com">
+
+  <!-- OPEN GRAPH -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sunshynelabs.com/angel/">
+  <meta property="og:site_name" content="Sunshyne Labs">
+  <meta property="og:title" content="ANGEL — Sunshyne Labs">
+  <meta property="og:description" content="Automation system for legacy production environments. 95.3% cycle reduction. UI-level. Offline-ready.">
+  <meta property="og:locale" content="en_PH">
+
+  <!-- TWITTER / X CARD -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="ANGEL — Sunshyne Labs">
+  <meta name="twitter:description" content="Automation system for legacy production environments. 95.3% cycle reduction. UI-level. Offline-ready.">
+
+  <!-- GOOGLE SCHOLAR CITATION META TAGS -->
+  <meta name="citation_author" content="Juliano, Jerome">
+  <meta name="citation_title" content="ANGEL: Trench-Grade Automation System for Legacy Production Environments">
+  <meta name="citation_year" content="2025">
+  <meta name="citation_publisher" content="Zenodo">
+
+  <!-- JSON-LD STRUCTURED DATA -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://sunshynelabs.com/#website",
+        "url": "https://sunshynelabs.com",
+        "name": "Sunshyne Labs",
+        "description": "Independent process improvement consultancy. AI as the implementation substrate.",
+        "publisher": { "@id": "https://sunshynelabs.com/#organization" }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://sunshynelabs.com/#organization",
+        "name": "Sunshyne Labs",
+        "legalName": "Sunshyne Labs",
+        "url": "https://sunshynelabs.com",
+        "logo": "https://sunshynelabs.com/assets/logo.png",
+        "description": "Independent process improvement consultancy based in Parañaque City, Philippines. Specializes in AI-assisted workflow design, automation pipelines, extraction architectures, and structured communication systems. All systems built under zero institutional mandate, zero API access, zero budget.",
+        "foundingDate": "2025-09",
+        "founder": { "@id": "https://sunshynelabs.com/#jerome-juliano" },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Parañaque City",
+          "addressRegion": "Metro Manila",
+          "addressCountry": "PH"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "info@sunshynelabs.com",
+          "contactType": "business inquiries",
+          "areaServed": "Worldwide",
+          "availableLanguage": "English"
+        },
+        "sameAs": [
+          "https://linkedin.com/in/jeromejuliano",
+          "https://zenodo.org/search?q=sunshyne+labs",
+          "https://github.com/sunshynelabs"
+        ]
+      },
+      {
+        "@type": "Person",
+        "@id": "https://sunshynelabs.com/#jerome-juliano",
+        "name": "Jerome Juliano",
+        "givenName": "Jerome",
+        "familyName": "Juliano",
+        "jobTitle": "Founder, AI Systems and Process Automation Consultant",
+        "worksFor": { "@id": "https://sunshynelabs.com/#organization" },
+        "email": "info@sunshynelabs.com",
+        "url": "https://sunshynelabs.com",
+        "sameAs": [
+          "https://linkedin.com/in/jeromejuliano",
+          "https://zenodo.org/search?q=jerome+juliano"
+        ]
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://sunshynelabs.com/angel/",
+        "name": "ANGEL",
+        "description": "Automation system for legacy production environments. UI-level. Offline-ready. 95.3% cycle reduction on first deployment.",
+        "author": { "@id": "https://sunshynelabs.com/#jerome-juliano" },
+        "url": "https://sunshynelabs.com/angel/",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Windows",
+        "isPartOf": { "@id": "https://sunshynelabs.com/#website" }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg:     #F9F5ED;
+      --ink:    #1A1A18;
+      --sun:    #B85C00;
+      --fade:   #6E6459;
+      --line:   #C4B99A;
+      --vis:    #5A3E1B;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { font-size: 16px; }
+
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      background-color: var(--bg);
+      color: var(--ink);
+      line-height: 1.7;
+      max-width: 740px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 5rem;
+    }
+
+    h1, h2, h3, h4 { font-family: 'Courier New', Courier, monospace; font-weight: normal; }
+    h2 { font-size: 2.1rem; line-height: 1.2; }
+    p { margin-bottom: 1rem; }
+
+    a { color: var(--sun); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    a:visited { color: var(--vis); }
+
+    hr { border: none; border-top: 1px solid var(--line); margin: 2.75rem 0; }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 3rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--ink);
+      text-decoration: none;
+      pointer-events: none;
+      cursor: default;
+    }
+    .brand-logo { height: 48px; width: auto; display: block; }
+
+    nav { font-family: 'Courier New', Courier, monospace; font-size: 0.78rem; }
+    nav a { color: var(--fade); margin-left: 1.75rem; text-transform: uppercase; letter-spacing: 0.08em; }
+    nav a:hover { color: var(--sun); text-decoration: none; }
+    nav a:visited { color: var(--fade); }
+
+    .section-label {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--fade);
+      margin-bottom: 1.1rem;
+    }
+
+    .section-label a { color: var(--fade); }
+    .section-label a:hover { color: var(--sun); }
+    .section-label a:visited { color: var(--fade); }
+
+    .about-body { font-size: 0.95rem; margin-bottom: 1.75rem; max-width: 620px; }
+
+    .email-link { font-family: 'Courier New', Courier, monospace; font-size: 0.95rem; color: var(--sun); }
+    .email-link:visited { color: var(--vis); }
+
+    /* ── PRODUCT LAYOUT ── */
+
+    .product {
+      display: flex;
+      gap: 2.5rem;
+      align-items: flex-start;
+      margin: 2rem 0;
+    }
+
+    .product-avatar {
+      width: 220px;
+      height: 220px;
+      flex-shrink: 0;
+      border: 1px solid var(--line);
+      background-color: var(--line);
+      display: block;
+      object-fit: cover;
+    }
+
+    .product-info h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .product-class {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--fade);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .product-cta {
+      display: flex;
+      gap: 2rem;
+      margin-top: 2.5rem;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.82rem;
+    }
+
+    .product-cta a { color: var(--sun); }
+    .product-cta a:visited { color: var(--vis); }
+    .product-cta-pending { color: var(--fade); font-style: italic; }
+
+    /* ── END PRODUCT LAYOUT ── */
+
+    footer {
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--line);
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.68rem;
+      color: var(--fade);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      letter-spacing: 0.04em;
+    }
+
+    @media (max-width: 540px) {
+      body { padding: 1.5rem 1rem 3.5rem; }
+      header { flex-direction: column; gap: 1rem; }
+      nav a:first-child { margin-left: 0; }
+      h2 { font-size: 1.65rem; }
+      .product { flex-direction: column; }
+      .product-avatar { width: 100%; height: 220px; }
+      .product-cta { flex-direction: column; gap: 1rem; }
+      footer { flex-direction: column; gap: 0.4rem; text-align: center; }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:   #17150F;
+        --ink:  #EDE8DD;
+        --fade: #9A8F7E;
+        --line: #312D24;
+        --vis:  #D4956A;
+      }
+    }
+
+    @media print {
+      body { background: #fff; color: #000; max-width: 100%; padding: 0; }
+      nav { display: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
 </head>
 <body>
-  <p>
-    Redirecting to ANGEL…<br>
-    <a href="https://youtu.be/Brqu4RHxZbE">
-      https://youtu.be/Brqu4RHxZbE
-    </a>
-  </p>
+
+  <header>
+    <span class="brand">
+      <img src="/assets/logo.png" alt="Sunshyne Labs Logo" class="brand-logo">
+      Sunshyne Labs
+    </span>
+    <nav aria-label="Main navigation">
+      <a href="/research/">Research</a>
+      <a href="https://sunshynelabs.com">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <section id="product" aria-labelledby="product-heading">
+
+      <p class="section-label">
+        <a href="/research/">&#x2190; Research</a>
+      </p>
+
+      <div class="product">
+        <img
+          class="product-avatar"
+          src="/assets/angel.png"
+          alt="ANGEL">
+        <div class="product-info">
+          <h2 id="product-heading">ANGEL</h2>
+          <span class="product-class">Trench-Grade Automaton</span>
+          <p>Automation system for legacy production environments.
+          UI-level. Low cost. Offline-ready. 95.3% cycle reduction
+          (5.3h &#x2192; 5 min on first deployment).</p>
+          <p>Built under zero institutional mandate, zero API access,
+          zero budget. No cloud dependency. No admin rights required.</p>
+        </div>
+      </div>
+
+      <div class="product-cta">
+        <a href="https://youtu.be/Brqu4RHxZbE?si=NB8lLkynbhVmpJpj">Watch Demo &#x2192;</a>
+      </div>
+
+    </section>
+
+    <hr>
+
+    <section id="contact" aria-labelledby="contact-heading">
+      <p class="section-label" id="contact-heading">&#9728; Contact</p>
+      <p class="about-body">Complexity made simple. Save time, money and energy for your operations.<br><br>Let's talk:</p>
+      <address style="font-style: normal;">
+        <a class="email-link" href="mailto:info@sunshynelabs.com">info@sunshynelabs.com &#x2192;</a>
+      </address>
+    </section>
+
+  </main>
+
+  <footer>
+    <span>Building Better Tomorrows</span>
+    <span>&#x00A9; 2025&#x2013;2026 All rights reserved</span>
+  </footer>
+
 </body>
 </html>
