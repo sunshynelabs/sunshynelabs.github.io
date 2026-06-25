@@ -1,17 +1,359 @@
+<!-- FILE: mary/index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>MARY</title>
-  <meta http-equiv="refresh" content="0; url=https://zenodo.org/records/18115752">
-  <link rel="canonical" href="https://zenodo.org/records/18115752">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Jerome Juliano">
+  <meta name="description" content="MARY：用于联络中心的留存系统。为高风险客户对话提供决策支持与操作员引导。部署于真实业务流程外包生产环境。">
+  <meta name="keywords" content="MARY, retention system, contact center, compliance engine, decision support, BPO automation, customer retention, escalation handling, Sunshyne Labs">
+
+  <title>MARY — Sunshyne Labs</title>
+
+  <!-- CANONICAL -->
+  <link rel="canonical" href="https://sunshynelabs.com/mary/">
+
+  <!-- IDENTITY -->
+  <link rel="me" href="https://linkedin.com/in/jeromejuliano">
+  <link rel="me" href="mailto:info@sunshynelabs.com">
+
+  <!-- OPEN GRAPH -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sunshynelabs.com/mary/">
+  <meta property="og:site_name" content="Sunshyne Labs">
+  <meta property="og:title" content="MARY — Sunshyne Labs">
+  <meta property="og:description" content="用于联络中心的留存系统。同时处理利益相关方的留存、赋能与成本控制。">
+  <meta property="og:locale" content="en_PH">
+
+  <!-- TWITTER / X CARD -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="MARY — Sunshyne Labs">
+  <meta name="twitter:description" content="用于联络中心的留存系统。为高风险客户对话提供决策支持。">
+
+  <!-- GOOGLE SCHOLAR CITATION META TAGS -->
+  <meta name="citation_author" content="Juliano, Jerome">
+  <meta name="citation_title" content="MARY v3.0：客户留存与合规引擎">
+  <meta name="citation_doi" content="10.5281/zenodo.18115752">
+  <meta name="citation_year" content="2025">
+  <meta name="citation_publisher" content="Zenodo">
+  <meta name="citation_abstract_html_url" content="https://zenodo.org/records/18115752">
+
+  <!-- JSON-LD STRUCTURED DATA -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://sunshynelabs.com/#website",
+        "url": "https://sunshynelabs.com",
+        "name": "Sunshyne Labs",
+        "description": "Independent process improvement consultancy. AI as the implementation substrate.",
+        "publisher": { "@id": "https://sunshynelabs.com/#organization" }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://sunshynelabs.com/#organization",
+        "name": "Sunshyne Labs",
+        "legalName": "Sunshyne Labs",
+        "url": "https://sunshynelabs.com",
+        "logo": "https://sunshynelabs.com/assets/logo.png",
+        "description": "Independent process improvement consultancy based in Parañaque City, Philippines.",
+        "foundingDate": "2025-09",
+        "founder": { "@id": "https://sunshynelabs.com/#jerome-juliano" },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Parañaque City",
+          "addressRegion": "Metro Manila",
+          "addressCountry": "PH"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "info@sunshynelabs.com",
+          "contactType": "business inquiries",
+          "areaServed": "Worldwide",
+          "availableLanguage": "English"
+        },
+        "sameAs": [
+          "https://linkedin.com/in/jeromejuliano",
+          "https://zenodo.org/search?q=sunshyne+labs",
+          "https://github.com/sunshynelabs"
+        ]
+      },
+      {
+        "@type": "Person",
+        "@id": "https://sunshynelabs.com/#jerome-juliano",
+        "name": "Jerome Juliano",
+        "givenName": "Jerome",
+        "familyName": "Juliano",
+        "jobTitle": "Founder, AI Systems and Process Automation Consultant",
+        "worksFor": { "@id": "https://sunshynelabs.com/#organization" },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Parañaque City",
+          "addressRegion": "Metro Manila",
+          "addressCountry": "PH"
+        },
+        "email": "info@sunshynelabs.com",
+        "url": "https://sunshynelabs.com",
+        "sameAs": [
+          "https://linkedin.com/in/jeromejuliano",
+          "https://zenodo.org/search?q=jerome+juliano"
+        ]
+      },
+      {
+        "@type": "ScholarlyArticle",
+        "@id": "https://doi.org/10.5281/zenodo.18115752",
+        "name": "MARY v3.0：客户留存与合规引擎",
+        "headline": "MARY v3.0",
+        "description": "为高风险客户对话提供决策支持与操作员引导的系统。部署于真实业务流程外包生产环境。提供一致的、策略感知的升级处理与结构化的沟通结果。",
+        "author": { "@id": "https://sunshynelabs.com/#jerome-juliano" },
+        "publisher": { "@type": "Organization", "name": "Zenodo", "url": "https://zenodo.org" },
+        "identifier": { "@type": "PropertyValue", "propertyID": "DOI", "value": "10.5281/zenodo.18115752" },
+        "url": "https://zenodo.org/records/18115752",
+        "isPartOf": { "@id": "https://sunshynelabs.com/#website" },
+        "about": ["Customer Retention","BPO Operations","Escalation Handling","Decision Support Systems","Structured Communication"]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg:     #F9F5ED;
+      --ink:    #1A1A18;
+      --sun:    #B85C00;
+      --fade:   #6E6459;
+      --line:   #C4B99A;
+      --vis:    #5A3E1B;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { font-size: 16px; }
+
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      background-color: var(--bg);
+      color: var(--ink);
+      line-height: 1.7;
+      max-width: 740px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 5rem;
+    }
+
+    h1, h2, h3, h4 { font-family: 'Courier New', Courier, monospace; font-weight: normal; }
+    h2 { font-size: 2.1rem; line-height: 1.2; }
+    p { margin-bottom: 1rem; }
+
+    a { color: var(--sun); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    a:visited { color: var(--vis); }
+
+    hr { border: none; border-top: 1px solid var(--line); margin: 2.75rem 0; }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 3rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--ink);
+      text-decoration: none;
+      pointer-events: none;
+      cursor: default;
+    }
+    .brand-logo { height: 48px; width: auto; display: block; }
+
+    nav { font-family: 'Courier New', Courier, monospace; font-size: 0.78rem; }
+    nav a { color: var(--fade); margin-left: 1.75rem; text-transform: uppercase; letter-spacing: 0.08em; }
+    nav a:hover { color: var(--sun); text-decoration: none; }
+    nav a:visited { color: var(--fade); }
+
+    .section-label {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--fade);
+      margin-bottom: 1.1rem;
+    }
+
+    .project-header {
+      margin-bottom: 2rem;
+    }
+    .project-header h1 {
+      font-size: 2.8rem;
+      font-family: 'Courier New', Courier, monospace;
+      font-weight: normal;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 0.3rem;
+    }
+    .project-subtitle {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.85rem;
+      color: var(--fade);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .project-meta {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.75rem;
+      color: var(--fade);
+      margin-top: 0.75rem;
+      border-top: 1px solid var(--line);
+      padding-top: 0.75rem;
+    }
+    .project-meta span { white-space: nowrap; }
+
+    .project-description {
+      font-size: 1.05rem;
+      max-width: 640px;
+      margin-bottom: 2rem;
+    }
+    .project-description p { margin-bottom: 1.2rem; }
+
+    .cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 2rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--line);
+    }
+    .cta-group a {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.9rem;
+      color: var(--sun);
+      border-bottom: 1px dotted var(--line);
+      padding-bottom: 0.1rem;
+    }
+    .cta-group a:hover { border-bottom-color: var(--sun); text-decoration: none; }
+    .cta-group .doi-badge {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.7rem;
+      color: var(--fade);
+      background: var(--line);
+      padding: 0.15rem 0.75rem;
+      border-radius: 12px;
+      letter-spacing: 0.04em;
+    }
+
+    .about-body { font-size: 0.95rem; margin-bottom: 1.75rem; max-width: 620px; }
+    .email-link { font-family: 'Courier New', Courier, monospace; font-size: 0.95rem; color: var(--sun); }
+    .email-link:visited { color: var(--vis); }
+
+    footer {
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--line);
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.68rem;
+      color: var(--fade);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      letter-spacing: 0.04em;
+    }
+
+    @media (max-width: 540px) {
+      body { padding: 1.5rem 1rem 3.5rem; }
+      header { flex-direction: column; gap: 1rem; }
+      nav a:first-child { margin-left: 0; }
+      .project-header h1 { font-size: 2.2rem; }
+      .project-meta { flex-direction: column; gap: 0.3rem; }
+      footer { flex-direction: column; gap: 0.4rem; text-align: center; }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:   #17150F;
+        --ink:  #EDE8DD;
+        --fade: #9A8F7E;
+        --line: #312D24;
+        --vis:  #D4956A;
+      }
+    }
+
+    @media print {
+      body { background: #fff; color: #000; max-width: 100%; padding: 0; }
+      nav { display: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
 </head>
 <body>
-  <p>
-    Redirecting to MARY…<br>
-    <a href="https://zenodo.org/records/18115752">
-      https://zenodo.org/records/18115752
-    </a>
-  </p>
+
+  <header>
+    <span class="brand">
+      <img src="/assets/logo.png" alt="Sunshyne Labs Logo" class="brand-logo">
+      Sunshyne Labs
+    </span>
+    <nav aria-label="Main navigation">
+      <a href="/research/">Research</a>
+      <a href="https://sunshynelabs.com">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <section id="project" aria-labelledby="project-heading">
+      <div class="project-header">
+        <h1 id="project-heading">MARY</h1>
+        <div class="project-subtitle">合规矩阵 · 客户留存与合规引擎</div>
+        <div class="project-meta">
+          <span>v3.0</span>
+          <span>DOI: 10.5281/zenodo.18115752</span>
+          <span><a href="https://zenodo.org/records/18115752" target="_blank" rel="noopener">Zenodo →</a></span>
+        </div>
+      </div>
+
+      <div class="project-description">
+        <p>用于联络中心的留存系统。同时处理利益相关方的留存、赋能与成本控制。</p>
+        <p>为高风险客户对话提供决策支持与操作员引导。部署于真实业务流程外包生产环境。提供一致的、策略感知的升级处理与结构化的沟通结果。</p>
+      </div>
+
+      <div class="cta-group">
+        <a href="/assets/mary.pdf">下载 PDF →</a>
+        <a href="https://zenodo.org/records/18115752" target="_blank" rel="noopener">在 Zenodo 上查看 →</a>
+        <span class="doi-badge">10.5281/zenodo.18115752</span>
+      </div>
+    </section>
+
+    <hr>
+
+    <section id="contact" aria-labelledby="contact-heading">
+      <p class="section-label" id="contact-heading">&#9728; Contact</p>
+      <p class="about-body">Complexity made simple. Save time, money and energy for your operations.<br><br>Let's talk:</p>
+      <address style="font-style: normal;">
+        <a class="email-link" href="mailto:info@sunshynelabs.com">info@sunshynelabs.com &#x2192;</a>
+      </address>
+    </section>
+
+  </main>
+
+  <footer>
+    <span>Building Better Tomorrows</span>
+    <span>&#x00A9; 2025&#x2013;2026 All rights reserved</span>
+  </footer>
+
 </body>
 </html>
