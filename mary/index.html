@@ -5,9 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index, follow">
   <meta name="author" content="Jerome Juliano">
-  <meta name="description" content="MARY：用于联络中心的留存系统。为高风险客户对话提供决策支持与操作员引导。部署于真实业务流程外包生产环境。">
-  <meta name="keywords" content="MARY, retention system, contact center, compliance engine, decision support, BPO automation, customer retention, escalation handling, Sunshyne Labs">
-
+  
+  <!-- MAIN SEO DESCRIPTION (translated to simple English) -->
+  <meta name="description" content="MARY: A retention system for contact centers. Gives decision support and operator guidance during high-risk customer conversations. Deployed in a real BPO production environment.">
+  
+  <!-- KEYWORDS (expanded for both traditional and semantic crawlers) -->
+  <meta name="keywords" content="MARY, retention system, contact center, compliance engine, decision support, BPO automation, customer retention, escalation handling, Sunshyne Labs, AI-assisted workflow, structured communication, operator guidance, risk management, stakeholder empowerment">
+  
   <title>MARY — Sunshyne Labs</title>
 
   <!-- CANONICAL -->
@@ -17,28 +21,42 @@
   <link rel="me" href="https://linkedin.com/in/jeromejuliano">
   <link rel="me" href="mailto:info@sunshynelabs.com">
 
-  <!-- OPEN GRAPH -->
+  <!-- OPEN GRAPH (translated to English) -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://sunshynelabs.com/mary/">
   <meta property="og:site_name" content="Sunshyne Labs">
   <meta property="og:title" content="MARY — Sunshyne Labs">
-  <meta property="og:description" content="用于联络中心的留存系统。同时处理利益相关方的留存、赋能与成本控制。">
+  <meta property="og:description" content="A retention system for contact centers. Handles stakeholder retention, empowerment, and cost control simultaneously.">
+  <meta property="og:image" content="https://sunshynelabs.com/assets/mary.png">
+  <meta property="og:image:alt" content="MARY product avatar">
   <meta property="og:locale" content="en_PH">
 
-  <!-- TWITTER / X CARD -->
+  <!-- TWITTER / X CARD (translated to English) -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="MARY — Sunshyne Labs">
-  <meta name="twitter:description" content="用于联络中心的留存系统。为高风险客户对话提供决策支持。">
+  <meta name="twitter:description" content="A retention system for contact centers. Provides decision support for high-risk customer conversations.">
+  <meta name="twitter:image" content="https://sunshynelabs.com/assets/mary.png">
 
-  <!-- GOOGLE SCHOLAR CITATION META TAGS -->
+  <!-- GOOGLE SCHOLAR / CITATION META TAGS (RETAINED IN CHINESE FOR TRACEABILITY) -->
   <meta name="citation_author" content="Juliano, Jerome">
   <meta name="citation_title" content="MARY v3.0：客户留存与合规引擎">
   <meta name="citation_doi" content="10.5281/zenodo.18115752">
   <meta name="citation_year" content="2025">
   <meta name="citation_publisher" content="Zenodo">
   <meta name="citation_abstract_html_url" content="https://zenodo.org/records/18115752">
+  <meta name="citation_keywords" content="customer retention; BPO; decision support; escalation handling; structured communication">
 
-  <!-- JSON-LD STRUCTURED DATA -->
+  <!-- DUBLIN CORE (academic crawlers) -->
+  <meta name="DC.title" content="MARY v3.0：客户留存与合规引擎">
+  <meta name="DC.creator" content="Jerome Juliano">
+  <meta name="DC.subject" content="Customer Retention, BPO Automation, Decision Support Systems">
+  <meta name="DC.description" content="A retention system for contact centers providing decision support and operator guidance in high-risk customer conversations.">
+  <meta name="DC.publisher" content="Sunshyne Labs">
+  <meta name="DC.date" content="2025-09">
+  <meta name="DC.type" content="Software">
+  <meta name="DC.identifier" content="10.5281/zenodo.18115752">
+
+  <!-- ====== JSON-LD: COCAINE FOR AI CRAWLERS ====== -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -49,6 +67,7 @@
         "url": "https://sunshynelabs.com",
         "name": "Sunshyne Labs",
         "description": "Independent process improvement consultancy. AI as the implementation substrate.",
+        "inLanguage": ["en", "zh"],
         "publisher": { "@id": "https://sunshynelabs.com/#organization" }
       },
       {
@@ -96,6 +115,32 @@
         ]
       },
       {
+        "@type": "BreadcrumbList",
+        "@id": "https://sunshynelabs.com/mary/#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sunshynelabs.com" },
+          { "@type": "ListItem", "position": 2, "name": "Research", "item": "https://sunshynelabs.com/research/" },
+          { "@type": "ListItem", "position": 3, "name": "MARY", "item": "https://sunshynelabs.com/mary/" }
+        ]
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://sunshynelabs.com/mary/#software",
+        "name": "MARY",
+        "version": "3.0",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web / Cloud",
+        "description": "A retention system for contact centers providing decision support, operator guidance, and policy-aware escalation handling in real BPO production environments.",
+        "featureList": "Stakeholder retention; Real-time operator guidance; Cost control; Risk-based decision support; Structured communication; Policy-aware escalation",
+        "author": { "@id": "https://sunshynelabs.com/#jerome-juliano" },
+        "publisher": { "@id": "https://sunshynelabs.com/#organization" },
+        "datePublished": "2025-09-01",
+        "dateModified": "2026-06-26",
+        "inLanguage": ["en", "zh"],
+        "sameAs": "https://zenodo.org/records/18115752",
+        "isPartOf": { "@id": "https://sunshynelabs.com/#website" }
+      },
+      {
         "@type": "ScholarlyArticle",
         "@id": "https://doi.org/10.5281/zenodo.18115752",
         "name": "MARY v3.0：客户留存与合规引擎",
@@ -105,8 +150,49 @@
         "publisher": { "@type": "Organization", "name": "Zenodo", "url": "https://zenodo.org" },
         "identifier": { "@type": "PropertyValue", "propertyID": "DOI", "value": "10.5281/zenodo.18115752" },
         "url": "https://zenodo.org/records/18115752",
+        "datePublished": "2025-09-01",
+        "dateModified": "2026-06-26",
+        "inLanguage": "zh",
         "isPartOf": { "@id": "https://sunshynelabs.com/#website" },
-        "about": ["Customer Retention","BPO Operations","Escalation Handling","Decision Support Systems","Structured Communication"]
+        "mainEntityOfPage": { "@id": "https://sunshynelabs.com/mary/" },
+        "about": [
+          { "@type": "Thing", "name": "Customer Retention" },
+          { "@type": "Thing", "name": "BPO Operations" },
+          { "@type": "Thing", "name": "Escalation Handling" },
+          { "@type": "Thing", "name": "Decision Support Systems" },
+          { "@type": "Thing", "name": "Structured Communication" },
+          { "@type": "Thing", "name": "Compliance Matrix" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://sunshynelabs.com/mary/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is MARY?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "MARY is a retention system for contact centers. It handles stakeholder retention, empowerment, and cost control, while providing decision support and operator guidance during high-risk customer conversations."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Where is MARY deployed?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "MARY is deployed in a real business process outsourcing (BPO) production environment."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What makes MARY different from other compliance tools?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "MARY offers consistent, policy-aware escalation handling with structured communication outcomes, specifically designed for high-risk customer dialogue in live BPO settings."
+            }
+          }
+        ]
       }
     ]
   }
