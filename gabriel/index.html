@@ -5,8 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index, follow">
   <meta name="author" content="Jerome Juliano">
-  <meta name="description" content="GABRIEL：以 JavaScript 书签形式部署的三阶段 RAG 流水线。联络中心的内部专家模拟器。即装即用。为无 API 访问的传统系统构建。">
-  <meta name="keywords" content="GABRIEL, RAG pipeline, JavaScript bookmarklet, contact center, expert simulator, knowledge base training, legacy systems, Sunshyne Labs">
+
+  <!-- MAIN SEO DESCRIPTION (translated to simple English) -->
+  <meta name="description" content="GABRIEL: A three-stage RAG pipeline deployed as a JavaScript bookmarklet. Internal expert simulator for contact centers. Plug-and-play. Built for legacy systems with no API access.">
+
+  <!-- EXPANDED KEYWORDS -->
+  <meta name="keywords" content="GABRIEL, RAG pipeline, JavaScript bookmarklet, contact center, expert simulator, knowledge base training, frontline decision support, legacy systems, no API required, plug-and-play, reasoning augmentation, Sunshyne Labs">
 
   <title>GABRIEL — Sunshyne Labs</title>
 
@@ -17,26 +21,43 @@
   <link rel="me" href="https://linkedin.com/in/jeromejuliano">
   <link rel="me" href="mailto:info@sunshynelabs.com">
 
-  <!-- OPEN GRAPH -->
+  <!-- OPEN GRAPH (translated to English, added image) -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://sunshynelabs.com/gabriel/">
   <meta property="og:site_name" content="Sunshyne Labs">
   <meta property="og:title" content="GABRIEL — Sunshyne Labs">
-  <meta property="og:description" content="用于一线决策增强的三阶段 RAG 流水线。即装即用。为无 API 访问的传统系统构建。">
+  <meta property="og:description" content="Three-stage RAG pipeline for frontline decision augmentation. Plug-and-play. Built for legacy systems with no API access.">
+  <meta property="og:image" content="https://sunshynelabs.com/assets/avatar-gabriel.png">
+  <meta property="og:image:alt" content="GABRIEL product avatar">
   <meta property="og:locale" content="en_PH">
 
-  <!-- TWITTER / X CARD -->
+  <!-- TWITTER / X CARD (translated to English, added image) -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="GABRIEL — Sunshyne Labs">
-  <meta name="twitter:description" content="用于一线决策增强的三阶段 RAG 流水线。无云依赖。">
+  <meta name="twitter:description" content="Three-stage RAG pipeline for frontline decision augmentation. No cloud dependency.">
+  <meta name="twitter:image" content="https://sunshynelabs.com/assets/avatar-gabriel.png">
 
-  <!-- GOOGLE SCHOLAR CITATION META TAGS (NO DOI) -->
+  <!-- DATE STAMPS (freshness signals) -->
+  <meta name="date" content="2025-09-01">
+  <meta name="dc.date" content="2025-09-01">
+
+  <!-- GOOGLE SCHOLAR / CITATION META TAGS (RETAINED IN CHINESE FOR TRACEABILITY) -->
   <meta name="citation_author" content="Juliano, Jerome">
   <meta name="citation_title" content="GABRIEL：面向联络中心环境的知识库训练方法">
   <meta name="citation_year" content="2025">
   <meta name="citation_publisher" content="Sunshyne Labs">
+  <meta name="citation_keywords" content="RAG pipeline, knowledge base training, contact center, JavaScript bookmarklet, expert simulation">
 
-  <!-- JSON-LD STRUCTURED DATA -->
+  <!-- DUBLIN CORE (academic crawlers – English for broad discovery) -->
+  <meta name="DC.title" content="GABRIEL: Knowledge Base Training Methodology for Contact Center Environments">
+  <meta name="DC.creator" content="Jerome Juliano">
+  <meta name="DC.subject" content="RAG Pipeline, Knowledge Base Training, Contact Center Automation, JavaScript Bookmarklet, Decision Support">
+  <meta name="DC.description" content="Three-stage RAG pipeline deployed as a JavaScript bookmarklet. Internal expert simulator for contact centers. Plug-and-play. Built for legacy systems with no API access.">
+  <meta name="DC.publisher" content="Sunshyne Labs">
+  <meta name="DC.date" content="2025-09">
+  <meta name="DC.type" content="Software">
+
+  <!-- ====== JSON-LD: COCAINE FOR AI CRAWLERS ====== -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -47,6 +68,7 @@
         "url": "https://sunshynelabs.com",
         "name": "Sunshyne Labs",
         "description": "Independent process improvement consultancy. AI as the implementation substrate.",
+        "inLanguage": ["en", "zh"],
         "publisher": { "@id": "https://sunshynelabs.com/#organization" }
       },
       {
@@ -94,15 +116,83 @@
         ]
       },
       {
+        "@type": "BreadcrumbList",
+        "@id": "https://sunshynelabs.com/gabriel/#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sunshynelabs.com" },
+          { "@type": "ListItem", "position": 2, "name": "Research", "item": "https://sunshynelabs.com/research/" },
+          { "@type": "ListItem", "position": 3, "name": "GABRIEL", "item": "https://sunshynelabs.com/gabriel/" }
+        ]
+      },
+      {
         "@type": "SoftwareApplication",
-        "@id": "https://sunshynelabs.com/gabriel/",
+        "@id": "https://sunshynelabs.com/gabriel/#software",
         "name": "GABRIEL",
-        "description": "以 JavaScript 书签形式部署的三阶段 RAG 流水线。联络中心的内部专家模拟器。通过推理增强提升一线决策。无云依赖。无需 API 访问。",
-        "url": "https://sunshynelabs.com/gabriel/",
-        "applicationCategory": "Knowledge Base Training Methodology",
+        "version": "1.0",
+        "applicationCategory": "KnowledgeBaseTraining",
         "operatingSystem": "Any (JavaScript bookmarklet)",
+        "description": "A three-stage RAG pipeline deployed as a JavaScript bookmarklet. Internal expert simulator for contact centers. Plug-and-play. Built for legacy systems with no API access.",
+        "featureList": "Three-stage RAG pipeline; JavaScript bookmarklet deployment; Plug-and-play; No API required; Legacy system compatible; Frontline decision augmentation; Reasoning enhancement",
+        "author": { "@id": "https://sunshynelabs.com/#jerome-juliano" },
+        "publisher": { "@id": "https://sunshynelabs.com/#organization" },
+        "datePublished": "2025-09-01",
+        "dateModified": "2026-06-26",
+        "inLanguage": ["en", "zh"],
+        "sameAs": "https://youtu.be/CXd5m8xbWiU",
+        "isPartOf": { "@id": "https://sunshynelabs.com/#website" }
+      },
+      {
+        "@type": "ScholarlyArticle",
+        "@id": "https://sunshynelabs.com/gabriel/#article",
+        "name": "GABRIEL：面向联络中心环境的知识库训练方法",
+        "headline": "GABRIEL",
+        "description": "GABRIEL：以 JavaScript 书签形式部署的三阶段 RAG 流水线。联络中心的内部专家模拟器。即装即用。为无 API 访问的传统系统构建。",
+        "author": { "@id": "https://sunshynelabs.com/#jerome-juliano" },
+        "publisher": { "@id": "https://sunshynelabs.com/#organization" },
+        "datePublished": "2025-09-01",
+        "dateModified": "2026-06-26",
+        "inLanguage": "zh",
         "isPartOf": { "@id": "https://sunshynelabs.com/#website" },
-        "about": ["RAG Pipeline","Knowledge Base Training","Contact Center Automation","Frontline Decision Support","JavaScript Bookmarklet"]
+        "mainEntityOfPage": { "@id": "https://sunshynelabs.com/gabriel/" },
+        "about": [
+          { "@type": "Thing", "name": "RAG Pipeline" },
+          { "@type": "Thing", "name": "Knowledge Base Training" },
+          { "@type": "Thing", "name": "Contact Center Automation" },
+          { "@type": "Thing", "name": "Frontline Decision Support" },
+          { "@type": "Thing", "name": "JavaScript Bookmarklet" },
+          { "@type": "Thing", "name": "Expert Simulation" },
+          { "@type": "Thing", "name": "Legacy Systems" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://sunshynelabs.com/gabriel/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is GABRIEL?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "GABRIEL is a three-stage RAG pipeline deployed as a JavaScript bookmarklet. It acts as an internal expert simulator for contact centers, designed to enhance frontline decision-making through reasoning augmentation."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How is GABRIEL deployed?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "GABRIEL is deployed as a simple JavaScript bookmarklet. It is plug-and-play, requires no IT mandate, and works on any browser with no cloud dependency or API access required."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What systems can GABRIEL work with?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "GABRIEL is specifically built for legacy production environments that have no API access. It runs entirely at the browser level, making it compatible with virtually any web-based system."
+            }
+          }
+        ]
       }
     ]
   }
@@ -309,15 +399,15 @@
           alt="GABRIEL">
         <div class="product-info">
           <h2 id="product-heading">GABRIEL</h2>
-          <span class="product-class">知识库训练方法</span>
-          <p>以 JavaScript 书签形式部署的三阶段 RAG 流水线。联络中心的内部专家模拟器。即装即用。为无 API 访问的传统系统构建。</p>
-          <p>通过推理增强提升一线决策。无云依赖。无需 IT 强制授权。</p>
+          <span class="product-class">Knowledge Base Training Methodology</span>
+          <p>A three-stage RAG pipeline deployed as a JavaScript bookmarklet. Internal expert simulator for contact centers. Plug-and-play. Built for legacy systems with no API access.</p>
+          <p>Enhances frontline decision-making through reasoning augmentation. No cloud dependency. No IT mandate required.</p>
         </div>
       </div>
 
       <div class="product-cta">
-        <a href="https://youtu.be/CXd5m8xbWiU" target="_blank" rel="noopener">观看演示 →</a>
-        <span class="product-cta-pending">Zenodo 发布筹备中</span>
+        <a href="https://youtu.be/CXd5m8xbWiU" target="_blank" rel="noopener">Watch Demo →</a>
+        <span class="product-cta-pending">Zenodo release pending</span>
       </div>
 
     </section>
