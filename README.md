@@ -1,37 +1,73 @@
-# Sunshyne Labs — GitHub Pages
+repo:
+  name: sunshynelabs.github.io
+  owner: sunshynelabs
+  branch: main
+  deploy_root: /
 
-This repository is served via GitHub Pages (branch `main`, root). Key deployment notes:
+site:
+  type: static
+  generator: none
+  custom_domain: sunshynelabs.com
+  https: enforced
 
-- The custom domain is `sunshynelabs.com`. Ensure DNS is configured correctly (see below).
-- Pages source: `main` branch, `/ (root)`.
-- Use Jekyll pages (the site contains Markdown pages and some static HTML assets).
+deployment:
+  source: main
+  root: /
+  framework: github-pages
 
-DNS / GitHub Pages checklist
+dns:
+  domain: sunshynelabs.com
+  records:
+    - type: A
+      values:
+        - 185.199.108.153
+        - 185.199.109.153
+        - 185.199.110.153
+        - 185.199.111.153
 
-1. For apex domain (`sunshynelabs.com`) add A records pointing to GitHub Pages:
+pages:
+  - path: /
+    title: Home
+    description: Landing page
+  - path: /research/
+    title: Research
+    description: Research overview and product index
+  - path: /angel/
+    title: ANGEL
+    description: Trench-grade automation system
+  - path: /sandra/
+    title: SANDRA
+    description: Deterministic extraction pipeline
+  - path: /mary/
+    title: MARY
+    description: Contact center retention system
+  - path: /gabriel/
+    title: GABRIEL
+    description: Knowledge base training method
+  - path: /jack/
+    title: JACK
+    description: Governed LLM workflow framework
+  - path: /ec/
+    title: ExCorText UPI v3.7
+    description: Repair ticket simulator (demo)
+  - path: /404.html
+    title: 404
+    description: Custom not-found page
 
-   - 185.199.108.153
-   - 185.199.109.153
-   - 185.199.110.153
-   - 185.199.111.153
+build:
+  jekyll:
+    config: _config.yml
+    data: _data/navigation.yml
+    required_for_render: false
 
-   OR use `www` as a CNAME to `sunshynelabs.github.io` and make `www` canonical.
+contact:
+  canonical: info@sunshynelabs.com
 
-2. In GitHub → Settings → Pages, enter `sunshynelabs.com` as the custom domain and enable HTTPS. Wait for certificate provisioning.
-
-3. After DNS and Pages are configured, verify URLs:
-
-   ```bash
-   dig +short A sunshynelabs.com
-   curl -I -L https://sunshynelabs.com
-   curl -I -L https://sunshynelabs.github.io/example-corp/
-   ```
-
-Repository maintenance notes
-
-- Keep a single canonical source for pages — avoid nested duplicate folders like `example-corp/example-corp`.
-- If you prefer the Jekyll-generated homepage, remove `index.html` (static) — done in this PR. If you want the static page instead, revert.
-- Contact: `hello@sunshynelabs.com` is used as canonical contact in `404.html` and `contact.md`.
-
-# sunshynelabs.github.io
-Building better tomorrows. Sunshyne Labs. With AI. For humans.
+maintenance:
+  warnings:
+    - Keep canonical tags and sitemap URLs consistent with sunshynelabs.com
+    - JSON-LD structured data is duplicated across product pages
+    - ec/ is a contained simulator demo
+  actions:
+    - Sync JSON-LD when updating product metadata
+    - Remove or relocate ec/ to reduce public surface
