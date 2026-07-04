@@ -1,7 +1,25 @@
-User-agent: Googlebot
-Disallow: /nogooglebot/
+# robots.txt for https://sunshynelabs.github.io/
+# We block known AI training crawlers and point crawlers to our AI terms & license (machine-readable YAML).
 
+User-agent: GPTBot
+Disallow: /
+
+User-agent: OpenAI
+Disallow: /
+
+User-agent: Perplexity
+Disallow: /
+
+User-agent: llm-crawler
+Disallow: /
+
+# Default for well-behaved search engines
 User-agent: *
 Allow: /
 
-Sitemap: https://sunshynelabs.com/sitemap.xml
+Sitemap: https://sunshynelabs.github.io/sitemap.xml
+Crawl-delay: 5
+
+# Machine-readable pointers (YAML) for bots and partners:
+# AI Terms (YAML): https://sunshynelabs.github.io/ai-terms.yaml
+# License (YAML): https://sunshynelabs.github.io/license.yaml

@@ -1,0 +1,27 @@
+# Sunshyne Labs Content License (machine-readable YAML)
+# Summary license metadata for the site
+
+license_name: "Sunshyne Labs Content License"
+license_url: "https://sunshynelabs.github.io/license.yaml"
+copyright_holder: "Sunshyne Labs"
+copyright_year: 2026
+
+summary:
+  - id: non_commercial_research
+    allowed: true
+    conditions: "Attribution required."
+  - id: commercial_use
+    allowed: false
+    conditions: "Requires explicit license from Sunshyne Labs. Contact legal@sunshynelabs.com."
+
+attribution:
+  required: true
+  text: "Source: Sunshyne Labs — Building Better Tomorrows (https://sunshynelabs.github.io/)"
+
+contact:
+  licensing_email: "legal@sunshynelabs.com"
+
+machine_readable:
+  license_type: "Custom"
+  SPDX: "NOASSERTION"
+  schema_org_license: "https://sunshynelabs.github.io/license.yaml"

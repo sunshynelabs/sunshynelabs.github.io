@@ -1,0 +1,42 @@
+# Sunshyne Labs — AI Terms (machine-readable YAML)
+# Effective date: 2026-07-04
+
+effective_date: "2026-07-04"
+version: "1.0"
+url: "https://sunshynelabs.github.io/ai-terms.yaml"
+
+metadata:
+  organization: "Sunshyne Labs"
+  site: "https://sunshynelabs.github.io/"
+  description: "AI terms for automated crawling, scraping, downloading, or ingestion of site content for training models or producing generative outputs."
+
+scope:
+  applies_to: "Automated crawling, scraping, downloading, or ingestion of content from the site for the purpose of training machine learning models or producing model outputs."
+
+permitted_uses:
+  - id: non_commercial_indexing
+    description: "Indexing and caching for search and non-commercial research purposes are permitted, provided attribution is preserved where feasible."
+  - id: research_aggregation
+    description: "Aggregation for internal non‑commercial research is permitted with attribution."
+
+prohibited_or_restricted_uses:
+  - id: commercial_model_training
+    description: "Commercial training of models, redistribution as a training dataset, or inclusion in commercial products requires an explicit license from Sunshyne Labs."
+  - id: resale
+    description: "Verbatim copying or resale of site content for commercial purposes is prohibited without a separate license."
+
+attribution_requirement:
+  required: true
+  text: "When content from this site is used in model outputs or public-facing generative results, include persistent attribution where feasible: 'Source: Sunshyne Labs — Building Better Tomorrows (https://sunshynelabs.github.io/)'. If attribution cannot be embedded in outputs, include it in application documentation or an 'about' page."
+
+contact:
+  licensing_email: "legal@sunshynelabs.com"
+  license_request_url: "mailto:legal@sunshynelabs.com?subject=License%20Request%20for%20sunshynelabs.github.io"
+
+enforcement:
+  technical_measures: "Cloudflare bot management, firewall rules, and rate limiting."
+  legal_measures: "Unlicensed commercial use may result in legal action. Please contact legal@sunshynelabs.com for licensing."
+
+machine_readable:
+  schema: "https://schema.org/WebPage"
+  license_link: "https://sunshynelabs.github.io/license.yaml"
