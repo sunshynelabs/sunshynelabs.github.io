@@ -37,16 +37,16 @@
   <meta name="twitter:description" content="Deterministic extraction pipeline. 96% cycle time reduction. Vertical medical-grade retrieval with provenance.">
   <meta name="twitter:image" content="https://sunshynelabs.com/assets/sandra.png">
 
-  <!-- DATE STAMPS (freshness signals) -->
-  <meta name="date" content="2024-07-11">
-  <meta name="dc.date" content="2024-07-11">
+  <!-- DATE STAMPS (unified) -->
+  <meta name="date" content="2026-02">
+  <meta name="dc.date" content="2026-02">
 
   <!-- GOOGLE SCHOLAR / CITATION META TAGS (RETAINED IN CHINESE FOR TRACEABILITY) -->
   <meta name="citation_author" content="Juliano, Jerome">
-  <meta name="citation_title" content="SANDRA v5.0：面向高保真结构化数据检索的确定性抽取流水线">
+  <meta name="citation_title" content="SANDRA v5.0: Deterministic Extraction Pipeline for High-Fidelity Structured Data Retrieval">
   <meta name="citation_doi" content="10.5281/zenodo.18439730">
   <meta name="citation_year" content="2026">
-  <meta name="citation_publisher" content="Zenodo">
+  <meta name="citation_publisher" content="Sunshyne Labs">
   <meta name="citation_abstract_html_url" content="https://zenodo.org/records/18439730">
   <meta name="citation_keywords" content="deterministic extraction; medical-grade retrieval; provenance tracking; EHR; cycle time reduction; document intelligence">
 
@@ -65,112 +65,113 @@
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "WebSite",
-        "@id": "https://sunshynelabs.com/#website",
-        "url": "https://sunshynelabs.com",
-        "name": "Sunshyne Labs",
-        "description": "Process Improvement Consultancy",
-        "inLanguage": ["en", "zh"],
-        "publisher": { "@id": "https://sunshynelabs.com/#organization" }
-      },
-      {
-        "@type": "Organization",
-        "@id": "https://sunshynelabs.com/#organization",
-        "name": "Sunshyne Labs",
-        "legalName": "Sunshyne Labs",
-        "url": "https://sunshynelabs.com",
-        "logo": "https://sunshynelabs.com/assets/logo.png",
-        "description": "Independent process improvement consultancy based in Metro Manila, Philippines. Specializes in AI-assisted workflow design, automation pipelines, extraction architectures, and structured communication systems. All systems built under zero institutional mandate, zero API access, zero budget.",
-        "foundingDate": "2025-09",
-        "founder": { "@id": "https://sunshynelabs.com/#jerome-juliano" },
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Parañaque City",
-          "addressRegion": "Metro Manila",
-          "addressCountry": "PH"
+        {
+          "@type": "WebSite",
+          "@id": "https://sunshynelabs.com/#website",
+          "url": "https://sunshynelabs.com",
+          "name": "Sunshyne Labs",
+          "description": "Process improvement consultancy based in Metro Manila.",
+          "inLanguage": "en",
+          "publisher": { "@id": "https://sunshynelabs.com/#organization" }
         },
-        "contactPoint": {
-          "@type": "ContactPoint",
+        {
+          "@type": "Organization",
+          "@id": "https://sunshynelabs.com/#organization",
+          "name": "Sunshyne Labs",
+          "legalName": "Sunshyne Labs",
+          "url": "https://sunshynelabs.com",
+          "logo": "https://sunshynelabs.com/assets/logo.png",
+          "description": "Independent process improvement consultancy based in Metro Manila, Philippines. Specializes in AI-assisted workflow design, automation pipelines, extraction architectures, and structured communication systems. All systems built under zero institutional mandate, zero API access, zero budget.",
+          "foundingDate": "2025-09",
+          "founder": { "@id": "https://sunshynelabs.com/#jerome-juliano" },
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Parañaque City",
+            "addressRegion": "Metro Manila",
+            "addressCountry": "PH"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "info@sunshynelabs.com",
+            "contactType": "business inquiries",
+            "areaServed": "Worldwide",
+            "availableLanguage": "English"
+          },
+          "sameAs": [
+            "https://linkedin.com/in/jeromejuliano",
+            "https://zenodo.org/search?q=sunshyne+labs",
+            "https://github.com/sunshynelabs"
+          ]
+        },
+        {
+          "@type": "Person",
+          "@id": "https://sunshynelabs.com/#jerome-juliano",
+          "name": "Jerome Juliano",
+          "givenName": "Jerome",
+          "familyName": "Juliano",
+          "jobTitle": "Founder, Process Improvement Specialist",
+          "worksFor": { "@id": "https://sunshynelabs.com/#organization" },
           "email": "info@sunshynelabs.com",
-          "contactType": "business inquiries",
-          "areaServed": "Worldwide",
-          "availableLanguage": "English"
+          "url": "https://sunshynelabs.com",
+          "sameAs": [
+            "https://linkedin.com/in/jeromejuliano",
+            "https://zenodo.org/search?q=jerome+juliano"
+          ]
         },
-        "sameAs": [
-          "https://linkedin.com/in/jeromejuliano",
-          "https://zenodo.org/search?q=sunshyne+labs",
-          "https://github.com/sunshynelabs"
-        ]
-      },
-      {
-        "@type": "Person",
-        "@id": "https://sunshynelabs.com/#jerome-juliano",
-        "name": "Jerome Juliano",
-        "givenName": "Jerome",
-        "familyName": "Juliano",
-        "jobTitle": "Founder, Process Improvement Specialist",
-        "worksFor": { "@id": "https://sunshynelabs.com/#organization" },
-        "email": "info@sunshynelabs.com",
-        "url": "https://sunshynelabs.com",
-        "sameAs": [
-          "https://linkedin.com/in/jeromejuliano",
-          "https://zenodo.org/search?q=jerome+juliano"
-        ]
-      },
-      {
-        "@type": "BreadcrumbList",
-        "@id": "https://sunshynelabs.com/sandra/#breadcrumb",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sunshynelabs.com" },
-          { "@type": "ListItem", "position": 2, "name": "Research", "item": "https://sunshynelabs.com/research/" },
-          { "@type": "ListItem", "position": 3, "name": "SANDRA", "item": "https://sunshynelabs.com/sandra" }
-        ]
-      },
-      {
-        "@type": "Documentation",
-        "@id": "https://sunshynelabs.com/sandra/#documentation",
-        "name": "SANDRA",
-        "version": "5.0",
-        "applicationCategory": "BusinessApplication",
-        "operatingSystem": "Web / Cloud",
-        "description": "Deterministic extraction pipeline for live production environments. 96% cycle time reduction (20 min to under 1 min). Vertical medical-grade retrieval system with full provenance tracking and human-in-the-loop verification.",
-        "featureList": "Deterministic extraction; 96% cycle reduction; Medical-grade retrieval; Full provenance tracking; Human-in-the-loop gates; 1:1 EHR fidelity; Structured output; Audit-ready metadata",
-        "author": { "@id": "https://sunshynelabs.com/#jerome-juliano" },
-        "publisher": { "@id": "https://sunshynelabs.com/#organization" },
-        "datePublished": "2024-07-11",
-        "dateModified": "2026-02-09",
-        "inLanguage": ["en", "zh"],
-        "sameAs": "https://zenodo.org/records/18439730",
-        "isPartOf": { "@id": "https://sunshynelabs.com/#website" }
-      },
-      {
-        "@type": "ScholarlyArticle",
-        "@id": "https://doi.org/10.5281/zenodo.18439730",
-        "name": "SANDRA v5.0：面向高保真结构化数据检索的确定性抽取流水线",
-        "headline": "SANDRA v5.0",
-        "description": "实现数据检索周期时间减少 96%（从 20 分钟降至不到 1 分钟）的确定性抽取流水线。实现完整可追溯性与来源感知的元数据层。",
-        "author": { "@id": "https://sunshynelabs.com/#jerome-juliano" },
-        "publisher": { "@type": "Organization", "name": "Zenodo", "url": "https://zenodo.org" },
-        "identifier": { "@type": "PropertyValue", "propertyID": "DOI", "value": "10.5281/zenodo.18439730" },
-        "url": "https://zenodo.org/records/18439730",
-        "datePublished": "2024-07-11",
-        "dateModified": "2026-02-09",
-        "inLanguage": "zh",
-        "isPartOf": { "@id": "https://sunshynelabs.com/#website" },
-        "mainEntityOfPage": { "@id": "https://sunshynelabs.com/sandra" },
-        "about": [
-          { "@type": "Thing", "name": "Data Extraction" },
-          { "@type": "Thing", "name": "Deterministic Pipeline" },
-          { "@type": "Thing", "name": "Medical-Grade Retrieval" },
-          { "@type": "Thing", "name": "Provenance Tracking" },
-          { "@type": "Thing", "name": "EHR Extraction" },
-          { "@type": "Thing", "name": "Document Intelligence" },
-          { "@type": "Thing", "name": "Human-in-the-Loop" }
-        ]
-      },
-      {
-        "@type": "FAQPage",
-        "@id": "https://sunshynelabs.com/sandra/#faq",
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://sunshynelabs.com/sandra/#breadcrumb",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sunshynelabs.com" },
+            { "@type": "ListItem", "position": 2, "name": "Research", "item": "https://sunshynelabs.com/research" },
+            { "@type": "ListItem", "position": 3, "name": "SANDRA", "item": "https://sunshynelabs.com/sandra" }
+          ]
+        },
+        {
+          "@type": "Documentation",
+          "@id": "https://sunshynelabs.com/sandra/#documentation",
+          "name": "SANDRA",
+          "version": "5.0",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web / Cloud",
+          "description": "Deterministic extraction pipeline for live production environments. 96% cycle time reduction (20 min to under 1 min). Vertical medical-grade retrieval system (1:1 EHR extraction fidelity achieved) on second deployment.",
+          "featureList": "Deterministic extraction; 96% cycle reduction; Medical-grade retrieval; Full provenance tracking; Human-in-the-loop gates; 1:1 EHR fidelity; Structured output; Audit-ready metadata",
+          "author": { "@id": "https://sunshynelabs.com/#jerome-juliano" },
+          "publisher": { "@id": "https://sunshynelabs.com/#organization" },
+          "datePublished": "2024-07-11",
+          "dateModified": "2026-02-09",
+          "inLanguage": "en",
+          "sameAs": "https://zenodo.org/records/18439730",
+          "isPartOf": { "@id": "https://sunshynelabs.com/#website" }
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "@id": "https://doi.org/10.5281/zenodo.18439730",
+          "name": "SANDRA v5.0: Deterministic Extraction Pipeline for High-Fidelity Structured Data Retrieval",
+          "headline": "SANDRA v5.0",
+          "description": "Deterministic extraction pipeline achieving 96% reduction in data retrieval cycle time (from 20 minutes to under 1 minute). Implements full traceability, hallucination reduction, and provenance-aware metadata layers for complex document sets.",
+          "author": { "@id": "https://sunshynelabs.com/#jerome-juliano" },
+          "publisher": { "@type": "Organization", "name": "Zenodo", "url": "https://zenodo.org" },
+          "identifier": { "@type": "PropertyValue", "propertyID": "DOI", "value": "10.5281/zenodo.18439730" },
+          "url": "https://zenodo.org/records/18439730",
+          "datePublished": "2024-07-11",
+          "dateModified": "2026-02-09",
+          "inLanguage": "en",
+          "isPartOf": { "@id": "https://sunshynelabs.com/#website" },
+          "mainEntityOfPage": { "@id": "https://sunshynelabs.com/sandra" },
+          "about": [
+            { "@type": "Thing", "name": "Data Extraction" },
+            { "@type": "Thing", "name": "Deterministic Pipeline" },
+            { "@type": "Thing", "name": "Medical-Grade Retrieval" },
+            { "@type": "Thing", "name": "Provenance Tracking" },
+            { "@type": "Thing", "name": "EHR Extraction" },
+            { "@type": "Thing", "name": "Document Intelligence" },
+            { "@type": "Thing", "name": "Human-in-the-Loop" }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://sunshynelabs.com/sandra/#faq",
         "mainEntity": [
           {
             "@type": "Question",
@@ -382,7 +383,7 @@
       Sunshyne Labs
     </span>
     <nav aria-label="Main navigation">
-      <a href="/research/">Research</a>
+      <a href="/research">Research</a>
       <a href="https://sunshynelabs.com">About</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -393,7 +394,7 @@
     <section id="product" aria-labelledby="product-heading">
 
       <p class="section-label">
-        <a href="/research/">&#x2190; Research</a>
+        <a href="/research">&#x2190; Research</a>
       </p>
 
       <div class="product">

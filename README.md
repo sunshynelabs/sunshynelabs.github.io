@@ -29,22 +29,22 @@ pages:
   - path: /
     title: Home
     description: Landing page
-  - path: /research/
+  - path: /research
     title: Research
     description: Research overview and product index
-  - path: /angel/
+  - path: /angel
     title: ANGEL
     description: Trench-grade automation system
-  - path: /sandra/
+  - path: /sandra
     title: SANDRA
     description: Deterministic extraction pipeline
-  - path: /mary/
+  - path: /mary
     title: MARY
     description: Contact center retention system
-  - path: /gabriel/
+  - path: /gabriel
     title: GABRIEL
     description: Knowledge base training method
-  - path: /jack/
+  - path: /jack
     title: JACK
     description: Governed LLM workflow framework
   - path: /ec/
